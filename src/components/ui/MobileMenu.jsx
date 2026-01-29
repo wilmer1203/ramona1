@@ -35,11 +35,14 @@ const MobileMenu = ({ isOpen, onClose, navigationItems }) => {
         <Icon name="X" size={24} color="var(--color-foreground)" />
       </button>
       <div className="mobile-menu-content">
-        <div className="flex items-center space-x-3 mb-8">
-          <div className="header-logo-icon">
-            <Icon name="Building2" size={24} color="#ffffff" />
+        <div className="flex items-center space-x-3 mb-10">
+          <div className="w-32">
+            <img
+              src="/assets/logo.jpg"
+              alt="COVIMUS Logo"
+              className="w-full h-auto object-contain"
+            />
           </div>
-          <span className="header-logo-text text-2xl">CONVINEA</span>
         </div>
 
         <nav className="mobile-menu-nav">

@@ -7,7 +7,7 @@ const Footer = () => {
 
   const footerSections = [
     {
-      title: 'CONVINEA',
+      title: 'COVIMUS',
       links: [
         { label: 'Inicio', path: '/homepage' },
         { label: 'Nosotros', path: '/about-us' },
@@ -36,9 +36,9 @@ const Footer = () => {
     {
       title: 'Contacto',
       items: [
-        { icon: 'MapPin', text: 'Anzoátegui, Venezuela' },
-        { icon: 'Phone', text: '+58 (281) 555-0100' },
-        { icon: 'Mail', text: 'info@convinea.gob.ve' },
+        { icon: 'MapPin', text: 'Alcaldía de Sotillo, piso 1, Puerto la Cruz' },
+        { icon: 'Phone', text: '+58 (281) 268-7758' },
+        { icon: 'Mail', text: 'covimuscomercial@gmail.com' },
         { icon: 'Clock', text: 'Lun - Vie: 8:00 AM - 4:00 PM' },
       ],
     },
@@ -81,11 +81,12 @@ const Footer = () => {
               <div className="header-logo-icon w-8 h-8">
                 <Icon name="Building2" size={16} color="#ffffff" />
               </div>
-              <span className="font-semibold text-foreground">CONVINEA</span>
+              <span className="font-semibold text-foreground">COVIMUS</span>
+              <span className="text-xs text-muted-foreground border-l border-border pl-3 ml-1">RIF: G-200088532</span>
             </div>
 
             <p>
-              © {currentYear} Corporación Venezolana de Infraestructura del Estado Anzoátegui. Todos los derechos reservados.
+              © {currentYear} Corporación Municipal de Vialidad e Infraestructura de Sotillo. Todos los derechos reservados.
             </p>
 
             <div className="flex items-center space-x-4">
@@ -108,7 +109,7 @@ const Footer = () => {
                 <Icon name="Facebook" size={20} />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/covimusplc/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"

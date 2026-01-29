@@ -8,15 +8,15 @@ const ImpactMetrics = () => {
       id: 1,
       icon: "TrendingUp",
       value: "156",
-      label: "Proyectos Activos",
-      description: "En desarrollo y planificación",
+      label: "Obras en Ejecución",
+      description: "Infraestructura y servicios viales",
       color: "var(--color-primary)",
       bgColor: "rgba(30, 58, 138, 0.1)"
     },
     {
       id: 2,
       icon: "Users",
-      value: "2.5M",
+      value: "250K",
       label: "Ciudadanos Beneficiados",
       description: "Impacto directo en comunidades",
       color: "var(--color-secondary)",
@@ -26,8 +26,8 @@ const ImpactMetrics = () => {
       id: 3,
       icon: "Award",
       value: "89",
-      label: "Proyectos Completados",
-      description: "Entregados en 2025",
+      label: "Metas Alcanzadas",
+      description: "Obras entregadas con calidad",
       color: "var(--color-success)",
       bgColor: "rgba(16, 185, 129, 0.1)"
     },
@@ -35,10 +35,10 @@ const ImpactMetrics = () => {
       id: 4,
       icon: "DollarSign",
       value: "Bs. 450M",
-      label: "Inversión Total",
-      description: "Presupuesto ejecutado",
-      color: "var(--color-accent)",
-      bgColor: "rgba(250, 204, 21, 0.1)"
+      label: "Inversión Ejecutada",
+      description: "Transparencia presupuestaria",
+      color: "#16A34A", // Green for money/investment
+      bgColor: "rgba(22, 163, 74, 0.1)"
     }
   ];
 
@@ -77,7 +77,7 @@ const ImpactMetrics = () => {
             <span className="gradient-text">Impacto en Números</span>
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Transparencia en acción: Resultados medibles de nuestro compromiso con Anzoátegui
+            Transparencia en acción: Reinversión social de excedentes para el bienestar del colectivo
           </p>
         </motion.div>
 
@@ -104,10 +104,10 @@ const ImpactMetrics = () => {
                 </div>
 
                 <div className="mb-2">
-                  <h3 className="text-3xl lg:text-4xl font-bold mb-1" style={{ color: metric?.color }}>
+                  <h3 className="text-4xl lg:text-5xl font-extrabold mb-1" style={{ color: metric?.color }}>
                     {metric?.value}
                   </h3>
-                  <p className="text-base lg:text-lg font-semibold text-foreground">{metric?.label}</p>
+                  <p className="text-lg lg:text-xl font-bold text-foreground">{metric?.label}</p>
                 </div>
 
                 <p className="text-sm text-muted-foreground">{metric?.description}</p>

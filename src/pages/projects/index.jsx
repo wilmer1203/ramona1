@@ -469,8 +469,8 @@ const Projects = () => {
   return (
     <>
       <Helmet>
-        <title>Proyectos - CONVINEA | Infraestructura para el Desarrollo de Anzoátegui</title>
-        <meta name="description" content="Descubre los proyectos de infraestructura, salud, educación y vialidad que CONVINEA está desarrollando en todo el estado Anzoátegui para mejorar la calidad de vida de los ciudadanos." />
+        <title>Proyectos - COVIMUS | Infraestructura para el Desarrollo de Anzoátegui</title>
+        <meta name="description" content="Descubre los proyectos de infraestructura, salud, educación y vialidad que COVIMUS está desarrollando en todo el estado Anzoátegui para mejorar la calidad de vida de los ciudadanos." />
       </Helmet>
       <div className="min-h-screen bg-background">
         <Header />

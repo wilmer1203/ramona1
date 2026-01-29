@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Icon from '../AppIcon';
+import Image from '../AppImage';
 import MobileMenu from './MobileMenu';
 
 const Header = () => {
@@ -20,6 +21,7 @@ const Header = () => {
   const navigationItems = [
     { path: '/homepage', label: 'Inicio', icon: 'Home' },
     { path: '/about-us', label: 'Nosotros', icon: 'Users' },
+    { path: '/autoridades', label: 'Autoridades', icon: 'Shield' },
     { path: '/projects', label: 'Proyectos', icon: 'Briefcase' },
   ];
 
@@ -27,14 +29,17 @@ const Header = () => {
 
   return (
     <>
-      <header className={`header-glass transition-all duration-300 ${isScrolled ? 'shadow-glass-lg' : 'shadow-glass'}`}>
+      <header className={`header-glass transition-all duration-500 ${isScrolled ? 'header-glass-scrolled py-0' : 'py-2 shadow-none'}`}>
         <div className="header-container">
           <div className="header-content">
             <Link to="/homepage" className="header-logo">
-              <div className="header-logo-icon">
-                <Icon name="Building2" size={24} color="#ffffff" />
+              <div className="header-logo-icon py-1">
+                <Image
+                  src="/assets/logo.jpg"
+                  alt="COVIMUS Logo"
+                  className="w-full h-auto object-contain"
+                />
               </div>
-              <span className="header-logo-text hidden sm:block">CONVINEA</span>
             </Link>
 
             <nav className="header-nav">

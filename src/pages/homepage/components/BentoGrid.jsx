@@ -11,7 +11,7 @@ const BentoGrid = () => {
       description: "Acceso completo a presupuestos, licitaciones y avances de proyectos en tiempo real",
       icon: "Eye",
       link: "/projects",
-      gradient: "from-blue-500 to-blue-700",
+      gradient: "from-[#243F60] to-[#1B2F4E]", // Navy gradient
       features: ["Presupuestos Públicos", "Seguimiento en Vivo", "Reportes Mensuales"]
     },
     {
@@ -20,17 +20,17 @@ const BentoGrid = () => {
       description: "Sistema integrado de solicitudes, quejas y sugerencias con respuesta garantizada",
       icon: "MessageSquare",
       link: "/contact",
-      gradient: "from-yellow-400 to-yellow-600",
+      gradient: "from-[#FFCC00] to-[#E6B800]", // Yellow gradient
       features: ["Respuesta 48h", "Seguimiento Digital", "Múltiples Canales"]
     },
     {
       id: 3,
       title: "Nuestra Historia",
-      description: "Más de 20 años transformando Anzoátegui desde el Decreto N° 93 de 2004",
+      description: "Más de 15 años de compromiso ciudadano impulsando el desarrollo desde mayo de 2009",
       icon: "BookOpen",
       link: "/about-us",
-      gradient: "from-emerald-500 to-emerald-700",
-      features: ["Decreto N° 93", "Logros 2004-2026", "Equipo Directivo"]
+      gradient: "from-[#C00000] to-[#A30000]", // Red gradient
+      features: ["Fundado en 2009", "Logros 2009-2026", "Compromiso Social"]
     }
   ];
 
@@ -45,10 +45,10 @@ const BentoGrid = () => {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="gradient-text">Tu Infraestructura, Tu Voz</span>
+            <span className="gradient-text">Compromiso en cada Calle</span>
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Tres pilares fundamentales de nuestro compromiso con los ciudadanos de Anzoátegui
+            Tres pilares fundamentales que nos definen como la fuerza constructora del Municipio Sotillo
           </p>
         </motion.div>
 

@@ -11,57 +11,57 @@ const ValueCard = ({ value, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -8 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className="bg-card rounded-xl p-6 md:p-8 shadow-lg border border-border relative overflow-hidden group"
+      className="relative group h-full"
     >
-      {/* Background Texture */}
-      <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, var(--color-primary) 10px, var(--color-primary) 11px)'
-      }} />
-      <div className="relative z-10">
+      {/* Glow effect background */}
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 blur-sm pointer-events-none" />
+      
+      <div className="relative h-full bg-slate-900 border border-white/10 rounded-2xl p-8 flex flex-col items-start overflow-hidden">
+        {/* Decorative pattern */}
+        <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+          <Icon name={value?.icon} size={120} />
+        </div>
+
         <motion.div
           animate={{ rotate: isHovered ? 360 : 0 }}
-          transition={{ duration: 0.6 }}
-          className="w-16 h-16 md:w-20 md:h-20 rounded-xl flex items-center justify-center mb-4 md:mb-6"
+          transition={{ duration: 0.8, ease: "anticipate" }}
+          className="size-16 rounded-xl flex items-center justify-center mb-8 shadow-xl"
           style={{ background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%)' }}
         >
           <Icon name={value?.icon} size={32} color="#ffffff" />
         </motion.div>
 
-        <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">
-          <span className="gradient-text">{value?.title}</span>
+        <h3 className="text-2xl font-black mb-4 text-white group-hover:text-accent transition-colors">
+          {value?.title}
         </h3>
 
-        <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4">
+        <p className="text-slate-300 leading-relaxed mb-8 flex-grow">
           {value?.description}
         </p>
 
         {value?.examples && (
-          <div className="space-y-2">
+          <div className="space-y-3 w-full border-t border-white/5 pt-6">
             {value?.examples?.map((example, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -10 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 + idx * 0.1 }}
-                className="flex items-start gap-2"
+                transition={{ delay: 0.3 + (idx * 0.1) }}
+                className="flex items-start gap-3 group/item"
               >
-                <Icon name="ArrowRight" size={16} color="var(--color-accent)" className="mt-1 flex-shrink-0" />
-                <span className="text-sm text-muted-foreground">{example}</span>
+                <div className="size-5 rounded-full bg-accent/20 flex items-center justify-center mt-0.5 group-hover/item:bg-accent transition-colors">
+                  <Icon name="Check" size={12} className="text-accent group-hover/item:text-accent-foreground" />
+                </div>
+                <span className="text-sm text-slate-400 group-hover/item:text-slate-200 transition-colors">
+                  {example}
+                </span>
               </motion.div>
             ))}
           </div>
         )}
       </div>
-      {/* Hover Effect Border */}
-      <motion.div
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: isHovered ? 1 : 0, opacity: isHovered ? 1 : 0 }}
-        className="absolute inset-0 border-2 border-accent rounded-xl pointer-events-none"
-      />
     </motion.div>
   );
 };

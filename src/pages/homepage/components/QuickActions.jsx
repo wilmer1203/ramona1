@@ -7,8 +7,8 @@ const QuickActions = () => {
   const actions = [
     {
       id: 1,
-      title: "Solicitar Servicio",
-      description: "Inicia una nueva solicitud de infraestructura",
+      title: "Gestión de Obras",
+      description: "Consulta y planificación de proyectos",
       icon: "FileText",
       link: "/contact",
       color: "var(--color-primary)"
@@ -53,7 +53,7 @@ const QuickActions = () => {
             <span className="gradient-text">Acciones Rápidas</span>
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Servicios más solicitados por los ciudadanos de Anzoátegui
+            Unidades de trabajo colectiva destinadas al servicio del Municipio Sotillo
           </p>
         </motion.div>
 

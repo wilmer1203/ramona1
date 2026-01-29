@@ -9,20 +9,20 @@
 @layer base {
   :root {
     /* Primary Colors */
-    --color-primary: #1e3a8a; /* blue-900 - Institutional authority */
+    --color-primary: #243F60; /* Brand Navy Blue - Institutional authority */
     --color-primary-foreground: #ffffff; /* white - High contrast text */
     
     /* Secondary Colors */
-    --color-secondary: #3b82f6; /* blue-500 - Interactive elements */
+    --color-secondary: #C00000; /* Brand Red - Action elements */
     --color-secondary-foreground: #ffffff; /* white - High contrast text */
     
     /* Accent Colors */
-    --color-accent: #facc15; /* yellow-400 - Achievement highlights */
+    --color-accent: #FFCC00; /* Brand Yellow - Achievement highlights */
     --color-accent-foreground: #1f2937; /* gray-800 - Dark text for contrast */
     
     /* Background Colors */
     --color-background: #f8fafc; /* slate-50 - Clean canvas */
-    --color-foreground: #1f2937; /* gray-800 - Primary text */
+    --color-foreground: #4C4C4C; /* Brand Dark Gray - Primary text */
     
     /* Surface Colors */
     --color-card: #ffffff; /* white - Card backgrounds */
@@ -38,19 +38,19 @@
     /* Border & Input */
     --color-border: #e5e7eb; /* gray-200 - Subtle borders */
     --color-input: #e5e7eb; /* gray-200 - Input borders */
-    --color-ring: #3b82f6; /* blue-500 - Focus rings */
+    --color-ring: #243F60; /* Brand Navy Blue - Focus rings */
     
     /* Status Colors */
     --color-success: #10b981; /* emerald-500 - Success states */
     --color-success-foreground: #ffffff; /* white - Success text */
     
-    --color-warning: #f59e0b; /* amber-500 - Warning states */
-    --color-warning-foreground: #ffffff; /* white - Warning text */
+    --color-warning: #FFCC00; /* Brand Yellow - Warning states */
+    --color-warning-foreground: #1f2937; /* dark - Warning text */
     
-    --color-error: #ef4444; /* red-500 - Error states */
+    --color-error: #C00000; /* Brand Red - Error states */
     --color-error-foreground: #ffffff; /* white - Error text */
     
-    --color-destructive: #dc2626; /* red-600 - Destructive actions */
+    --color-destructive: #C00000; /* Brand Red - Destructive actions */
     --color-destructive-foreground: #ffffff; /* white - Destructive text */
     
     /* Radius */
@@ -73,11 +73,11 @@
     --color-border: #334155; /* slate-700 - Dark borders */
     --color-input: #334155; /* slate-700 - Dark input borders */
     
-    --color-primary: #3b82f6; /* blue-500 - Brighter primary for dark mode */
+    --color-primary: #C00000; /* Using Red for Primary in Dark Mode for contrast */
     --color-primary-foreground: #ffffff; /* white - High contrast */
     
-    --color-secondary: #1e3a8a; /* blue-900 - Darker secondary */
-    --color-secondary-foreground: #ffffff; /* white - High contrast */
+    --color-secondary: #FFCC00; /* Using Yellow for Secondary in Dark Mode */
+    --color-secondary-foreground: #1f2937; /* Dark text */
     
     --color-accent: #facc15; /* yellow-400 - Maintains visibility */
     --color-accent-foreground: #1f2937; /* gray-800 - Dark text */
@@ -104,11 +104,13 @@
 @layer components {
   /* Glassmorphism Header Styles */
   .header-glass {
-    @apply fixed top-0 left-0 right-0 z-50;
-    background: rgba(30, 58, 138, 0.1);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    @apply fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .header-glass-scrolled {
+    background: #ffffff;
+    @apply shadow-lg border-b border-slate-200/50;
   }
 
   .header-container {
@@ -116,7 +118,7 @@
   }
 
   .header-content {
-    @apply flex items-center justify-between h-16 lg:h-20;
+    @apply flex items-center justify-between h-20 lg:h-24;
   }
 
   .header-logo {
@@ -124,9 +126,8 @@
   }
 
   .header-logo-icon {
-    @apply w-10 h-10 lg:w-12 lg:h-12 rounded-lg flex items-center justify-center;
-    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-    transition: transform 0.3s ease-out;
+    @apply w-40 lg:w-48 flex items-center justify-center transition-all duration-300;
+    /* User requested ~10rem+ width */
   }
 
   .header-logo-icon:hover {
@@ -135,7 +136,7 @@
 
   .header-logo-text {
     @apply text-xl lg:text-2xl font-bold;
-    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #facc15 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -147,10 +148,21 @@
   }
 
   .header-nav-link {
-    @apply px-4 py-2 rounded-lg text-sm font-medium text-foreground transition-all duration-300;
+    @apply px-4 py-2 rounded-lg text-sm font-semibold text-slate-700 transition-all duration-300 relative;
   }
-.header-nav-link:hover  {
-    @apply text-primary;
+
+  .header-nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-4 right-4 h-0.5 bg-primary transform scale-x-0 transition-transform duration-300 origin-right;
+  }
+
+  .header-nav-link:hover::after,
+  .header-nav-link.active::after {
+    @apply scale-x-100 origin-left;
+  }
+
+  .header-nav-link:hover {
+    @apply text-primary bg-primary;
   }
 
   .header-nav-link.active {
@@ -166,7 +178,7 @@
 
   /* Mobile Menu Overlay */
   .mobile-menu-overlay {
-    @apply fixed inset-0 z-40 bg-background;
+    @apply fixed inset-0 z-40 bg-white;
   }
 
   .mobile-menu-content {
@@ -216,7 +228,7 @@
 
   /* Gradient Text Effect */
   .gradient-text {
-    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #facc15 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

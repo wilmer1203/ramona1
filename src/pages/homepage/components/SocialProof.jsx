@@ -21,7 +21,7 @@ const SocialProof = () => {
     role: "Director Hospital Regional",
     image: "https://img.rocket.new/generatedImages/rocket_gen_img_13cd27287-1763294352375.png",
     imageAlt: "Professional headshot of Hispanic man with short black hair wearing white medical coat and stethoscope",
-    quote: "La ampliación del hospital nos permitió duplicar nuestra capacidad de atención. CONVINEA cumplió todos los plazos establecidos.",
+    quote: "La ampliación del hospital nos permitió duplicar nuestra capacidad de atención. COVIMUS cumplió todos los plazos establecidos.",
     rating: 5,
     project: "Ampliación Hospital Regional"
   },
@@ -45,7 +45,7 @@ const SocialProof = () => {
 
 
   return (
-    <section className="py-12 lg:py-20 bg-muted/30">
+    <section className="py-12 lg:py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,7 @@ const SocialProof = () => {
           className="text-center mb-12">
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="gradient-text">Voces de la Comunidad</span>
+            <span className="gradient-text">Tu Infraestructura, Tu Voz</span>
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Testimonios reales de ciudadanos beneficiados por nuestros proyectos

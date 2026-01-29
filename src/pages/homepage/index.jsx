@@ -5,9 +5,9 @@ import Header from '../../components/ui/Header';
 import Footer from '../../components/ui/Footer';
 import HeroSection from './components/HeroSection';
 import ImpactMetrics from './components/ImpactMetrics';
+import AsphaltPlantSection from './components/AsphaltPlantSection';
 import BentoGrid from './components/BentoGrid';
-import EulaliaBurozBanner from './components/EulaliaBurozBanner';
-import QuickActions from './components/QuickActions';
+import FeaturedProjects from './components/FeaturedProjects';
 import SocialProof from './components/SocialProof';
 
 const Homepage = () => {
@@ -25,14 +25,14 @@ const Homepage = () => {
         className="min-h-screen bg-background"
       >
         <Helmet>
-          <title>CONVINEA - Corporación Venezolana de Infraestructura del Estado Anzoátegui</title>
+          <title>COVIMUS - Vialidad e Infraestructura del Municipio Sotillo</title>
           <meta
             name="description"
-            content="CONVINEA - Construyendo el futuro de Anzoátegui. Transparencia en acción, proyectos de infraestructura, vialidad, salud y educación para el desarrollo de Venezuela."
+            content="COVIMUS EPS - Construyendo el futuro de Puerto La Cruz. Expertos en vialidad, asfalto y obras civiles en el Municipio Sotillo para el desarrollo de Anzoátegui."
           />
-          <meta name="keywords" content="CONVINEA, Anzoátegui, infraestructura, vialidad, Venezuela, gobierno, transparencia, proyectos" />
-          <meta property="og:title" content="CONVINEA - Construyendo el Futuro de Anzoátegui" />
-          <meta property="og:description" content="Corporación Venezolana de Infraestructura del Estado Anzoátegui - Transformando comunidades con transparencia y compromiso ciudadano" />
+          <meta name="keywords" content="COVIMUS, Puerto La Cruz, Sotillo, asfalto, vialidad, infraestructura, EPS, gobierno municipal" />
+          <meta property="og:title" content="COVIMUS - Construyendo el Futuro de Sotillo" />
+          <meta property="og:description" content="Corporación Municipal de Vialidad e Infraestructura - Transformando comunidades en Puerto La Cruz con transparencia y compromiso." />
           <meta property="og:type" content="website" />
         </Helmet>
 
@@ -41,10 +41,10 @@ const Homepage = () => {
         <main className="pt-16 lg:pt-20">
           <HeroSection />
           <ImpactMetrics />
+          <AsphaltPlantSection />
           <BentoGrid />
-          <EulaliaBurozBanner />
-          <QuickActions />
-          <SocialProof />
+          <FeaturedProjects />
+          {/* <SocialProof /> */}
         </main>
 
         <Footer />
