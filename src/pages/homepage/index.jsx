@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import Header from '../../components/ui/Header';
 import Footer from '../../components/ui/Footer';
 import HeroSection from './components/HeroSection';
-import ImpactMetrics from './components/ImpactMetrics';
+// import ImpactMetrics from './components/ImpactMetrics';
 import AsphaltPlantSection from './components/AsphaltPlantSection';
 import BentoGrid from './components/BentoGrid';
 import FeaturedProjects from './components/FeaturedProjects';
@@ -40,7 +40,7 @@ const Homepage = () => {
 
         <main className="pt-16 lg:pt-20">
           <HeroSection />
-          <ImpactMetrics />
+          {/* ImpactMetrics removed as Stats are now in Hero */}
           <AsphaltPlantSection />
           <BentoGrid />
           <FeaturedProjects />

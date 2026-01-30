@@ -32,32 +32,37 @@ const legalItems = [
 
 const LegalFramework = () => {
   return (
-    <section className="py-20 bg-slate-50 relative overflow-hidden">
+    <section className="py-24 bg-slate-950 relative overflow-hidden border-t border-white/5">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-100/50 skew-x-12" />
+      <div className="absolute inset-0 bg-[url('/assets/grid-pattern.svg')] opacity-5" />
+      <div className="absolute -left-1/4 top-1/4 w-1/2 h-1/2 bg-blue-900/10 blur-[120px] rounded-full pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           
           {/* Text Content */}
           <div className="lg:w-1/3 sticky top-24">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-widest mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6 backdrop-blur-md">
               <Icon name="Scale" size={14} />
               Seguridad Jurídica
             </div>
-            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-6">Marco Legal y Normativo</h2>
-            <p className="text-slate-600 text-lg leading-relaxed mb-8">
+            <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
+               Marco Legal <span className="text-slate-500">&</span> Normativo
+            </h2>
+            <p className="text-slate-400 text-lg leading-relaxed mb-8 font-light">
               En COVIMUS, cada acción administrativa y operativa está estrictamente apegada al ordenamiento jurídico venezolano, garantizando legitimidad y confianza.
             </p>
-            <div className="p-6 bg-white rounded-2xl shadow-lg border-l-4 border-primary">
-              <p className="italic text-slate-700 font-medium">
-                "La sujeción a la ley es la mayor garantía de libertad y justicia para nuestros ciudadanos."
-              </p>
+            <div className="p-8 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-sm relative overflow-hidden group">
+               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+               <Icon name="Quote" className="text-blue-500/20 mb-4" size={32} />
+               <p className="italic text-slate-300 font-medium relative z-10">
+                 "La sujeción a la ley es la mayor garantía de libertad y justicia para nuestros ciudadanos."
+               </p>
             </div>
           </div>
 
           {/* List Items */}
-          <div className="lg:w-2/3 grid grid-cols-1 gap-6">
+          <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6">
             {legalItems.map((item, index) => (
               <motion.div
                 key={index}
@@ -66,30 +71,38 @@ const LegalFramework = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 className={`
-                   relative p-6 rounded-2xl border transition-all duration-300 hover:shadow-xl
+                   relative p-8 rounded-3xl border transition-all duration-500 group overflow-hidden
                    ${item.highlight 
-                      ? 'bg-slate-900 text-white border-slate-800' 
-                      : 'bg-white text-slate-800 border-slate-200 hover:border-primary/30'}
+                      ? 'bg-gradient-to-br from-blue-900/40 to-slate-900 border-blue-500/30' 
+                      : 'bg-slate-900/50 border-white/5 hover:border-white/20 hover:bg-slate-800/50'}
                 `}
               >
-                <div className="flex gap-6 items-start">
+                {/* Glow Effect */}
+                <div className={`absolute -right-12 -top-12 w-32 h-32 rounded-full blur-[50px] transition-opacity duration-500
+                   ${item.highlight ? 'bg-blue-500/20 opacity-100' : 'bg-white/5 opacity-0 group-hover:opacity-100'}
+                `} />
+
+                <div className="relative z-10">
                   <div className={`
-                    shrink-0 size-14 rounded-xl flex items-center justify-center
-                    ${item.highlight ? 'bg-accent/20 text-accent' : 'bg-slate-100 text-primary'}
+                    w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300
+                    ${item.highlight 
+                        ? 'bg-blue-500 text-white shadow-[0_0_20px_rgba(59,130,246,0.5)]' 
+                        : 'bg-white/5 text-slate-400 group-hover:text-white group-hover:bg-white/10'}
                   `}>
                     <Icon name={item.icon} size={28} />
                   </div>
-                  <div>
-                    <h3 className={`text-xl font-bold mb-1 ${item.highlight ? 'text-white' : 'text-slate-900'}`}>
-                      {item.title}
-                    </h3>
-                    <div className={`text-xs font-bold uppercase tracking-wider mb-3 ${item.highlight ? 'text-accent' : 'text-primary'}`}>
-                      {item.detail}
-                    </div>
-                    <p className={`text-sm leading-relaxed ${item.highlight ? 'text-slate-300' : 'text-slate-600'}`}>
-                      {item.desc}
-                    </p>
+                  
+                  <h3 className={`text-xl font-bold mb-2 group-hover:text-white transition-colors leading-tight ${item.highlight ? 'text-white' : 'text-slate-200'}`}>
+                    {item.title}
+                  </h3>
+                  
+                  <div className={`text-xs font-bold uppercase tracking-wider mb-4 ${item.highlight ? 'text-blue-400' : 'text-slate-500 group-hover:text-blue-400 transition-colors'}`}>
+                    {item.detail}
                   </div>
+                  
+                  <p className={`text-sm leading-relaxed ${item.highlight ? 'text-slate-300' : 'text-slate-500 group-hover:text-slate-300 transition-colors'}`}>
+                    {item.desc}
+                  </p>
                 </div>
               </motion.div>
             ))}

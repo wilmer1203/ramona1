@@ -33,46 +33,65 @@ const ContactPage = () => {
 
         <Header />
 
-        <main className="pt-16 lg:pt-20">
-          {/* Main Hero Section */}
-          <ContactHero />
+        <main className="bg-slate-950 min-h-screen">
+      <Helmet>
+        <title>Atención Ciudadana | Alcaldía de Sotillo</title>
+        <meta name="description" content="Canal directo de comunicación para reportes y solicitudes." />
+      </Helmet>
 
-          {/* Wrapper for content */}
-          <div className="max-w-[1280px] mx-auto px-4 md:px-10 py-8 flex flex-col gap-8">
+      <Header />
 
-            {/* Main Content Area: Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mt-4">
-              
-              {/* Left Column: Form (7 cols) */}
-              <div className="lg:col-span-7 flex flex-col gap-6">
-                <div className="flex flex-col gap-2">
-                  <h2 className="text-2xl font-bold leading-tight text-foreground">Detalles del Reporte</h2>
-                  <p className="text-sm text-muted-foreground">Ayúdenos a identificar y solucionar problemas en la infraestructura vial.</p>
-                </div>
-                <ContactForm />
-              </div>
+      <ContactHero />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 relative z-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+          {/* Form Side */}
+          <div className="lg:col-span-8 flex flex-col gap-6">
+                 {/* Intro Text */}
+                 <div className="p-8 rounded-3xl bg-slate-900/80 border border-white/5 backdrop-blur-md shadow-lg">
+                    <h2 className="text-3xl font-bold text-white mb-2">Detalles del Reporte</h2>
+                    <p className="text-slate-400">
+                        Complete el formulario con la información detallada de la incidencia.
+                    </p>
+                 </div>
+
+                 <ContactForm />
+
+                 {/* Contractor Call to Action */}
+                  <div className="p-1 rounded-3xl bg-gradient-to-r from-accent via-yellow-500 to-red-500">
+                    <div className="bg-slate-900 rounded-[22px] p-8 md:p-10 relative overflow-hidden group">
+                        
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-[80px] translate-x-1/2 -translate-y-1/2 group-hover:bg-accent/20 transition-all duration-700" />
+                        
+                        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                            <div className="flex items-center gap-6">
+                                <div className="size-20 rounded-2xl bg-slate-800 flex items-center justify-center border border-white/10 text-accent shadow-lg shadow-accent/10 group-hover:scale-110 transition-transform duration-500">
+                                    <Icon name="Briefcase" size={40} />
+                                </div>
+                                <div className="text-center md:text-left">
+                                    <h3 className="text-2xl md:text-3xl font-black text-white mb-2">
+                                        ¿Eres <span className="text-accent">Contratista?</span>
+                                    </h3>
+                                    <p className="text-slate-400 max-w-md font-medium">
+                                        Accede al Registro Nacional de Contratistas y participa en nuestras licitaciones públicas.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <button className="whitespace-nowrap px-8 py-4 bg-accent hover:bg-accent/90 text-accent-foreground font-black text-lg rounded-xl transition-all shadow-lg shadow-accent/20 relative z-10 hover:scale-105 active:scale-95">
+                                 Portal de Proveedores
+                            </button>
+                        </div>
+                    </div>
+                  </div>
+
+          </div>
 
               {/* Right Column: Map & Info (5 cols) */}
-              <div className="lg:col-span-5 flex flex-col gap-6">
+              <div className="lg:col-span-4 flex flex-col gap-6">
                  <ContactSidebar />
               </div>
 
-            </div>
-
-            {/* Contractor Section */}
-            <div className="mt-4 mb-8 bg-primary/10 rounded-xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 border border-primary/20">
-              <div className="flex items-center gap-4">
-                <div className="size-12 rounded-full bg-card flex items-center justify-center shadow-sm text-primary border border-border">
-                    <Icon name="Handshake" size={24} className="text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-foreground">¿Eres Contratista?</h3>
-                  <p className="text-muted-foreground text-sm">Regístrate en nuestro sistema de proveedores para licitaciones.</p>
-                </div>
-              </div>
-              <button className="whitespace-nowrap px-6 h-10 bg-card border border-border hover:border-primary text-foreground font-bold text-sm rounded-lg transition-colors shadow-sm">
-                 Ir al Portal de Contratistas
-              </button>
             </div>
 
           </div>

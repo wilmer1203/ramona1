@@ -1,19 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet';
 import Header from '../../components/ui/Header';
 import Footer from '../../components/ui/Footer';
 import Icon from '../../components/AppIcon';
-import TimelineItem from './components/TimelineItem';
+import Timeline from '../../components/ui/Timeline';
+// Components migrated from Authorities
+import OrganogramNode from '../authorities/components/OrganogramNode';
+import AuthorityModal from '../authorities/components/AuthorityModal';
+import GovernancePillars from '../authorities/components/GovernancePillars';
+import LegalFramework from '../authorities/components/LegalFramework';
+import TransparencyCTA from '../authorities/components/TransparencyCTA';
+import LeadershipCard from '../about-us/components/LeadershipCard'; // Already here
 import ValueCard from './components/ValueCard';
 import ManagementReportCard from './components/ManagementReportCard';
-import LeadershipCard from './components/LeadershipCard';
 import TestimonialCard from './components/TestimonialCard';
 
 const AboutUs = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // --- Data from Authorities Page Removed (Moved back to Authorities) ---
 
   const timelineData = [
     {
@@ -150,59 +158,56 @@ const AboutUs = () => {
     { month: "Agosto", year: "2025", url: "#", type: "PDF" },
   ];
 
-  // Quadruple data for safe infinite loop on large screens
-  const doubledReports = [...reportsData, ...reportsData, ...reportsData, ...reportsData];
-
   // Carousel State
-  const [currentIndex, setCurrentIndex] = React.useState(0);
-  const [isPaused, setIsPaused] = React.useState(false);
-  const [isResetting, setIsResetting] = React.useState(false);
+  // const [currentIndex, setCurrentIndex] = React.useState(0);
+  // const [isPaused, setIsPaused] = React.useState(false);
+  // const [isResetting, setIsResetting] = React.useState(false);
   
-  const cardWidth = 220;
-  const gap = 32;
-  const stepSize = cardWidth + gap;
-  const totalOriginalItems = reportsData.length;
+  // const cardWidth = 220;
+  // const gap = 32;
+  // const stepSize = cardWidth + gap;
+  // const totalOriginalItems = reportsData.length;
 
   // Autoplay Logic
-  useEffect(() => {
-    if (isPaused) return;
+  // useEffect(() => {
+  //   if (isPaused) return;
 
-    const interval = setInterval(() => {
-      handleNext();
-    }, 3000);
+  //   const interval = setInterval(() => {
+  //     handleNext();
+  //   }, 3000);
 
-    return () => clearInterval(interval);
-  }, [currentIndex, isPaused]);
+  //   return () => clearInterval(interval);
+  // }, [currentIndex, isPaused]);
 
   // Reset Logic (Infinite Loop)
-  useEffect(() => {
-    if (currentIndex >= totalOriginalItems) {
-      // Wait for animation to finish then reset instantly
-      const timeout = setTimeout(() => {
-        setIsResetting(true);
-        setCurrentIndex(0);
-      }, 500); // 500ms matches transition duration
-      return () => clearTimeout(timeout);
-    } else if (isResetting) {
-      // Re-enable animation after reset
-      const timeout = setTimeout(() => {
-        setIsResetting(false);
-      }, 50);
-      return () => clearTimeout(timeout);
-    }
-  }, [currentIndex, totalOriginalItems]);
+  // useEffect(() => {
+  //   if (currentIndex >= totalOriginalItems) {
+  //     // Wait for animation to finish then reset instantly
+  //     const timeout = setTimeout(() => {
+  //       setIsResetting(true);
+  //       setCurrentIndex(0);
+  //     }, 500); // 500ms matches transition duration
+  //     return () => clearTimeout(timeout);
+  //   } else if (isResetting) {
+  //     // Re-enable animation after reset
+  //     const timeout = setTimeout(() => {
+  //       setIsResetting(false);
+  //     }, 50);
+  //     return () => clearTimeout(timeout);
+  //   }
+  // }, [currentIndex, totalOriginalItems]);
 
-  const handleNext = () => {
-    if (currentIndex < doubledReports.length - 1) {
-      setCurrentIndex(prev => prev + 1);
-    }
-  };
+  // const handleNext = () => {
+  //   if (currentIndex < doubledReports.length - 1) {
+  //     setCurrentIndex(prev => prev + 1);
+  //   }
+  // };
 
-  const handlePrev = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(prev => prev - 1);
-    }
-  };
+  // const handlePrev = () => {
+  //   if (currentIndex > 0) {
+  //     setCurrentIndex(prev => prev - 1);
+  //   }
+  // };
 
 
   return (
@@ -215,389 +220,289 @@ const AboutUs = () => {
         className="min-h-screen bg-background">
 
         <Helmet>
-          <title>Nosotros - COVIMUS | Historia, Valores y Liderazgo</title>
-          <meta name="description" content="Conoce la historia de COVIMUS desde el Decreto N° 93 de 2004, nuestros valores institucionales, equipo de liderazgo y compromiso con el desarrollo de infraestructura en Anzoátegui." />
+          <title>Nosotros - COVIMUS | Historia, Valores y Misión</title>
+          <meta name="description" content="Conoce la historia de COVIMUS desde el Decreto N° 93, nuestros valores institucionales y objetivos estratégicos para el desarrollo de Sotillo." />
         </Helmet>
 
         <Header />
 
+        {/* Modal for Authority Details */}
+        {/* <AuthorityModal 
+          isOpen={!!selectedAuthority}
+          onClose={() => setSelectedAuthority(null)}
+          authority={selectedAuthority}
+        /> */}
+
         {/* Hero Section */}
-        <section className="relative min-h-[60vh] flex items-center mt-12 pt-24 pb-12 overflow-hidden">
-          {/* Gemini Background with Overlay */}
+        <section className="relative min-h-[50vh] flex items-center mt-12 pt-24 pb-12 overflow-hidden bg-slate-950">
           <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-slate-950/70 z-10" />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-950/20 to-slate-950 z-10" />
-            <img 
-              src="/assets/images/Gemini.png" 
-              alt="COVIMUS Backdrop" 
-              className="w-full h-full object-cover"
-            />
+             <div className="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/50 to-slate-950 z-10" />
+             {/* Use existing Gemini image or similar abstract institutional bg */}
+             <img 
+               src="/assets/images/Gemini.png" 
+               alt="COVIMUS Institutional" 
+               className="w-full h-full object-cover opacity-30"
+             />
           </div>
           
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-center">
-
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8">
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md">
                 <Icon name="Building2" size={18} color="var(--color-accent)" />
-                <span className="text-xs font-bold text-white tracking-widest uppercase">Nuestra Identidad</span>
-              </motion.div>
+                <span className="text-xs font-bold text-white tracking-widest uppercase">Nuestra Esencia</span>
+              </div>
 
-              <h1 className="text-5xl md:text-7xl font-black mb-8 leading-tight">
-                <span className="text-white">Construyendo el Futuro</span>
-                <br />
-                <span className="gradient-text drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">Sotillo en Marcha</span>
+              <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight text-white">
+                Quiénes <span className="gradient-text">Somos</span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed font-light">
-                COVIMUS nace con la misión de transformar la realidad urbana, 
-                garantizando infraestructura de excelencia bajo un modelo de producción social único.
+              <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-light">
+                La fuerza motriz detrás de la infraestructura social de Sotillo. Historia, valores y compromiso en cada obra.
               </p>
             </motion.div>
           </div>
         </section>
 
-        {/* Mission & Vision Section (Premium Redesign) */}
-        <section className="py-20 md:py-32 bg-slate-950 relative overflow-hidden">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-[120px] pointer-events-none" />
-          
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
-              {/* Misión Card */}
-              <motion.div
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -10 }}
-                className="relative group h-full"
-              >
-                {/* Glowing border effect */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-3xl opacity-0 group-hover:opacity-100 transition duration-500 blur-sm pointer-events-none" />
-                
-                <div className="relative h-full bg-slate-900 leading-relaxed p-10 lg:p-14 rounded-[22px] border border-white/10 flex flex-col items-center text-center">
-                  <div className="size-20 rounded-2xl bg-primary/20 flex items-center justify-center mb-8 text-primary group-hover:scale-110 transition-transform duration-500">
-                    <Icon name="Target" size={40} />
-                  </div>
-                  <h2 className="text-4xl font-black mb-6 text-white tracking-tight">Misión</h2>
-                  <p className="text-slate-400 text-lg lg:text-xl leading-relaxed italic border-l-4 border-primary/40 pl-6 text-left">
-                    "{missionVision.mission}"
+        {/* 1. Governance & Organogram (High Importance) */}
+        {/* <section className="py-24 bg-background relative overflow-hidden border-b border-border/40">
+           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <div className="text-center mb-16">
+                  <span className="text-accent font-bold uppercase tracking-widest text-sm mb-2 block">Estructura de Mando</span>
+                  <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">Gobierno Corporativo</h2>
+                  <p className="text-muted-foreground max-w-2xl mx-auto">
+                    COVIMUS opera bajo un estricto esquema jerárquico que garantiza la toma de decisiones eficiente y la subordinación al interés colectivo.
                   </p>
+              </div>
+
+              Organogram Structure
+              <div className="flex flex-col items-center">
+                Level -2: Asamblea
+                <div className="relative mb-12 z-10">
+                    <OrganogramNode authority={asamblea} level={0} onClick={setSelectedAuthority} />
+                    <div className="absolute -bottom-12 left-1/2 w-0.5 h-12 bg-slate-300 dark:bg-slate-700 -translate-x-1/2 -z-10" />
                 </div>
-              </motion.div>
-
-              {/* Visión Card */}
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -10 }}
-                className="relative group h-full"
-              >
-                {/* Glowing border effect */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-secondary to-accent rounded-3xl opacity-0 group-hover:opacity-100 transition duration-500 blur-sm pointer-events-none" />
-                
-                <div className="relative h-full bg-slate-900 leading-relaxed p-10 lg:p-14 rounded-[22px] border border-white/10 flex flex-col items-center text-center">
-                  <div className="size-20 rounded-2xl bg-secondary/20 flex items-center justify-center mb-8 text-secondary group-hover:scale-110 transition-transform duration-500">
-                    <Icon name="Eye" size={40} />
-                  </div>
-                  <h2 className="text-4xl font-black mb-6 text-white tracking-tight">Visión</h2>
-                  <p className="text-slate-400 text-lg lg:text-xl leading-relaxed italic border-r-4 border-secondary/40 pr-6 text-right">
-                    "{missionVision.vision}"
-                  </p>
+                Level -1: Junta Directiva
+                <div className="relative mb-12 z-10">
+                    <OrganogramNode authority={junta} level={0} onClick={setSelectedAuthority} />
+                    <div className="absolute -bottom-12 left-1/2 w-0.5 h-12 bg-slate-300 dark:bg-slate-700 -translate-x-1/2 -z-10" />
                 </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Objectives Section (Modern Animation) */}
-        <section className="py-20 md:py-32 bg-background">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-slate-900 rounded-[40px] p-10 md:p-20 text-white relative overflow-hidden shadow-2xl border border-white/5"
-            >
-              <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-primary/10 to-transparent pointer-events-none" />
-              
-              <div className="relative z-10">
-                <div className="flex flex-col lg:flex-row gap-16 lg:items-center">
-                  <div className="lg:w-1/2">
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
-                      className="size-16 rounded-full bg-accent flex items-center justify-center mb-8"
-                    >
-                      <Icon name="Star" color="var(--color-accent-foreground)" size={32} />
-                    </motion.div>
-                    <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight">
-                      Nuestro <span className="text-accent underline decoration-accent/30 underline-offset-8">Objetivo</span> General
-                    </h2>
-                    <p className="text-xl md:text-2xl text-slate-300 leading-relaxed font-light mb-12">
-                      {objectives.general}
-                    </p>
-                  </div>
-
-                  <div className="lg:w-1/2">
-                    <h3 className="font-bold mb-10 text-white/60 tracking-widest uppercase text-sm">Específicos para el Desarrollo</h3>
-                    <div className="grid grid-cols-1 gap-6">
-                      {objectives.specific.map((obj, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{ opacity: 0, x: 30 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: i * 0.15 }}
-                          className="flex items-center gap-6 p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors group"
-                        >
-                          <div className="size-10 rounded-full bg-accent/20 flex items-center justify-center text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300 shrink-0">
-                            {i + 1}
-                          </div>
-                          <span className="text-lg text-slate-200 group-hover:text-white transition-colors">{obj}</span>
-                        </motion.div>
+                Level 0: Presidency
+                <div className="relative mb-12 z-10">
+                   <OrganogramNode authority={president} level={0} onClick={setSelectedAuthority} />
+                   <div className="absolute -bottom-12 left-1/2 w-0.5 h-12 bg-slate-300 dark:bg-slate-700 -translate-x-1/2 -z-10" />
+                </div>
+                Level 1: Managers Container
+                <div className="relative w-full max-w-4xl">
+                   <div className="absolute -top-6 left-[20%] right-[20%] h-px bg-slate-300 dark:bg-slate-700 hidden md:block" />
+                   <div className="absolute -top-6 left-[20%] h-6 w-px bg-slate-300 dark:bg-slate-700 hidden md:block" />
+                   <div className="absolute -top-6 right-[20%] h-6 w-px bg-slate-300 dark:bg-slate-700 hidden md:block" />
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
+                      {managers.map((manager, idx) => (
+                         <div key={manager.id} className="relative">
+                            <div className="absolute -top-12 left-1/2 w-0.5 h-12 bg-slate-300 dark:bg-slate-700 -translate-x-1/2 md:hidden" />
+                            <OrganogramNode authority={manager} level={1} onClick={setSelectedAuthority} />
+                         </div>
                       ))}
-                    </div>
-                  </div>
+                   </div>
                 </div>
               </div>
-            </motion.div>
-          </div>
-        </section>
+           </div>
+        </section> */}
 
-        {/* Timeline Section */}
-        <section className="py-12 md:py-16 lg:py-20 bg-muted/30">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12 md:mb-16">
-
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                <span className="gradient-text">Línea de Tiempo Institucional</span>
-              </h2>
-              <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-                Dos décadas de evolución continua, innovación y compromiso con el desarrollo sostenible de Anzoátegui
-              </p>
-            </motion.div>
-
-            <div className="space-y-8 md:space-y-12 lg:space-y-16">
-              {timelineData?.map((item, index) =>
-              <TimelineItem
-                key={index}
-                item={item}
-                index={index}
-                isLast={index === timelineData?.length - 1} />
-
-              )}
-            </div>
-          </div>
-        </section>
-
-        {/* Values Section */}
-        <section className="py-20 md:py-32 bg-slate-950 relative">
-          <div className="absolute top-0 right-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-          
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16 md:mb-24">
-
-              <h2 className="text-4xl md:text-6xl font-black mb-6">
-                <span className="text-white">Nuestros</span> <span className="gradient-text">Valores</span>
-              </h2>
-              <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto font-light">
-                Principios fundamentales que guían cada decisión y fortalecen nuestro compromiso con el bienestar colectivo.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {valuesData?.map((value, index) =>
-              <ValueCard key={index} value={value} index={index} />
-              )}
-            </div>
-          </div>
-        </section>
-
-
-        {/* Testimonials Section */}
-        <section className="py-12 md:py-16 lg:py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12 md:mb-16">
-
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-                <span className="gradient-text">Testimonios de Aliados</span>
-              </h2>
-              <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-                Voces de líderes comunitarios y socios institucionales que han experimentado el impacto de nuestro trabajo
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {testimonialsData?.map((testimonial, index) =>
-              <TestimonialCard key={index} testimonial={testimonial} index={index} />
-              )}
-            </div>
-          </div>
-        </section>
-
-        {/* Management Reports Section (Transparency) */}
-        <section className="py-20 md:py-16 bg-[#4C4C4C] relative overflow-hidden">
-          {/* Brand Pattern (Same as Impacto Real / FeaturedProjects) */}
-          <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E")`
-            }} />
-          </div>
-          
-          {/* Soft Radial Glow for depth */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/5 blur-[120px] rounded-full pointer-events-none" />
-
+        {/* 2. Mission & Vision - Side by Side High-End */}
+        <section className="py-24 bg-slate-950 relative overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-              <motion.div
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+              
+              {/* Mission Card */}
+              <motion.div 
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className="max-w-2xl"
+                className="group relative p-10 rounded-[2.5rem] bg-gradient-to-br from-slate-900 to-slate-900 border border-white/5 hover:border-accent/30 transition-all duration-500 overflow-hidden"
               >
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold uppercase tracking-widest mb-6">
-                  <Icon name="Eye" size={16} />
-                  Transparencia Institucional
-                </div>
-                <h2 className="text-5xl md:text-6xl font-black mb-8">
-                  <span className="text-white">Informes de</span> <span className="gradient-text">Gestión</span>
-                </h2>
-                <p className="text-white text-xl leading-relaxed font-light">
-                  Consulte nuestros reportes mensuales de actividades y obras. 
-                  Garantizamos el acceso a la información como pilar de nuestra gestión social.
-                </p>
+                 <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                 <div className="absolute -right-12 -top-12 bg-accent/10 w-48 h-48 rounded-full blur-[60px] group-hover:bg-accent/20 transition-all duration-500" />
+                 
+                 <div className="relative z-10">
+                    <div className="inline-flex p-3 rounded-2xl bg-accent/10 text-accent mb-6 group-hover:scale-110 transition-transform duration-500">
+                      <Icon name="Target" size={32} />
+                    </div>
+                    <h2 className="text-4xl font-black text-white mb-6">Misión</h2>
+                    <p className="text-slate-300 text-lg leading-relaxed font-light">
+                      {missionVision.mission}
+                    </p>
+                 </div>
               </motion.div>
 
-              <div className="flex gap-4 relative z-20">
-                <button 
-                  onClick={handlePrev}
-                  className="size-14 rounded-2xl border border-white/10 flex items-center justify-center text-white hover:bg-white/10 hover:border-accent/40 transition-all duration-300"
-                >
-                  <Icon name="ChevronLeft" size={28} />
-                </button>
-                <button 
-                  onClick={handleNext}
-                  className="size-14 rounded-2xl bg-accent flex items-center justify-center text-accent-foreground hover:bg-accent/90 shadow-lg shadow-accent/20 transition-all duration-300"
-                >
-                  <Icon name="ChevronRight" size={28} />
-                </button>
-              </div>
-            </div>
+              {/* Vision Card */}
+              <motion.div 
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="group relative p-10 rounded-[2.5rem] bg-gradient-to-br from-slate-900 to-slate-900 border border-white/5 hover:border-primary/30 transition-all duration-500 overflow-hidden"
+              >
+                 <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                 <div className="absolute -left-12 -bottom-12 bg-primary/10 w-48 h-48 rounded-full blur-[60px] group-hover:bg-primary/20 transition-all duration-500" />
+                 
+                 <div className="relative z-10">
+                    <div className="inline-flex p-3 rounded-2xl bg-primary/10 text-primary mb-6 group-hover:scale-110 transition-transform duration-500">
+                      <Icon name="Eye" size={32} />
+                    </div>
+                    <h2 className="text-4xl font-black text-white mb-6">Visión</h2>
+                    <p className="text-slate-300 text-lg leading-relaxed font-light">
+                      {missionVision.vision}
+                    </p>
+                 </div>
+              </motion.div>
 
-            <div 
-              className="relative group/carousel z-10 w-full overflow-hidden"
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
-            >
-              <div className="w-full">
+            </div>
+          </div>
+        </section>
+
+        {/* Objectives Section (Restored Blue Animated Style) */}
+        <section className="py-32 relative overflow-hidden bg-[var(--color-primary)]">
+           {/* Animated Background Elements */}
+           <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-full bg-[url('/assets/grid-pattern.svg')] opacity-10" />
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
+                className="absolute -top-1/2 -right-1/2 w-[100vw] h-[100vw] rounded-full border border-white/5 border-dashed opacity-30" 
+              />
+              <motion.div 
+                animate={{ rotate: -360 }}
+                transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
+                className="absolute -bottom-1/2 -left-1/2 w-[80vw] h-[80vw] rounded-full border border-white/10 opacity-20" 
+              />
+           </div>
+
+           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                 
+                 {/* Left: General Objective */}
+                 <motion.div 
+                   initial={{ opacity: 0, x: -50 }}
+                   whileInView={{ opacity: 1, x: 0 }}
+                   viewport={{ once: true }}
+                 >
+                    <span className="text-accent font-bold tracking-widest uppercase mb-4 block">Nuestra Meta</span>
+                    <h2 className="text-5xl md:text-6xl font-black text-white mb-8 leading-tight">
+                       Objetivos <br/>Institucionales
+                    </h2>
+                    <p className="text-white/80 text-xl leading-relaxed mb-8">
+                       {objectives.general}
+                    </p>
+                    <div className="h-1 w-32 bg-accent rounded-full" />
+                 </motion.div>
+
+                 {/* Right: Specific Objectives Cards */}
+                 <div className="grid gap-4">
+                    {objectives.specific.map((obj, i) => (
+                       <motion.div 
+                          key={i}
+                          initial={{ opacity: 0, x: 50 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: i * 0.1 }}
+                          whileHover={{ scale: 1.02, x: -10 }}
+                          className="bg-white/10 backdrop-blur-md border border-white/10 p-6 rounded-2xl flex items-start gap-4 hover:bg-white/20 transition-all cursor-default"
+                       >
+                          <div className="bg-white text-primary font-bold w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-lg">
+                             {i + 1}
+                          </div>
+                          <p className="text-white font-medium text-lg">{obj}</p>
+                       </motion.div>
+                    ))}
+                 </div>
+              </div>
+           </div>
+        </section>
+
+        {/* 3. History Timeline (Decreto 93) */}
+        <section className="py-24 bg-slate-50 relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4">Nuestra Evolución</h2>
+              <p className="text-slate-500 text-lg">Del Decreto N° 93 a la Potencia Industrial de hoy.</p>
+            </div>
+            <Timeline />
+          </div>
+        </section>
+
+        {/* 4. Governance Pillars & Legal */}
+        {/* <div className="bg-white">
+           <GovernancePillars />
+           <LegalFramework />
+        </div> */}
+
+        {/* Values Section (Restored Original Logic) */}
+        <section className="py-20 bg-slate-900 relative">
+           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-16">
+                 <h2 className="text-4xl font-black text-white mb-4">Nuestros Valores</h2>
+                 <p className="text-slate-400">Pilares de nuestra cultura organizacional</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                 {valuesData.map((value, index) => (
+                    <ValueCard key={index} value={value} index={index} />
+                 ))}
+              </div>
+           </div>
+        </section>
+        
+        {/* 5. Transparency / Management Reports */}
+        {/* <section className="py-20 bg-[#4C4C4C] relative overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+             <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
+                <div>
+                   <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Gestión Transparente</h2>
+                   <p className="text-white/80 max-w-xl">
+                      Acceso directo a los informes de gestión y rendición de cuentas.
+                   </p>
+                </div>
+                <div className="flex gap-4">
+                  <button onClick={handlePrev} className="size-12 rounded-xl border border-white/20 text-white flex items-center justify-center hover:bg-white/10"><Icon name="ChevronLeft" /></button>
+                  <button onClick={handleNext} className="size-12 rounded-xl bg-accent text-slate-900 flex items-center justify-center hover:bg-yellow-400"><Icon name="ChevronRight" /></button>
+                </div>
+             </div>
+             
+             <div className="overflow-hidden">
                 <motion.div 
                   className="flex gap-8"
                   animate={{ x: -currentIndex * stepSize }}
-                  transition={{ 
-                    duration: isResetting ? 0 : 0.5, 
-                    ease: "easeInOut" 
-                  }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
                   {doubledReports.map((report, index) => (
-                    <div 
-                      key={index} 
-                      className="shrink-0"
-                      style={{ width: cardWidth }}
-                    >
+                    <div key={index} className="shrink-0" style={{ width: cardWidth }}>
                       <ManagementReportCard report={report} index={index} />
                     </div>
                   ))}
                 </motion.div>
-              </div>
-            </div>
+             </div>
           </div>
-        </section>
+        </section> */}
 
-        {/* CTA Section */}
-        <section className="py-12 md:py-16 lg:py-20">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-primary to-secondary rounded-2xl p-8 md:p-12 text-center text-white relative overflow-hidden">
-
-              <div className="absolute inset-0 opacity-10" style={{
-                backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 15px, #ffffff 15px, #ffffff 16px)'
-              }} />
-
-              <div className="relative z-10">
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.2 }}
-                  className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-accent flex items-center justify-center mx-auto mb-6">
-
-                  <Icon name="Users" size={40} color="var(--color-accent-foreground)" />
-                </motion.div>
-
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-                  Únete a Nuestra Misión
-                </h2>
-                <p className="text-base md:text-lg mb-8 opacity-90 max-w-2xl mx-auto">
-                  Estamos construyendo el futuro de Anzoátegui. Si compartes nuestra visión de desarrollo sostenible 
-                  y transparencia institucional, queremos conocerte.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <motion.a
-                    href="/contact"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-8 py-3 rounded-lg font-semibold transition-all duration-300 bg-accent text-accent-foreground hover:shadow-lg">
-
-                    Contáctanos
-                  </motion.a>
-                  <motion.a
-                    href="/projects"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-8 py-3 rounded-lg font-semibold transition-all duration-300 bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20">
-
-                    Ver Proyectos
-                  </motion.a>
-                </div>
+        {/* 6. Contact CTA */}
+        <section className="py-20 bg-slate-950 border-t border-white/10">
+           <div className="max-w-4xl mx-auto text-center px-4">
+              <h2 className="text-3xl font-bold text-white mb-8">¿Listo para construir el futuro?</h2>
+              <div className="flex justify-center gap-4">
+                 <a href="/contact" className="px-8 py-3 bg-accent text-slate-900 font-bold rounded-lg hover:shadow-lg transition-all">Contáctanos</a>
               </div>
-            </motion.div>
-          </div>
+           </div>
         </section>
 
         <Footer />
       </motion.div>
-    </AnimatePresence>);
-
+    </AnimatePresence>
+  );
 };
 
 export default AboutUs;

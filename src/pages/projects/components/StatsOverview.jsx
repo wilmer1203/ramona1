@@ -13,20 +13,20 @@ const StatsOverview = ({ stats }) => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: index * 0.1 }}
           whileHover={{ scale: 1.05, y: -4 }}
-          className="bg-card rounded-xl p-4 md:p-6 border border-border shadow-lg hover:shadow-xl transition-all duration-300"
+          className="bg-slate-900/60 backdrop-blur-md rounded-2xl p-6 border border-white/5 shadow-xl hover:shadow-2xl transition-all duration-300 group"
         >
-          <div className="flex items-center justify-between mb-3">
-            <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${stat?.bgColor}`}>
-              <Icon name={stat?.icon} size={24} color={stat?.iconColor} />
+          <div className="flex items-center justify-between mb-4">
+            <div className={`w-12 h-12 rounded-xl flex items-center justify-center bg-white/5 group-hover:bg-accent/20 transition-colors`}>
+              <Icon name={stat?.icon} size={24} className="text-slate-200 group-hover:text-accent" />
             </div>
-            <span className={`text-xs font-semibold px-2 py-1 rounded-full ${stat?.badgeColor}`}>
+            <span className={`text-[10px] font-black uppercase tracking-wider px-2 py-1 rounded-lg border bg-white/5 border-white/10 text-white`}>
               {stat?.badge}
             </span>
           </div>
-          <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-1">
+          <h3 className="text-3xl lg:text-4xl font-black text-white mb-1 tracking-tight">
             {stat?.value}
           </h3>
-          <p className="text-sm text-muted-foreground">{stat?.label}</p>
+          <p className="text-sm font-semibold text-slate-400 uppercase tracking-wide">{stat?.label}</p>
         </motion.div>
       ))}
     </div>

@@ -52,14 +52,16 @@ const ContactForm = () => {
     { value: 'sugerencia', label: 'Sugerencia' }
   ];
 
-  const inputClasses = "w-full rounded-lg border border-border bg-card text-foreground h-12 px-4 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow placeholder:text-muted-foreground";
-  const labelClasses = "text-foreground text-sm font-bold leading-normal pb-2 block";
+  const inputClasses = "w-full rounded-xl border border-white/10 bg-white/5 text-white h-14 px-4 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all placeholder:text-slate-500 hover:bg-white/10";
+  const labelClasses = "text-slate-300 text-sm font-bold uppercase tracking-wider mb-2 block ml-1";
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-6 p-8 rounded-[2.5rem] bg-slate-900 border border-white/5 shadow-2xl relative overflow-hidden">
+      {/* Glow Effect */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
       
-      {/* Personal Info Grid - Keeping this for data organization */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {/* Personal Info Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
         <label className="flex flex-col flex-1">
           <span className={labelClasses}>Nombre Completo *</span>
           <input
@@ -84,7 +86,7 @@ const ContactForm = () => {
         </label>
       </div>
 
-       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
         <label className="flex flex-col flex-1">
           <span className={labelClasses}>Teléfono *</span>
           <input
@@ -109,7 +111,7 @@ const ContactForm = () => {
         </label>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
          {/* Request Type */}
         <label className="flex flex-col flex-1">
           <span className={labelClasses}>Tipo de Solicitud *</span>
@@ -117,7 +119,7 @@ const ContactForm = () => {
             <select
                 value={formData.requestType}
                 onChange={(e) => handleChange('requestType', e.target.value)}
-                className={`${inputClasses} appearance-none pr-10`}
+                className={`${inputClasses} appearance-none pr-10 text-white [&>option]:text-slate-900 bg-white/5`}
             >
                 {requestTypes.map(type => (
                 <option key={type.value} value={type.value}>
@@ -125,7 +127,7 @@ const ContactForm = () => {
                 </option>
                 ))}
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-muted-foreground">
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
                 <Icon name="ChevronDown" size={20} />
             </div>
           </div>
@@ -146,28 +148,28 @@ const ContactForm = () => {
       </div>
 
       {/* Reference Point */}
-      <label className="flex flex-col flex-1">
+      <label className="flex flex-col flex-1 relative z-10">
         <span className={labelClasses}>Punto de Referencia *</span>
         <div className="relative">
             <input 
-                className={`${inputClasses} pl-10`}
+                className={`${inputClasses} pl-12`}
                 placeholder="Ej. Frente al Centro Comercial..." 
                 type="text"
                 value={formData.referencePoint}
                 onChange={(e) => handleChange('referencePoint', e.target.value)}
                 required
             />
-            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center px-3 text-muted-foreground">
+            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center px-4 text-slate-400">
                 <Icon name="MapPin" size={20} />
             </div>
         </div>
       </label>
 
       {/* Description */}
-      <label className="flex flex-col flex-1">
+      <label className="flex flex-col flex-1 relative z-10">
         <span className={labelClasses}>Descripción de la Falla</span>
         <textarea 
-            className="w-full rounded-lg border border-border bg-card text-foreground p-4 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow placeholder:text-muted-foreground resize-none" 
+            className="w-full rounded-xl border border-white/10 bg-white/5 text-white p-4 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all placeholder:text-slate-500 resize-none min-h-[120px]" 
             placeholder="Describa brevemente el problema (hueco, alcantarilla dañada, falta de señalización...)" 
             rows="4"
             value={formData.description}
@@ -177,10 +179,12 @@ const ContactForm = () => {
       </label>
 
       {/* File Upload */}
-      <div>
+      <div className="relative z-10">
         <span className={labelClasses}>Evidencia Fotográfica</span>
         <div 
-            className={`border-2 border-dashed border-border rounded-lg p-8 flex flex-col items-center justify-center text-center hover:bg-muted/10 transition-colors cursor-pointer bg-card relative overflow-hidden ${previewUrl ? 'border-primary' : ''}`}
+            className={`border-2 border-dashed rounded-2xl p-8 flex flex-col items-center justify-center text-center transition-all cursor-pointer relative overflow-hidden group
+                ${previewUrl ? 'border-accent bg-accent/5' : 'border-white/10 hover:border-white/20 hover:bg-white/5'}
+            `}
         >
             <input
                 type="file"
@@ -190,41 +194,41 @@ const ContactForm = () => {
             />
             
             {previewUrl ? (
-                <div className="relative z-20">
-                     <img src={previewUrl} alt="Preview" className="max-h-48 rounded-lg mb-2" />
+                <div className="relative z-20 w-full">
+                     <img src={previewUrl} alt="Preview" className="max-h-64 rounded-xl mx-auto shadow-lg mb-4 object-cover" />
                      <button 
                         type="button" 
                         onClick={(e) => {e.preventDefault(); e.stopPropagation(); clearImage()}}
-                        className="px-3 py-1 bg-destructive text-white text-sm rounded-md"
+                        className="px-4 py-2 bg-red-500/80 hover:bg-red-600 text-white text-sm font-bold rounded-lg backdrop-blur-sm transition-colors"
                      >
                         Quitar Imagen
                      </button>
                 </div>
             ) : (
                 <>
-                    <div className="bg-primary/20 p-3 rounded-full mb-3 text-primary-dark">
-                        <Icon name="UploadCloud" size={24} className="text-primary" />
+                    <div className="bg-slate-800 p-4 rounded-full mb-4 text-accent group-hover:scale-110 transition-transform duration-300 shadow-xl border border-white/5">
+                        <Icon name="UploadCloud" size={32} />
                     </div>
-                    <p className="text-sm font-bold text-foreground">Haga clic para subir o arrastre la imagen aquí</p>
-                    <p className="text-xs text-muted-foreground mt-1">JPG, PNG hasta 5MB</p>
+                    <p className="text-lg font-bold text-white mb-2">Haga clic o arrastre la imagen aquí</p>
+                    <p className="text-sm text-slate-400">JPG, PNG hasta 5MB</p>
                 </>
             )}
         </div>
       </div>
 
       {/* Submit Button */}
-      <div className="pt-4">
+      <div className="pt-6 relative z-10">
         <button 
-            className="w-full md:w-auto px-8 h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-bold rounded-lg transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed" 
+            className="w-full h-14 bg-gradient-to-r from-accent to-yellow-400 hover:from-yellow-400 hover:to-accent text-slate-900 font-black text-lg rounded-xl transition-all shadow-lg shadow-accent/20 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed hover:scale-[1.01] active:scale-[0.99]" 
             type="submit"
             disabled={isSubmitting}
         >
             {isSubmitting ? (
-                <span>Enviando...</span>
+                <span>Enviando Reporte...</span>
             ) : (
                 <>
                     <span>Enviar Reporte</span>
-                    <Icon name="Send" size={18} />
+                    <Icon name="Send" size={20} />
                 </>
             )}
         </button>

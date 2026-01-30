@@ -1,129 +1,125 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
 
 const HeroSection = () => {
-  const projectHighlights = [
-  {
-    id: 1,
-    title: "Vialidad Urbana Sotillo",
-    description: "Mantenimiento y asfaltado de avenidas principales",
-    image: "https://img.rocket.new/generatedImages/rocket_gen_img_15102ed5d-1768010396258.png",
-    imageAlt: "Modern highway with multiple lanes stretching through urban landscape with clear blue sky and modern infrastructure",
-    status: "En Progreso",
-    progress: 85
-  },
-  {
-    id: 2,
-    title: "Hospital General del Este",
-    description: "Ampliación de servicios de salud comunitaria",
-    image: "https://images.unsplash.com/photo-1658131550268-8d86f719a041",
-    imageAlt: "Modern hospital building exterior with white facade, large windows, and emergency entrance visible in daylight",
-    status: "Completado",
-    progress: 100
-  },
-  {
-    id: 3,
-    title: "Escuela Técnica Industrial",
-    description: "Renovación integral de infraestructura educativa",
-    image: "https://images.unsplash.com/photo-1679296036547-b57ae4b01b82",
-    imageAlt: "Contemporary school building with red brick exterior, multiple floors, large windows and students visible in courtyard area",
-    status: "Planificación",
-    progress: 25
-  }];
-
-
-  const [currentProject, setCurrentProject] = React.useState(0);
-
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentProject((prev) => (prev + 1) % projectHighlights?.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950">
+      {/* Background Image - Industrial Vibe */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/assets/images/av_paseo.png"
-          alt="Paseo de la Cruz y el Mar - Puerto La Cruz"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/90"></div>
+         <Image 
+            src="https://images.unsplash.com/photo-1621939514854-546a166113d5?q=80&w=2600&auto=format&fit=crop"
+            alt="Maquinaria de Asfalto COVIMUS"
+            className="w-full h-full object-cover opacity-60 grayscale-[30%] scale-105"
+         />
+           {/* Heavy Dark Overlay for Legibility */}
+         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-slate-950/30" />
+         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/50" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 w-full">
-        <div className="flex flex-col items-center text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl"
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/30 mb-8 backdrop-blur-md"
-            >
-              <Icon name="Building2" size={20} color="var(--color-accent)" />
-              <span className="text-sm font-semibold text-accent uppercase tracking-widest">Alcaldía de Sotillo</span>
-            </motion.div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black mb-8 leading-tight drop-shadow-[0_10px_20px_rgba(0,0,0,0.6)] text-white">
-              Liderando la Vialidad <br />
-              <span className="gradient-text">en Sotillo</span>
-            </h1>
-
-            <p className="text-lg sm:text-xl lg:text-2xl text-slate-100 mb-10 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
-              Transformando el rostro de Puerto La Cruz con infraestructura de clase mundial. Expertos en pavimentación y servicios públicos bajo el modelo de producción social.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full sm:w-auto px-10 py-4 rounded-lg font-bold text-primary shadow-lg transition-all duration-300 hover:shadow-xl text-lg"
-                  style={{ background: 'var(--color-accent)' }}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            {/* Text Content */}
+            <div className="space-y-8">
+                <motion.div
+                  initial={{ opacity: 0, x: -50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
                 >
-                  <span className="flex items-center justify-center space-x-2">
-                    <Icon name="MessageSquare" size={22} />
-                    <span>Atención Ciudadana</span>
-                  </span>
-                </motion.button>
-              </Link>
+                    <div className="inline-flex items-center space-x-2 border-l-4 border-accent pl-4 mb-6">
+                        <span className="text-accent font-bold tracking-[0.2em] uppercase text-sm">E.P.S. COVIMUS S.A.</span>
+                    </div>
 
-              <Link to="/projects">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-full sm:w-auto px-10 py-4 rounded-lg font-bold border-2 transition-all duration-300 hover:bg-white hover:text-primary text-lg"
-                  style={{
-                    borderColor: '#ffffff',
-                    color: '#ffffff',
-                    background: 'transparent',
-                  }}
+                    <h1 className="text-5xl md:text-7xl font-black text-white leading-[0.95] tracking-tight mb-6">
+                        TRANSFORMANDO <br/>
+                        LA <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-yellow-200">VIALIDAD</span> <br/>
+                        DE SOTILLO
+                    </h1>
+
+                    <p className="text-lg md:text-xl text-slate-300 max-w-xl leading-relaxed font-light border-l border-white/10 pl-4 py-2">
+                        Ejecución de proyectos de ingeniería civil y asfaltado bajo un modelo de gestión social eficiente. Construyendo el futuro de Puerto La Cruz.
+                    </p>
+                </motion.div>
+
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.8 }}
+                    className="flex flex-col sm:flex-row gap-4 pt-4"
                 >
-                  <span className="flex items-center justify-center space-x-2">
-                    <span>Ver Proyectos</span>
-                    <Icon name="ArrowRight" size={22} />
-                  </span>
-                </motion.button>
-              </Link>
+                    <Link to="/projects">
+                        <button className="w-full sm:w-auto px-8 py-4 bg-accent hover:bg-yellow-400 text-slate-900 font-bold rounded-none flex items-center justify-center gap-3 transition-all uppercase tracking-wider group">
+                            <span>Ver Proyectos</span>
+                            <Icon name="ArrowRight" size={20} className="group-hover:translate-x-1 transition-transform" />
+                        </button>
+                    </Link>
+                    <Link to="/contact">
+                        <button className="w-full sm:w-auto px-8 py-4 border border-white text-white hover:bg-white hover:text-slate-900 font-bold rounded-none flex items-center justify-center gap-3 transition-all uppercase tracking-wider">
+                            <span>Contáctanos</span>
+                        </button>
+                    </Link>
+                </motion.div>
             </div>
-          </motion.div>
 
-          {/* Project carousel commented for future use as requested
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            ... 
-          </div>
-          */}
+            {/* Visual Stats / Highlights (Tachitec Style Cards) */}
+            <div className="hidden lg:block relative">
+                 {/* Floating Abstract Elements */}
+                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
+                 
+                 <div className="grid grid-cols-2 gap-6 relative z-10">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.6 }}
+                        className="bg-white/5 backdrop-blur-md border border-white/10 p-6 hover:border-accent/50 transition-colors group cursor-default"
+                    >
+                        <div className="mb-4 text-accent group-hover:scale-110 transition-transform origin-left">
+                            <Icon name="HardHat" size={40} />
+                        </div>
+                        <h3 className="text-3xl font-black text-white mb-1">542</h3>
+                        <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Toneladas de Asfalto</p>
+                    </motion.div>
+
+                    <motion.div 
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.7 }}
+                        className="bg-accent text-slate-900 p-6 mt-12 shadow-2xl shadow-accent/20"
+                    >
+                        <div className="mb-4">
+                            <Icon name="Activity" size={40} />
+                        </div>
+                        <h3 className="text-3xl font-black mb-1">15</h3>
+                        <p className="text-xs font-bold uppercase tracking-widest opacity-80">Obras en Ejecución</p>
+                    </motion.div>
+
+                     <motion.div 
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.8 }}
+                        className="col-span-2 bg-slate-900/80 backdrop-blur-md border-l-4 border-accent p-6 flex items-center gap-6"
+                    >
+                        <div className="size-12 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0">
+                            <Icon name="MapPin" size={24} />
+                        </div>
+                        <div>
+                             <p className="text-xs font-bold uppercase text-slate-400 mb-1">Ubicación</p>
+                             <p className="text-white font-bold text-lg">Puerto La Cruz, Municipio Sotillo</p>
+                        </div>
+                    </motion.div>
+                 </div>
+            </div>
         </div>
+      </div>
+      
+      {/* Bottom Scroll Indicator */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-slate-950 to-transparent flex items-end justify-center pb-8 z-20 pointer-events-none">
+         <div className="animate-bounce text-white/30">
+            <Icon name="ChevronDown" size={32} />
+         </div>
       </div>
     </section>
   );

@@ -8,26 +8,22 @@ const ProjectCard = ({ project, onViewDetails }) => {
   const getStatusColor = (status) => {
     switch (status) {
       case 'completed':
-        return 'bg-success text-success-foreground';
+        return 'bg-success/20 text-success border-success/50';
       case 'in-progress':
-        return 'bg-warning text-warning-foreground';
+        return 'bg-primary/20 text-primary border-primary/50';
       case 'planned':
-        return 'bg-secondary text-secondary-foreground';
+        return 'bg-secondary/20 text-secondary border-secondary/50';
       default:
-        return 'bg-muted text-muted-foreground';
+        return 'bg-muted/50 text-muted-foreground border-border';
     }
   };
 
   const getStatusText = (status) => {
     switch (status) {
-      case 'completed':
-        return 'Completado';
-      case 'in-progress':
-        return 'En Progreso';
-      case 'planned':
-        return 'Planificado';
-      default:
-        return 'Desconocido';
+      case 'completed': return 'Completado';
+      case 'in-progress': return 'En Progreso';
+      case 'planned': return 'Planificado';
+      default: return 'Desconocido';
     }
   };
 
@@ -37,95 +33,77 @@ const ProjectCard = ({ project, onViewDetails }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      whileHover={{ scale: 1.02, y: -4 }}
-      className="bg-card rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-border"
-    >
-      <div className="relative h-48 md:h-56 lg:h-64 overflow-hidden">
-        <Image
-          src={project?.image}
-          alt={project?.imageAlt}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute top-4 right-4">
-          <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getStatusColor(project?.status)}`}>
-            {getStatusText(project?.status)}
-          </span>
-        </div>
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-          <div className="flex items-center space-x-2 text-white text-sm">
-            <Icon name="MapPin" size={16} />
-            <span>{project?.municipality}</span>
+        // Card Container
+        className="group bg-slate-900/80 backdrop-blur-md rounded-[2rem] overflow-hidden shadow-2xl hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.4)] border border-white/5 hover:border-accent/30 transition-all duration-300"
+      >
+        {/* Image Section */}
+        <div className="relative h-64 overflow-hidden">
+          <Image
+             src={project?.image}
+             alt={project?.name}
+             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-90" />
+          
+          <div className="absolute top-4 right-4">
+             <span className={`px-3 py-1.5 rounded-full text-xs font-black uppercase tracking-wider backdrop-blur-md border border-white/10 shadow-lg ${getStatusColor(project?.status)}`}>
+               {getStatusText(project?.status)}
+             </span>
           </div>
-        </div>
-      </div>
-      <div className="p-4 md:p-6">
-        <div className="flex items-start justify-between mb-3">
-          <h3 className="text-lg md:text-xl font-bold text-foreground line-clamp-2 flex-1">
-            {project?.name}
-          </h3>
-          <div className="ml-2 flex-shrink-0">
-            <Icon name={project?.categoryIcon} size={24} color="var(--color-primary)" />
-          </div>
-        </div>
 
-        <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
-          {project?.description}
-        </p>
-
-        <div className="grid grid-cols-2 gap-3 mb-4">
-          <div className="bg-muted rounded-lg p-3">
-            <div className="flex items-center space-x-2 mb-1">
-              <Icon name="Calendar" size={16} color="var(--color-primary)" />
-              <span className="text-xs text-muted-foreground">Inicio</span>
+          <div className="absolute bottom-4 left-6 right-6">
+            <h3 className="text-2xl font-black text-white mb-1 leading-tight group-hover:text-accent transition-colors line-clamp-2">
+              {project?.name}
+            </h3>
+            <div className="flex items-center space-x-2 text-slate-300 text-xs font-bold uppercase tracking-wide">
+               <Icon name="MapPin" size={14} className="text-secondary" />
+               <span>{project?.location}</span>
             </div>
-            <p className="text-sm font-semibold text-foreground whitespace-nowrap">
-              {project?.startDate}
-            </p>
-          </div>
-          <div className="bg-muted rounded-lg p-3">
-            <div className="flex items-center space-x-2 mb-1">
-              <Icon name="DollarSign" size={16} color="var(--color-primary)" />
-              <span className="text-xs text-muted-foreground">Presupuesto</span>
-            </div>
-            <p className="text-sm font-semibold text-foreground whitespace-nowrap">
-              {project?.budget}
-            </p>
           </div>
         </div>
 
-        <div className="mb-4">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs text-muted-foreground">Progreso</span>
-            <span className="text-xs font-semibold text-foreground">{project?.progress}%</span>
-          </div>
-          <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
-            <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: `${project?.progress}%` }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="h-full bg-gradient-to-r from-primary to-secondary rounded-full"
-            />
-          </div>
-        </div>
+        {/* Content Section */}
+        <div className="p-6 pt-4 space-y-6">
+           <p className="text-white text-sm leading-relaxed line-clamp-3 font-medium">
+             {project?.description}
+           </p>
 
-        <div className="flex items-center justify-between pt-4 border-t border-border">
-          <div className="flex items-center space-x-2">
-            <Icon name="Users" size={16} color="var(--color-muted-foreground)" />
-            <span className="text-xs text-muted-foreground">
-              {project?.beneficiaries} beneficiarios
-            </span>
-          </div>
-          <Button
-            variant="outline"
-            size="sm"
-            iconName="ArrowRight"
-            iconPosition="right"
-            onClick={() => onViewDetails(project)}
-          >
-            Ver Detalles
-          </Button>
-        </div>
+           {/* Metrics Grid */}
+           <div className="grid grid-cols-2 gap-4 py-4 border-t border-b border-white/10">
+              <div>
+                 <span className="text-[10px] font-black uppercase text-white/70 tracking-wider block mb-1">Inversión</span>
+                 <span className="text-base font-bold text-white font-mono">{project?.budget}</span>
+              </div>
+              <div className="text-right">
+                 <span className="text-[10px] font-black uppercase text-white/70 tracking-wider block mb-1">Inicio</span>
+                 <span className="text-base font-bold text-white font-mono">{project?.startDate}</span>
+              </div>
+           </div>
+
+           {/* Progress Bar */}
+           <div className="space-y-2">
+             <div className="flex justify-between text-xs font-bold uppercase tracking-wider">
+               <span className="text-white">Avance de Obra</span>
+               <span className="text-accent">{project?.progress}%</span>
+             </div>
+             <div className="h-2 bg-black/40 rounded-full overflow-hidden border border-white/10">
+                <motion.div 
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${project?.progress}%` }}
+                  transition={{ duration: 1, delay: 0.2 }}
+                  className="h-full bg-accent rounded-full shadow-[0_0_10px_rgba(var(--color-accent),0.5)]"
+                />
+             </div>
+           </div>
+
+        <Button
+          variant="default"
+          size="sm"
+          onClick={() => onViewDetails(project)}
+          className="w-full bg-accent hover:bg-yellow-400 text-slate-900 border-none transition-all h-10 font-bold shadow-lg shadow-accent/20"
+        >
+          Ver Ficha Técnica
+        </Button>
       </div>
     </motion.div>
   );

@@ -51,7 +51,7 @@ const FeaturedProjects = () => {
   }, [projects.length]);
 
   return (
-    <section className="py-20 lg:py-32 bg-gradient-to-br from-primary via-primary to-secondary relative overflow-hidden">
+    <section className="py-20 lg:py-32 bg-gradient-to-br from-primary via-[#1c3149] to-slate-900 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
