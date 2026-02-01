@@ -268,110 +268,104 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* 1. Governance & Organogram (High Importance) */}
-        {/* <section className="py-24 bg-background relative overflow-hidden border-b border-border/40">
-           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-              <div className="text-center mb-16">
-                  <span className="text-accent font-bold uppercase tracking-widest text-sm mb-2 block">Estructura de Mando</span>
-                  <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4">Gobierno Corporativo</h2>
-                  <p className="text-muted-foreground max-w-2xl mx-auto">
-                    COVIMUS opera bajo un estricto esquema jerárquico que garantiza la toma de decisiones eficiente y la subordinación al interés colectivo.
-                  </p>
-              </div>
+        {/* 2. Mission & Vision - Zig Zag Layout with Videos */}
+        <section className="bg-slate-950 overflow-hidden">
+           
+           {/* MISSION SECTION */}
+           <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
+              {/* Video Side (Left) */}
+              <motion.div 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8 }}
+                className="relative h-full min-h-[400px]"
+              >
+                  <video 
+                    src="/assets/mision_video.mp4" 
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-slate-950/20 mix-blend-multiply" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-slate-950" />
+              </motion.div>
 
-              Organogram Structure
-              <div className="flex flex-col items-center">
-                Level -2: Asamblea
-                <div className="relative mb-12 z-10">
-                    <OrganogramNode authority={asamblea} level={0} onClick={setSelectedAuthority} />
-                    <div className="absolute -bottom-12 left-1/2 w-0.5 h-12 bg-slate-300 dark:bg-slate-700 -translate-x-1/2 -z-10" />
-                </div>
-                Level -1: Junta Directiva
-                <div className="relative mb-12 z-10">
-                    <OrganogramNode authority={junta} level={0} onClick={setSelectedAuthority} />
-                    <div className="absolute -bottom-12 left-1/2 w-0.5 h-12 bg-slate-300 dark:bg-slate-700 -translate-x-1/2 -z-10" />
-                </div>
-                Level 0: Presidency
-                <div className="relative mb-12 z-10">
-                   <OrganogramNode authority={president} level={0} onClick={setSelectedAuthority} />
-                   <div className="absolute -bottom-12 left-1/2 w-0.5 h-12 bg-slate-300 dark:bg-slate-700 -translate-x-1/2 -z-10" />
-                </div>
-                Level 1: Managers Container
-                <div className="relative w-full max-w-4xl">
-                   <div className="absolute -top-6 left-[20%] right-[20%] h-px bg-slate-300 dark:bg-slate-700 hidden md:block" />
-                   <div className="absolute -top-6 left-[20%] h-6 w-px bg-slate-300 dark:bg-slate-700 hidden md:block" />
-                   <div className="absolute -top-6 right-[20%] h-6 w-px bg-slate-300 dark:bg-slate-700 hidden md:block" />
-                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
-                      {managers.map((manager, idx) => (
-                         <div key={manager.id} className="relative">
-                            <div className="absolute -top-12 left-1/2 w-0.5 h-12 bg-slate-300 dark:bg-slate-700 -translate-x-1/2 md:hidden" />
-                            <OrganogramNode authority={manager} level={1} onClick={setSelectedAuthority} />
-                         </div>
-                      ))}
-                   </div>
-                </div>
-              </div>
+              {/* Text Side (Right) */}
+              <motion.div 
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="flex items-center justify-center p-8 lg:p-20 relative"
+              >
+                 <div className="max-w-xl">
+                    <h2 className="text-4xl md:text-5xl font-black text-white mb-8 leading-tight">
+                        Misión
+                    </h2>
+                    <p className="text-slate-300 text-lg md:text-xl leading-relaxed font-light mb-8">
+                       {missionVision.mission}
+                    </p>
+                    <div className="h-1 w-20 bg-accent rounded-full mb-4" />
+                    <span className="text-accent font-bold tracking-widest uppercase text-xs">Nuestro Propósito</span>
+                 </div>
+              </motion.div>
            </div>
-        </section> */}
 
-        {/* 2. Mission & Vision - Side by Side High-End */}
-        <section className="py-24 bg-slate-950 relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-              
-              {/* Mission Card */}
+           {/* VISION SECTION */}
+           <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
+              {/* Text Side (Left on Desktop) */}
               <motion.div 
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                className="group relative p-10 rounded-[2.5rem] bg-gradient-to-br from-slate-900 to-slate-900 border border-white/5 hover:border-accent/30 transition-all duration-500 overflow-hidden"
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="flex items-center justify-center p-8 lg:p-20 relative order-2 lg:order-1"
               >
-                 <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                 <div className="absolute -right-12 -top-12 bg-accent/10 w-48 h-48 rounded-full blur-[60px] group-hover:bg-accent/20 transition-all duration-500" />
-                 
-                 <div className="relative z-10">
-                    <div className="inline-flex p-3 rounded-2xl bg-accent/10 text-accent mb-6 group-hover:scale-110 transition-transform duration-500">
-                      <Icon name="Target" size={32} />
-                    </div>
-                    <h2 className="text-4xl font-black text-white mb-6">Misión</h2>
-                    <p className="text-slate-300 text-lg leading-relaxed font-light">
-                      {missionVision.mission}
+                 <div className="max-w-xl text-right lg:text-left">
+                    <h2 className="text-4xl md:text-5xl font-black text-white mb-8 leading-tight">
+                        Visión
+                    </h2>
+                    <p className="text-slate-300 text-lg md:text-xl leading-relaxed font-light mb-8">
+                       {missionVision.vision}
                     </p>
+                    <div className="flex flex-col items-end lg:items-start">
+                        <div className="h-1 w-20 bg-blue-500 rounded-full mb-4" />
+                        <span className="text-blue-400 font-bold tracking-widest uppercase text-xs">Nuestro Norte</span>
+                    </div>
                  </div>
               </motion.div>
 
-              {/* Vision Card */}
+              {/* Video Side (Right on Desktop) */}
               <motion.div 
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                viewport={{ once: true }}
-                className="group relative p-10 rounded-[2.5rem] bg-gradient-to-br from-slate-900 to-slate-900 border border-white/5 hover:border-primary/30 transition-all duration-500 overflow-hidden"
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8 }}
+                className="relative h-full min-h-[400px] order-1 lg:order-2"
               >
-                 <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                 <div className="absolute -left-12 -bottom-12 bg-primary/10 w-48 h-48 rounded-full blur-[60px] group-hover:bg-primary/20 transition-all duration-500" />
-                 
-                 <div className="relative z-10">
-                    <div className="inline-flex p-3 rounded-2xl bg-primary/10 text-primary mb-6 group-hover:scale-110 transition-transform duration-500">
-                      <Icon name="Eye" size={32} />
-                    </div>
-                    <h2 className="text-4xl font-black text-white mb-6">Visión</h2>
-                    <p className="text-slate-300 text-lg leading-relaxed font-light">
-                      {missionVision.vision}
-                    </p>
-                 </div>
+                  <video 
+                    src="/assets/vision_video.mp4" 
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-slate-950/20 mix-blend-multiply" />
+                  <div className="absolute inset-0 bg-gradient-to-l from-transparent to-slate-950" />
               </motion.div>
+           </div>
 
-            </div>
-          </div>
         </section>
 
-        {/* Objectives Section (Restored Blue Animated Style) */}
-        <section className="py-32 relative overflow-hidden bg-[var(--color-primary)]">
+        {/* Objectives Section (Blueprint / Engineering Style) */}
+        <section className="py-32 relative overflow-hidden bg-gradient-to-br from-slate-950 to-blue-900">
            {/* Animated Background Elements */}
            <div className="absolute inset-0 overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-full bg-[url('/assets/grid-pattern.svg')] opacity-10" />
+              <div className="absolute top-0 left-0 w-full h-full bg-[url('/assets/grid-pattern.svg')] opacity-20" />
               <motion.div 
                 animate={{ rotate: 360 }}
                 transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
@@ -437,19 +431,110 @@ const AboutUs = () => {
           </div>
         </section>
 
+        {/* 3.5 Nuestra Gente - Multimedia Gallery */}
+        <section className="py-24 bg-slate-950 relative overflow-hidden">
+            <div className="absolute inset-0 z-0 opacity-20">
+               <div className="absolute inset-0 bg-[url('/assets/grid-pattern.svg')] opacity-30" />
+            </div>
+            
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="text-center mb-16">
+                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/50 border border-white/10 mb-6 backdrop-blur-md">
+                        <Icon name="Users" size={16} color="var(--color-primary)" />
+                        <span className="text-xs font-bold text-white tracking-widest uppercase">Capital Humano</span>
+                     </div>
+                    <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+                        El Motor de <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-yellow-200">COVIMUS</span>
+                    </h2>
+                    <p className="text-slate-400 text-lg max-w-2xl mx-auto font-light">
+                        Más de 300 profesionales, técnicos y obreros comprometidos con la transformación de Sotillo.
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[500px]">
+                    {/* Item 1 - Large Left */}
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        className="col-span-2 row-span-2 relative rounded-3xl overflow-hidden group"
+                    >
+                        <video 
+                          src="/assets/vision_video.mp4" 
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          className="absolute inset-0 w-full h-full object-cover"
+                        />
+                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+                             <p className="text-white font-bold text-lg">Equipo de Asfaltado</p>
+                         </div>
+                    </motion.div>
+
+                    {/* Item 2 */}
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="col-span-1 row-span-1 relative rounded-3xl overflow-hidden group"
+                    >
+                         <img src="/assets/images/motor_1.jpg" alt="Ingenieros" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    </motion.div>
+
+                    {/* Item 3 */}
+                    <motion.div 
+                         initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2 }}
+                        className="col-span-1 row-span-2 relative rounded-3xl overflow-hidden group"
+                    >
+                         <img src="/assets/images/1.jpg" alt="Maquinaria" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    </motion.div>
+
+                     {/* Item 4 */}
+                     <motion.div 
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 }}
+                        className="col-span-1 row-span-1 relative rounded-3xl overflow-hidden group"
+                    >
+                         <img src="/assets/images/Impacto Real_3.jpg" alt="Supervisión" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                    </motion.div>
+                </div>
+            </div>
+        </section>
+
         {/* 4. Governance Pillars & Legal */}
         <div className="bg-slate-950">
            <GovernancePillars />
            <LegalFramework />
         </div>
 
-        {/* Values Section (Restored Original Logic) */}
-        <section className="py-20 bg-slate-900 relative">
-           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Values Section (Parallax Background) */}
+        <section className="py-24 relative overflow-hidden bg-slate-950 flex items-center">
+           {/* Parallax Background */}
+           <div className="absolute inset-0 z-0">
+               <img 
+                 src="/assets/images/7.jpg" 
+                 alt="Background" 
+                 className="w-full h-full object-cover fixed-parallax"
+                 style={{ objectPosition: 'center' }}
+               />
+               <div className="absolute inset-0 bg-slate-950/30 z-10" />
+           </div>
+
+           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
               <div className="text-center mb-16">
-                 <h2 className="text-4xl font-black text-white mb-4">Nuestros Valores</h2>
-                 <p className="text-slate-400">Pilares de nuestra cultura organizacional</p>
+                 <h2 className="text-4xl md:text-5xl font-black text-white mb-6">Nuestros Valores</h2>
+                 <p className="text-slate-300 text-lg font-light max-w-2xl mx-auto">
+                    Los principios éticos que guían cada decisión y proyecto en nuestra organización.
+                 </p>
               </div>
+              
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                  {valuesData.map((value, index) => (
                     <ValueCard key={index} value={value} index={index} />
@@ -458,37 +543,6 @@ const AboutUs = () => {
            </div>
         </section>
         
-        {/* 5. Transparency / Management Reports */}
-        {/* <section className="py-20 bg-[#4C4C4C] relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-             <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
-                <div>
-                   <h2 className="text-4xl md:text-5xl font-black text-white mb-4">Gestión Transparente</h2>
-                   <p className="text-white/80 max-w-xl">
-                      Acceso directo a los informes de gestión y rendición de cuentas.
-                   </p>
-                </div>
-                <div className="flex gap-4">
-                  <button onClick={handlePrev} className="size-12 rounded-xl border border-white/20 text-white flex items-center justify-center hover:bg-white/10"><Icon name="ChevronLeft" /></button>
-                  <button onClick={handleNext} className="size-12 rounded-xl bg-accent text-slate-900 flex items-center justify-center hover:bg-yellow-400"><Icon name="ChevronRight" /></button>
-                </div>
-             </div>
-             
-             <div className="overflow-hidden">
-                <motion.div 
-                  className="flex gap-8"
-                  animate={{ x: -currentIndex * stepSize }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                >
-                  {doubledReports.map((report, index) => (
-                    <div key={index} className="shrink-0" style={{ width: cardWidth }}>
-                      <ManagementReportCard report={report} index={index} />
-                    </div>
-                  ))}
-                </motion.div>
-             </div>
-          </div>
-        </section> */}
 
         {/* 6. Contact CTA */}
         <section className="py-20 bg-slate-950 border-t border-white/10">

@@ -7,11 +7,14 @@ const TransparencyCTA = () => {
   return (
     <section className="py-24 relative overflow-hidden">
       {/* Dynamic Background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary via-blue-700 to-secondary" />
-      <div className="absolute inset-0 opacity-20" style={{ 
-          backgroundImage: 'radial-gradient(circle at 70% 50%, white 0%, transparent 20%)', 
-          backgroundSize: '100% 100%' 
-      }} />
+      <div className="absolute inset-0 z-0">
+         <img 
+            src="/assets/images/asphalt-plant.png" 
+            alt="Fondo Industrial" 
+            className="w-full h-full object-cover grayscale opacity-30"
+         />
+         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-slate-900/80" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         <motion.div
@@ -19,21 +22,21 @@ const TransparencyCTA = () => {
            whileInView={{ opacity: 1, scale: 1 }}
            viewport={{ once: true }}
         >
-          <div className="inline-flex items-center justify-center size-16 rounded-full bg-white/10 backdrop-blur-sm mb-8 text-white">
+          <div className="inline-flex items-center justify-center size-16 rounded-full bg-[#FFCC00]/10 border border-[#FFCC00]/20 backdrop-blur-sm mb-8 text-[#FFCC00]">
             <Icon name="Eye" size={32} />
           </div>
           
           <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
             Gestión de Puertas Abiertas
           </h2>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-12">
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-12 font-light">
             Creemos que la confianza se construye con hechos. Ponemos a tu disposición los canales directos para verificar nuestra gestión y participar activamente.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link 
               to="/proyectos" 
-              className="w-full sm:w-auto px-8 py-4 bg-white text-primary font-bold rounded-xl shadow-xl hover:bg-slate-50 hover:scale-105 transition-all flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-8 py-4 bg-[#FFCC00] text-slate-900 font-black tracking-wide rounded-xl shadow-[0_0_20px_rgba(255,204,0,0.3)] hover:bg-yellow-400 hover:scale-105 transition-all flex items-center justify-center gap-2"
             >
               <Icon name="Briefcase" size={20} />
               Ver Proyectos Ejecutados
@@ -41,7 +44,7 @@ const TransparencyCTA = () => {
             
             <Link 
               to="/contacto" 
-              className="w-full sm:w-auto px-8 py-4 bg-slate-900/30 backdrop-blur-sm border border-white/20 text-white font-bold rounded-xl hover:bg-slate-900/50 hover:border-white/40 transition-all flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white font-bold rounded-xl hover:bg-white/10 hover:border-white/40 transition-all flex items-center justify-center gap-2"
             >
               <Icon name="MessageSquare" size={20} />
               Buzón de Atención
@@ -50,15 +53,15 @@ const TransparencyCTA = () => {
 
           <div className="mt-12 pt-8 border-t border-white/10 flex flex-wrap justify-center gap-8 text-white/60 text-sm font-medium">
              <span className="flex items-center gap-2">
-               <Icon name="CheckCircle" size={16} className="text-accent" />
+               <Icon name="CheckCircle" size={16} className="text-[#FFCC00]" />
                Auditorías Anuales
              </span>
              <span className="flex items-center gap-2">
-               <Icon name="CheckCircle" size={16} className="text-accent" />
+               <Icon name="CheckCircle" size={16} className="text-[#FFCC00]" />
                Rendición de Cuentas Pública
              </span>
              <span className="flex items-center gap-2">
-               <Icon name="CheckCircle" size={16} className="text-accent" />
+               <Icon name="CheckCircle" size={16} className="text-[#FFCC00]" />
                Atención al Ciudadano
              </span>
           </div>

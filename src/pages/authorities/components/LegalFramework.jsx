@@ -73,30 +73,37 @@ const LegalFramework = () => {
                 className={`
                    relative p-8 rounded-3xl border transition-all duration-500 group overflow-hidden
                    ${item.highlight 
-                      ? 'bg-gradient-to-br from-blue-900/40 to-slate-900 border-blue-500/30' 
-                      : 'bg-slate-900/50 border-white/5 hover:border-white/20 hover:bg-slate-800/50'}
+                      ? 'bg-slate-900 border-[#FFCC00]/50 shadow-[0_0_30px_rgba(255,204,0,0.1)]' 
+                      : 'bg-slate-900/50 border-white/5 hover:border-[#FFCC00]/30 hover:bg-slate-800/80'}
                 `}
               >
+                {/* Tricolor Accent Bar */}
+                <div className="absolute top-0 right-0 w-24 h-1 flex rounded-bl-xl overflow-hidden">
+                    <div className="w-1/3 bg-[#FFCC00]" />
+                    <div className="w-1/3 bg-[#243F60]" />
+                    <div className="w-1/3 bg-[#C00000]" />
+                </div>
+
                 {/* Glow Effect */}
                 <div className={`absolute -right-12 -top-12 w-32 h-32 rounded-full blur-[50px] transition-opacity duration-500
-                   ${item.highlight ? 'bg-blue-500/20 opacity-100' : 'bg-white/5 opacity-0 group-hover:opacity-100'}
+                   ${item.highlight ? 'bg-[#FFCC00]/10 opacity-100' : 'bg-white/5 opacity-0 group-hover:opacity-100'}
                 `} />
 
                 <div className="relative z-10">
                   <div className={`
                     w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300
                     ${item.highlight 
-                        ? 'bg-blue-500 text-white shadow-[0_0_20px_rgba(59,130,246,0.5)]' 
-                        : 'bg-white/5 text-slate-400 group-hover:text-white group-hover:bg-white/10'}
+                        ? 'bg-[#FFCC00] text-slate-900 shadow-[0_0_20px_rgba(255,204,0,0.4)]' 
+                        : 'bg-white/5 text-slate-400 group-hover:text-[#FFCC00] group-hover:bg-[#FFCC00]/10'}
                   `}>
                     <Icon name={item.icon} size={28} />
                   </div>
                   
-                  <h3 className={`text-xl font-bold mb-2 group-hover:text-white transition-colors leading-tight ${item.highlight ? 'text-white' : 'text-slate-200'}`}>
+                  <h3 className={`text-xl font-bold mb-2 group-hover:text-white transition-colors leading-tight ${item.highlight ? 'text-[#FFCC00]' : 'text-slate-200'}`}>
                     {item.title}
                   </h3>
                   
-                  <div className={`text-xs font-bold uppercase tracking-wider mb-4 ${item.highlight ? 'text-blue-400' : 'text-slate-500 group-hover:text-blue-400 transition-colors'}`}>
+                  <div className={`text-xs font-bold uppercase tracking-wider mb-4 border-b border-white/10 pb-2 inline-block ${item.highlight ? 'text-white' : 'text-slate-500 group-hover:text-white transition-colors'}`}>
                     {item.detail}
                   </div>
                   

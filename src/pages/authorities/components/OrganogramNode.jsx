@@ -22,43 +22,25 @@ const OrganogramNode = ({ authority, onClick, level = 0 }) => {
         <div className="relative bg-slate-900 border border-white/10 rounded-xl p-5 shadow-lg overflow-hidden h-full flex items-center gap-4 transition-colors group-hover:bg-slate-800">
              
              {/* Decor */}
-             <div className="absolute top-0 right-0 p-3 opacity-5">
-               <Icon name="Award" size={60} />
-             </div>
-
-             <div className="shrink-0 relative">
-               <div className={`
-                 rounded-full overflow-hidden border-2 border-white/10 bg-slate-800
-                 ${isMain ? 'size-20' : 'size-14'}
-               `}>
-                 {authority.image ? (
-                   <img src={authority.image} alt={authority.name} className="w-full h-full object-cover" />
-                 ) : (
-                   <div className="w-full h-full flex items-center justify-center text-white/20">
-                     <Icon name="User" size={isMain ? 24 : 18} />
+             <div className="flex-grow min-w-0 text-center relative z-10">
+               <div className="flex flex-col items-center justify-center gap-2 py-2">
+                   {/* Decorative Tricolor Bar Top */}
+                   <div className="flex w-12 h-1 mb-2 rounded-full overflow-hidden opacity-80 group-hover:opacity-100 transition-opacity">
+                      <div className="w-1/3 h-full bg-[#FFCC00]" />
+                      <div className="w-1/3 h-full bg-[#243F60]" />
+                      <div className="w-1/3 h-full bg-[#C00000]" />
                    </div>
-                 )}
-               </div>
-               {/* Status Indicator */}
-               <div className="absolute bottom-0 right-0 size-3 rounded-full bg-green-500 border-2 border-slate-900" title="Activo" />
-             </div>
 
-             <div className="flex-grow min-w-0">
-               <div className="text-accent text-[10px] font-bold uppercase tracking-widest mb-0.5 truncate">
-                 {authority.position}
-               </div>
-               <h3 className={`font-bold text-white truncate ${isMain ? 'text-xl' : 'text-base'}`}>
-                 {authority.name}
-               </h3>
-               {authority.credentials && (
-                 <div className="text-white/40 text-xs truncate mt-0.5">
-                   {authority.credentials}
-                 </div>
-               )}
-             </div>
+                   <h3 className={`font-black text-white uppercase tracking-wider leading-tight ${isMain ? 'text-lg' : 'text-sm'}`} style={{ color: '#FFCC00' }}>
+                     {authority.position}
+                   </h3>
+                   
+                   <div className="h-px w-16 bg-white/10 my-1 group-hover:w-full transition-all duration-500" />
 
-             <div className="shrink-0 text-white/20 group-hover:text-accent transition-colors">
-               <Icon name="ChevronRight" size={20} />
+                   <span className="text-[10px] text-slate-400 font-medium px-2 py-0.5 transition-colors uppercase tracking-[0.2em] group-hover:text-white">
+                      Ver Funciones
+                   </span>
+               </div>
              </div>
         </div>
       </motion.button>
