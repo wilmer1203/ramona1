@@ -450,13 +450,13 @@ const AboutUs = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-[500px]">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 h-auto md:h-[500px]">
                     {/* Item 1 - Large Left */}
                     <motion.div 
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        className="col-span-2 row-span-2 relative rounded-3xl overflow-hidden group"
+                        className="col-span-2 row-span-2 relative rounded-3xl overflow-hidden group min-h-[300px] md:min-h-0"
                     >
                         <video 
                           src="/assets/vision_video.mp4" 
@@ -477,7 +477,7 @@ const AboutUs = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="col-span-1 row-span-1 relative rounded-3xl overflow-hidden group"
+                        className="col-span-1 row-span-1 relative rounded-3xl overflow-hidden group min-h-[150px] md:min-h-0"
                     >
                          <img src="/assets/images/motor_1.jpg" alt="Ingenieros" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     </motion.div>
@@ -488,7 +488,7 @@ const AboutUs = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="col-span-1 row-span-2 relative rounded-3xl overflow-hidden group"
+                        className="col-span-1 row-span-2 relative rounded-3xl overflow-hidden group min-h-[316px] md:min-h-0"
                     >
                          <img src="/assets/images/1.jpg" alt="Maquinaria" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     </motion.div>
@@ -499,7 +499,7 @@ const AboutUs = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.3 }}
-                        className="col-span-1 row-span-1 relative rounded-3xl overflow-hidden group"
+                        className="col-span-1 row-span-1 relative rounded-3xl overflow-hidden group min-h-[150px] md:min-h-0"
                     >
                          <img src="/assets/images/Impacto Real_3.jpg" alt="Supervisión" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                     </motion.div>
