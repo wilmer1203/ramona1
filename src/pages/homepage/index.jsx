@@ -4,11 +4,12 @@ import { Helmet } from 'react-helmet';
 import Header from '../../components/ui/Header';
 import Footer from '../../components/ui/Footer';
 import HeroSection from './components/HeroSection';
-// import ImpactMetrics from './components/ImpactMetrics';
 import AsphaltPlantSection from './components/AsphaltPlantSection';
 import BentoGrid from './components/BentoGrid';
 import FeaturedProjects from './components/FeaturedProjects';
 import SocialProof from './components/SocialProof';
+import InstitutionalAlliances from './components/InstitutionalAlliances';
+import QuickActions from './components/QuickActions';
 
 const Homepage = () => {
   useEffect(() => {
@@ -40,11 +41,12 @@ const Homepage = () => {
 
         <main className="pt-16 lg:pt-20">
           <HeroSection />
-          {/* ImpactMetrics removed as Stats are now in Hero */}
+          <InstitutionalAlliances />
           <AsphaltPlantSection />
           <BentoGrid />
           <FeaturedProjects />
-          {/* <SocialProof /> */}
+          <SocialProof />
+          <QuickActions />
         </main>
 
         <Footer />

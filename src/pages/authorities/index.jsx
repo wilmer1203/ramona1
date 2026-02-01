@@ -91,11 +91,36 @@ const Authorities = () => {
     // }
   ];
 
-  // Organogram Data (Simplified)
+  // Organogram Data
   const highLevelOrg = [
-      { id: "asamblea", name: "Asamblea General Accionistas", position: "Autoridad Suprema" },
-      { id: "junta", name: "Junta Directiva", position: "Dirección Colegiada" }
+      { 
+        id: "asamblea", 
+        name: "Asamblea General Accionistas", 
+        position: "Ente Rector",
+        image: null,
+        credentials: "Municipio Sotillo / INTT"
+      },
+      { 
+        id: "junta", 
+        name: "Junta Directiva", 
+        position: "Dirección Estratégica",
+        image: null,
+        credentials: "Cuerpo Colegiado"
+      }
   ];
+
+  const asamblea = highLevelOrg[0];
+  const junta = highLevelOrg[1];
+  const president = {
+    id: "presidencia",
+    name: "Ing. Oswaldo González",
+    position: "Presidente COVIMUS S.A.",
+    credentials: "Ingeniero Civil / Gerente",
+    bio: "Líder de la ejecución de obras en campo, garantizando el cumplimiento de cronogramas y estándares de calidad.",
+    image: "https://img.rocket.new/generatedImages/rocket_gen_img_15a1404b5-1763299032692.png",
+    highlights: ["Dirección General", "Gestión de Obras"]
+  };
+  const managers = leadershipTeam;
 
   return (
       <div className="min-h-screen bg-background font-sans">
@@ -161,55 +186,79 @@ const Authorities = () => {
                    <p className="text-muted-foreground">Cadena de mando simplificada para máxima eficiencia operativa.</p>
                </div>
 
-               <div className="flex flex-col items-center gap-12">
-                   {/* Top Lever */}
-                   <div className="flex flex-col items-center gap-2">
-                       <div className="p-6 bg-slate-900 text-white rounded-2xl shadow-xl w-64 text-center border-b-4 border-accent">
-                          <Icon name="Users" className="mx-auto mb-2 text-accent" />
-                          <div className="font-bold">Asamblea de Accionistas</div>
-                       </div>
-                       <div className="h-8 w-px bg-slate-300" />
-                       <div className="p-6 bg-white border border-slate-200 rounded-2xl shadow-lg w-64 text-center">
-                          <div className="font-bold text-slate-800">Junta Directiva</div>
-                       </div>
-                       <div className="h-8 w-px bg-slate-300" />
+              <div className="flex flex-col items-center">
+                
+                {/* Level -2: Asamblea */}
+                <div className="relative mb-16 z-10">
+                    <OrganogramNode 
+                        authority={asamblea} 
+                        level={0} // Using level 0 style for big top nodes
+                        onClick={setSelectedAuthority} 
+                    />
+                    <div className="absolute -bottom-16 left-1/2 w-0.5 h-16 bg-slate-700 -translate-x-1/2 -z-10" />
+                </div>
+
+                {/* Level -1: Junta Directiva */}
+                <div className="relative mb-16 z-10">
+                    <OrganogramNode 
+                        authority={junta} 
+                        level={0} 
+                        onClick={setSelectedAuthority} 
+                    />
+                    <div className="absolute -bottom-16 left-1/2 w-0.5 h-16 bg-slate-700 -translate-x-1/2 -z-10" />
+                </div>
+
+                {/* Level 0: Presidency */}
+                <div className="relative mb-16 z-10">
+                   <OrganogramNode 
+                      authority={president} 
+                      level={0} 
+                      onClick={setSelectedAuthority} 
+                   />
+                   {/* Vertical Connector Down */}
+                   <div className="absolute -bottom-16 left-1/2 w-0.5 h-16 bg-gradient-to-b from-slate-700 to-transparent -translate-x-1/2 -z-10" />
+                   <div className="absolute -bottom-16 left-1/2 w-0.5 h-8 bg-slate-700 -translate-x-1/2 -z-10" />
+                </div>
+
+                {/* Level 1: Managers Container */}
+                <div className="relative w-full max-w-4xl">
+                   {/* Horizontal Connector Bar */}
+                   <div className="absolute -top-8 left-[20%] right-[20%] h-px bg-slate-700 hidden md:block" />
+                   
+                   {/* Vertical Connectors for Children (Desktop) */}
+                   <div className="absolute -top-8 left-[20%] h-8 w-px bg-slate-700 hidden md:block" />
+                   <div className="absolute -top-8 right-[20%] h-8 w-px bg-slate-700 hidden md:block" />
+
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 justify-items-center">
+                      {managers.map((manager, idx) => (
+                         <div key={manager.id} className="relative">
+                            {/* Mobile Vertical Connector */}
+                            <div className="absolute -top-16 left-1/2 w-0.5 h-16 bg-slate-700 -translate-x-1/2 md:hidden" />
+                            
+                            <OrganogramNode 
+                               authority={manager} 
+                               level={1} 
+                               onClick={setSelectedAuthority} 
+                            />
+                         </div>
+                      ))}
                    </div>
+                </div>
 
-                   {/* Presidency */}
-                   <div className="p-8 bg-gradient-to-br from-primary to-slate-800 text-white rounded-3xl shadow-2xl w-full max-w-md text-center relative overflow-hidden">
-                       <div className="relative z-10">
-                          <h3 className="text-2xl font-black mb-2">Presidencia</h3>
-                          <p className="text-white/80 text-sm">Órgano Ejecutivo Central</p>
+              </div>
+           </div>
+        </section>
+
+        {/* Legal Framework Section */}
+        <LegalFramework />
+
+        {/* Transparency CTA Section */}
+        <TransparencyCTA />
+
+        <Footer />
                        </div>
-                   </div>
-
-                   {/* Departments */}
-                   <div className="relative w-full">
-                       <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-px h-6 bg-slate-300" />
-                       <div className="absolute -top-6 left-[10%] right-[10%] h-px bg-slate-300" />
-                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6">
-                           {/* Department Nodes */}
-                           {['Consultoría Jurídica', 'Auditoría Interna', 'Gerencia General', 'Gerencia Administrativa'].map((dept, i) => (
-                              <div key={i} className="relative pt-6">
-                                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-6 bg-slate-300" />
-                                 <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-center text-sm font-bold text-slate-700 hover:shadow-md transition-shadow">
-                                    {dept}
-                                 </div>
-                              </div>
-                           ))}
-                       </div>
-                   </div>
-               </div>
-            </div>
-         </section>
-
-         {/* Legal & Transparency (Kept as requested) */}
-         <LegalFramework />
-         <TransparencyCTA />
-
-         <Footer />
-      </div>
   );
 };
 
 export default Authorities;
+

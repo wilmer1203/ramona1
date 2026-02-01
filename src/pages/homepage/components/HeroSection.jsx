@@ -1,22 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
 
 const HeroSection = () => {
+  const projectHighlights = [
+  {
+    id: 1,
+    title: "Vialidad Urbana Sotillo",
+    description: "Mantenimiento y asfaltado de avenidas principales",
+    image: "https://img.rocket.new/generatedImages/rocket_gen_img_15102ed5d-1768010396258.png",
+    imageAlt: "Modern highway with multiple lanes stretching through urban landscape with clear blue sky and modern infrastructure",
+    status: "En Progreso",
+    progress: 85
+  },
+  {
+    id: 2,
+    title: "Hospital General del Este",
+    description: "Ampliación de servicios de salud comunitaria",
+    image: "https://images.unsplash.com/photo-1658131550268-8d86f719a041",
+    imageAlt: "Modern hospital building exterior with white facade, large windows, and emergency entrance visible in daylight",
+    status: "Completado",
+    progress: 100
+  },
+  {
+    id: 3,
+    title: "Escuela Técnica Industrial",
+    description: "Renovación integral de infraestructura educativa",
+    image: "https://images.unsplash.com/photo-1679296036547-b57ae4b01b82",
+    imageAlt: "Contemporary school building with red brick exterior, multiple floors, large windows and students visible in courtyard area",
+    status: "Planificación",
+    progress: 25
+  }];
+
+
+  const [currentProject, setCurrentProject] = React.useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentProject((prev) => (prev + 1) % projectHighlights?.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950">
-      {/* Background Image - Industrial Vibe */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
          <Image 
-            src="https://images.unsplash.com/photo-1621939514854-546a166113d5?q=80&w=2600&auto=format&fit=crop"
-            alt="Maquinaria de Asfalto COVIMUS"
-            className="w-full h-full object-cover opacity-60 grayscale-[30%] scale-105"
+          src="/assets/images/av_paseo.png"
+          alt="Paseo de la Cruz y el Mar - Puerto La Cruz"
+          className="w-full h-full object-cover"
          />
-           {/* Heavy Dark Overlay for Legibility */}
-         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-slate-950/30" />
-         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/90"></div>
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
@@ -25,8 +62,8 @@ const HeroSection = () => {
             {/* Text Content */}
             <div className="space-y-8">
                 <motion.div
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
                 >
                     <div className="inline-flex items-center space-x-2 border-l-4 border-accent pl-4 mb-6">
@@ -64,52 +101,84 @@ const HeroSection = () => {
                 </motion.div>
             </div>
 
-            {/* Visual Stats / Highlights (Tachitec Style Cards) */}
-            <div className="hidden lg:block relative">
-                 {/* Floating Abstract Elements */}
-                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
+            {/* Visual Stats / Highlights (Tachitec/High-End Style) */}
+            <div className="hidden lg:block relative h-full min-h-[500px]">
+                 {/* Floating Abstract Glow */}
+                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
                  
-                 <div className="grid grid-cols-2 gap-6 relative z-10">
+                 {/* Bento Grid Layout - Asymmetric & Dynamic */}
+                 <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full max-w-lg grid grid-cols-2 gap-6 p-6">
+                    
+                    {/* Card 1: Asphalt 2026 (Dominant) */}
                     <motion.div 
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.6 }}
-                        className="bg-white/5 backdrop-blur-md border border-white/10 p-6 hover:border-accent/50 transition-colors group cursor-default"
+                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        transition={{ delay: 0.5, type: 'spring' }}
+                        className="col-span-2 bg-gradient-to-br from-slate-900/90 to-black/90 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] shadow-2xl relative overflow-hidden group hover:border-accent/30 transition-colors"
                     >
-                        <div className="mb-4 text-accent group-hover:scale-110 transition-transform origin-left">
-                            <Icon name="HardHat" size={40} />
+                        <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <Icon name="HardHat" size={140} className="text-white" />
                         </div>
-                        <h3 className="text-3xl font-black text-white mb-1">542</h3>
-                        <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Toneladas de Asfalto</p>
+                        <div className="relative z-10 flex items-center justify-between">
+                            <div>
+                                <div className="flex items-center gap-2 mb-2">
+                                    <div className="h-2 w-2 rounded-full bg-accent animate-pulse" />
+                                    <span className="text-accent font-bold uppercase tracking-widest text-xs">Récord 2026</span>
+                                </div>
+                                <h3 className="text-6xl font-black text-white mb-2 tracking-tighter">
+                                    12.000<span className="text-accent text-4xl">+</span>
+                                </h3>
+                                <p className="text-slate-300 font-medium text-lg leading-tight">
+                                    Toneladas de Asfalto <br/> Colocadas
+                                </p>
+                            </div>
+                            <div className="h-16 w-16 rounded-2xl bg-accent/10 flex items-center justify-center text-accent border border-accent/20 group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(255,204,0,0.1)]">
+                                <Icon name="TrendingUp" size={32} />
+                            </div>
+                        </div>
                     </motion.div>
 
+                    {/* Card 2: Plant Production */}
                     <motion.div 
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.7 }}
-                        className="bg-accent text-slate-900 p-6 mt-12 shadow-2xl shadow-accent/20"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.6, type: 'spring' }}
+                        className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-[2rem] hover:bg-white/10 transition-all group"
                     >
-                        <div className="mb-4">
-                            <Icon name="Activity" size={40} />
+                         <div className="mb-4 flex items-center justify-between">
+                            <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400 group-hover:text-blue-300 transition-colors">
+                                <Icon name="Factory" size={24} />
+                            </div>
+                            <span className="text-xs font-bold text-slate-500 uppercase">Capacidad</span>
                         </div>
-                        <h3 className="text-3xl font-black mb-1">15</h3>
-                        <p className="text-xs font-bold uppercase tracking-widest opacity-80">Obras en Ejecución</p>
+                        <h3 className="text-3xl font-black text-white mb-1">1.200</h3>
+                        <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Ton / Día</p>
+                        <div className="w-full bg-white/10 h-1 mt-4 rounded-full overflow-hidden">
+                            <div className="bg-blue-500 h-full w-[85%]" />
+                        </div>
                     </motion.div>
 
-                     <motion.div 
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.8 }}
-                        className="col-span-2 bg-slate-900/80 backdrop-blur-md border-l-4 border-accent p-6 flex items-center gap-6"
+                    {/* Card 3: 5 Year Projects */}
+                    <motion.div 
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.7, type: 'spring' }}
+                         className="bg-accent text-slate-900 p-6 rounded-[2rem] shadow-lg shadow-accent/10 relative overflow-hidden group hover:scale-[1.02] transition-transform"
                     >
-                        <div className="size-12 rounded-full bg-white/10 flex items-center justify-center text-white shrink-0">
-                            <Icon name="MapPin" size={24} />
+                        <div className="absolute -right-4 -bottom-4 opacity-10">
+                            <Icon name="Briefcase" size={100} />
                         </div>
-                        <div>
-                             <p className="text-xs font-bold uppercase text-slate-400 mb-1">Ubicación</p>
-                             <p className="text-white font-bold text-lg">Puerto La Cruz, Municipio Sotillo</p>
+                        <div className="relative z-10">
+                            <div className="mb-4">
+                                <Icon name="Briefcase" size={28} className="text-slate-900" />
+                            </div>
+                            <h3 className="text-4xl font-black mb-1">500+</h3>
+                            <p className="text-xs font-bold uppercase tracking-widest opacity-80 leading-tight">
+                                Obras Ejecutadas <br/> (5 Años)
+                            </p>
                         </div>
                     </motion.div>
+
                  </div>
             </div>
         </div>

@@ -10,30 +10,30 @@ const FeaturedProjects = () => {
   const projects = [
     {
       id: 1,
-      title: "Gran Misión Vialidad Sotillo",
-      description: "Recuperación integral de avenidas principales incluyendo el Paseo Colón y la Av. Municipal con asfaltado de alta resistencia.",
-      image: "/assets/images/hero-paseo-colon.png",
-      status: "Ejecución Continua",
-      progress: 92,
-      tags: ["Asfaltado", "Vialidad"]
+      title: "",
+      description: "",
+      image: "/assets/images/Impacto Real_1.jpg",
+      status: "Completado",
+      progress: 100,
+      tags: ["Hidráulica", "Social"]
     },
     {
       id: 2,
-      title: "Plan Agua para el Pueblo",
-      description: "Construcción y rehabilitación de acueductos urbanos y rurales para garantizar el suministro vital a todas las comunidades del municipio.",
-      image: "https://images.unsplash.com/photo-1541944743827-e04bb645v963",
+      title: "",
+      description: "",
+      image: "/assets/images/Impacto Real_2.jpg",
       status: "Completado",
       progress: 100,
       tags: ["Hidráulica", "Social"]
     },
     {
       id: 3,
-      title: "Iluminando Sotillo",
-      description: "Modernización del sistema de alumbrado público con tecnología LED en bulevares, plazas y zonas de alta afluencia ciudadana.",
-      image: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205",
-      status: "En Progreso",
-      progress: 75,
-      tags: ["Eléctrico", "Urbano"]
+      title: "",
+      description: "",
+      image: "/assets/images/Impacto Real_3.jpg",
+      status: "Completado",
+      progress: 100,
+      tags: ["Hidráulica", "Social"]
     }
   ];
 
