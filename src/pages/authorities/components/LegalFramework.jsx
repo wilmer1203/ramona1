@@ -41,7 +41,7 @@ const LegalFramework = () => {
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           
           {/* Text Content */}
-          <div className="lg:w-1/3 sticky top-24">
+          <div className="lg:w-1/3 relative lg:sticky lg:top-24">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-6 backdrop-blur-md">
               <Icon name="Scale" size={14} />
               Seguridad Jurídica

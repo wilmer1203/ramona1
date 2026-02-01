@@ -9,7 +9,6 @@ import Timeline from '../../components/ui/Timeline';
 import OrganogramNode from '../authorities/components/OrganogramNode';
 import AuthorityModal from '../authorities/components/AuthorityModal';
 import GovernancePillars from '../authorities/components/GovernancePillars';
-import LegalFramework from '../authorities/components/LegalFramework';
 import TransparencyCTA from '../authorities/components/TransparencyCTA';
 import LeadershipCard from '../about-us/components/LeadershipCard'; // Already here
 import ValueCard from './components/ValueCard';
@@ -508,24 +507,19 @@ const AboutUs = () => {
             </div>
         </section>
 
-        {/* 4. Governance Pillars & Legal */}
+        {/* 4. Governance Pillars */}
         <div className="bg-slate-950">
            <GovernancePillars />
-           <LegalFramework />
         </div>
 
         {/* Values Section (Parallax Background) */}
         <section className="py-24 relative overflow-hidden bg-slate-950 flex items-center">
-           {/* Parallax Background */}
-           <div className="absolute inset-0 z-0">
-               <img 
-                 src="/assets/images/7.jpg" 
-                 alt="Background" 
-                 className="w-full h-full object-cover fixed-parallax"
-                 style={{ objectPosition: 'center' }}
-               />
-               <div className="absolute inset-0 bg-slate-950/30 z-10" />
-           </div>
+           {/* Parallax Background - Fixed for Mobile */}
+           <div 
+             className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-scroll md:bg-fixed"
+             style={{ backgroundImage: "url('/assets/images/7.jpg')" }}
+           />
+           <div className="absolute inset-0 bg-slate-950/30 z-10" />
 
            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
               <div className="text-center mb-16">
