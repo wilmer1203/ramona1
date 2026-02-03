@@ -11,6 +11,7 @@ import ProjectDetailsModal from './components/ProjectDetailsModal';
 import StatsOverview from './components/StatsOverview';
 import Button from '../../components/ui/Button';
 import Aurora from '../../components/ui/Aurora';
+import { excelProjects } from '../../data/projectsData';
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -186,7 +187,11 @@ const Projects = () => {
          role: "Director de Vialidad"
        }
     }
+
   ];
+
+  // Merge manual projects with Excel projects
+  const allProjects = [...projects, ...excelProjects];
 
   const stats = [
     {
@@ -216,7 +221,7 @@ const Projects = () => {
   ];
 
   const filteredProjects = useMemo(() => {
-    let filtered = projects;
+    let filtered = allProjects;
 
     if (activeCategory !== 'all') {
       filtered = filtered?.filter((project) => project?.municipality === activeCategory);
