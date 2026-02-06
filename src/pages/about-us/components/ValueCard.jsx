@@ -20,17 +20,13 @@ const ValueCard = ({ value, index }) => {
       
       <div className="relative h-full bg-slate-900 border border-white/10 rounded-2xl p-8 flex flex-col items-start overflow-hidden">
         {/* Decorative pattern */}
-        <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
-          <Icon name={value?.icon} size={120} />
-        </div>
 
         <motion.div
           animate={{ rotate: isHovered ? 360 : 0 }}
           transition={{ duration: 0.8, ease: "anticipate" }}
-          className="size-16 rounded-xl flex items-center justify-center mb-8 shadow-xl"
-          style={{ background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%)' }}
+          className="size-16 rounded-xl flex items-center justify-center mb-8 shadow-xl bg-slate-800 border border-white/10 group-hover:border-[#FFCC00]/50 transition-colors"
         >
-          <Icon name={value?.icon} size={32} color="#ffffff" />
+          <Icon name={value?.icon} size={32} className="text-[#FFCC00]" />
         </motion.div>
 
         <h3 className="text-2xl font-black mb-4 text-white group-hover:text-accent transition-colors">

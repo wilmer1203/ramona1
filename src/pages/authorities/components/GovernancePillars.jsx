@@ -4,67 +4,90 @@ import Icon from '../../../components/AppIcon';
 
 const pillars = [
   {
-    icon: "FileText",
+    icon: "FileSearch", // More specific than FileText
     title: "Transparencia Total",
-    desc: "Acceso abierto a la información de gestión y rendición de cuentas clara ante el Municipio y sus ciudadanos.",
-    color: "from-blue-400 to-blue-600"
+    desc: "Acceso abierto a la información. Gestión clara sin secretos ante los ciudadanos.",
+    color: "from-blue-400 to-blue-600",
+    image: "/assets/images/nosotros.jpg"
   },
   {
-    icon: "Cpu",
+    icon: "Factory", // Industrial context
     title: "Eficiencia Operativa",
-    desc: "Maximización de recursos técnicos y financieros para ejecutar obras de alto impacto con menor costo.",
-    color: "from-cyan-400 to-cyan-600"
+    desc: "Planta de Asfalto al 100%. Maximizamos recursos para obras de alto impacto.",
+    color: "from-cyan-400 to-cyan-600",
+    image: "/assets/images/asphalt-plant.png"
   },
   {
-    icon: "Heart",
+    icon: "Handshake", // More interactive/social
     title: "Compromiso Social",
-    desc: "Gestión orientada 100% al bienestar del ciudadano de Puerto La Cruz, priorizando las necesidades colectivas.",
-    color: "from-red-400 to-pink-600"
+    desc: "Proyectos que nacen de la comunidad. Infraestructura con sentido humano.",
+    color: "from-red-400 to-pink-600",
+    image: "/assets/images/5.jpg"
   },
   {
-    icon: "Shield",
+    icon: "Scale", // Justice/Ethics
     title: "Ética e Integridad",
-    desc: "Cero tolerancia a la corrupción y apego estricto a la normativa legal en cada proceso administrativo.",
-    color: "from-emerald-400 to-emerald-600"
+    desc: "Cero tolerancia a la corrupción. Equipo profesional comprometido con Sotillo.",
+    color: "from-emerald-400 to-emerald-600",
+    image: "/assets/images/motor_1.jpg"
   }
 ];
 
 const GovernancePillars = () => {
   return (
-    <section className="py-20 bg-slate-900 border-b border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-black text-white mb-6">Pilares de Gobernanza</h2>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-            Nuestra gestión se fundamenta en cuatro principios inquebrantables que garantizan el buen gobierno corporativo.
-          </p>
+    <section className="py-20 relative overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/assets/images/8.jpg" 
+          alt="Background Texture" 
+          className="w-full h-full object-cover opacity-30 fixed-background"
+        />
+        <div className="absolute inset-0 bg-slate-950/85" /> {/* High opacity to prevent visual noise */}
+      </div>
+      
+      {/* Top Border */}
+      <div className="absolute top-0 left-0 w-full h-px bg-white/10 z-10" />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-black text-[#FFCC00] mb-2 uppercase tracking-tight">Pilares de Gobernanza</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {pillars.map((pillar, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="relative group h-full"
+              className="group relative h-[550px] rounded-3xl overflow-hidden cursor-default shadow-2xl border border-white/10"
             >
-              {/* Card Background with Glass effect */}
-              <div className="absolute inset-0 bg-white/5 rounded-3xl blur-sm group-hover:bg-white/10 transition-colors" />
-              
-              <div className="relative h-full p-8 rounded-3xl border border-white/10 bg-slate-800/50 backdrop-blur-md flex flex-col items-center text-center">
-                
-                {/* Icon Wrapper */}
-                <div className={`size-16 rounded-2xl bg-gradient-to-br ${pillar.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  <Icon name={pillar.icon} size={32} className="text-white" />
-                </div>
+              {/* Background Image */}
+              <div className="absolute inset-0">
+                 <img 
+                    src={pillar.image} 
+                    alt={pillar.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                 />
+                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent opacity-90 group-hover:opacity-80 transition-opacity duration-300" />
+              </div>
 
-                <h3 className="text-xl font-bold text-white mb-4">{pillar.title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">
-                  {pillar.desc}
-                </p>
+              {/* Top Icon Badge - No container, just Big Yellow Icon */}
+              <div className="absolute top-6 right-6 z-20">
+                 <Icon name={pillar.icon} size={48} className="text-[#FFCC00] drop-shadow-md" strokeWidth={1.5} />
+              </div>
+
+              {/* Content Bottom */}
+              <div className="absolute bottom-0 left-0 w-full p-6 z-20 transform transition-transform duration-300 group-hover:translate-y-0">
+                 <div className={`h-1 w-12 rounded-full bg-gradient-to-r ${pillar.color} mb-4`} />
+                 <h3 className="text-2xl font-black text-white mb-3 leading-tight">
+                    {pillar.title}
+                 </h3>
+                 <p className="text-slate-300 text-sm leading-relaxed opacity-90 font-light border-l-2 border-white/20 pl-3">
+                    {pillar.desc}
+                 </p>
               </div>
             </motion.div>
           ))}
