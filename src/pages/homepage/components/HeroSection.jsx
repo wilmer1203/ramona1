@@ -1,8 +1,23 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useSpring, useTransform, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
+
+const CountUp = ({ to, duration = 2, className }) => {
+  const ref = React.useRef(null);
+  const inView = useInView(ref, { once: true });
+  const spring = useSpring(0, { duration: duration * 1000, bounce: 0 });
+  const display = useTransform(spring, (current) => Math.round(current).toLocaleString('es-VE'));
+
+  useEffect(() => {
+    if (inView) {
+      spring.set(to);
+    }
+  }, [inView, to, spring]);
+
+  return <motion.span ref={ref} className={className}>{display}</motion.span>;
+};
 
 const HeroSection = () => {
   const projectHighlights = [
@@ -116,9 +131,6 @@ const HeroSection = () => {
                         transition={{ delay: 0.5, type: 'spring' }}
                         className="col-span-2 bg-gradient-to-br from-slate-900/90 to-black/90 backdrop-blur-xl border border-white/10 p-8 rounded-[2rem] shadow-2xl relative overflow-hidden group hover:border-accent/30 transition-colors"
                     >
-                        <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
-                            <Icon name="HardHat" size={140} className="text-white" />
-                        </div>
                         <div className="relative z-10 flex items-center justify-between">
                             <div>
                                 <div className="flex items-center gap-2 mb-2">
@@ -126,14 +138,11 @@ const HeroSection = () => {
                                     <span className="text-accent font-bold uppercase tracking-widest text-xs">Récord 2026</span>
                                 </div>
                                 <h3 className="text-6xl font-black text-white mb-2 tracking-tighter">
-                                    12.000<span className="text-accent text-4xl">+</span>
+                                    <CountUp to={12000} className="" /><span className="text-accent text-4xl">+</span>
                                 </h3>
                                 <p className="text-slate-300 font-medium text-lg leading-tight">
                                     Toneladas de Asfalto <br/> Colocadas
                                 </p>
-                            </div>
-                            <div className="h-16 w-16 rounded-2xl bg-accent/10 flex items-center justify-center text-accent border border-accent/20 group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(255,204,0,0.1)]">
-                                <Icon name="TrendingUp" size={32} />
                             </div>
                         </div>
                     </motion.div>
@@ -145,16 +154,11 @@ const HeroSection = () => {
                         transition={{ delay: 0.6, type: 'spring' }}
                         className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-[2rem] hover:bg-white/10 transition-all group"
                     >
-                         <div className="mb-4 flex items-center justify-between">
-                            <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400 group-hover:text-blue-300 transition-colors">
-                                <Icon name="Factory" size={24} />
-                            </div>
-                            <span className="text-xs font-bold text-slate-500 uppercase">Capacidad</span>
-                        </div>
-                        <h3 className="text-3xl font-black text-white mb-1">1.200</h3>
-                        <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Ton / Día</p>
-                        <div className="w-full bg-white/10 h-1 mt-4 rounded-full overflow-hidden">
-                            <div className="bg-blue-500 h-full w-[85%]" />
+                         <div className="flex flex-col justify-center h-full">
+                            <h4 className="text-[#FFCC00] font-bold uppercase tracking-widest text-[15px] mb-1">Producción Diaria</h4>
+                            <h3 className="text-5xl font-black text-white mb-2 tracking-tighter">
+                                <CountUp to={1200} /><span className="text-slate-500 text-lg ml-1 font-bold">Tons</span>
+                            </h3>
                         </div>
                     </motion.div>
 
@@ -163,19 +167,14 @@ const HeroSection = () => {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.7, type: 'spring' }}
-                         className="bg-accent text-slate-900 p-6 rounded-[2rem] shadow-lg shadow-accent/10 relative overflow-hidden group hover:scale-[1.02] transition-transform"
+                         className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-[2rem] hover:bg-white/10 transition-all group"
                     >
-                        <div className="absolute -right-4 -bottom-4 opacity-10">
-                            <Icon name="Briefcase" size={100} />
-                        </div>
-                        <div className="relative z-10">
-                            <div className="mb-4">
-                                <Icon name="Briefcase" size={28} className="text-slate-900" />
-                            </div>
-                            <h3 className="text-4xl font-black mb-1">500+</h3>
-                            <p className="text-xs font-bold uppercase tracking-widest opacity-80 leading-tight">
-                                Obras Ejecutadas <br/> (5 Años)
-                            </p>
+                         <div className="flex flex-col justify-center h-full">
+                            <h4 className="text-[#FFCC00] font-bold uppercase tracking-widest text-[15px] mb-1">Obras Ejecutadas</h4>
+                            <h3 className="text-5xl font-black text-white mb-2 tracking-tighter">
+                                <CountUp to={500} />
+                                <span className="text-[#FFCC00] text-3xl">+</span>
+                            </h3>
                         </div>
                     </motion.div>
 
