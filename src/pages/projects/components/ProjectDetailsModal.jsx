@@ -73,14 +73,7 @@ const ProjectDetailsModal = ({ project, isOpen, onClose }) => {
             className="fixed inset-2 md:inset-10 lg:inset-x-24 lg:inset-y-14 z-50 overflow-hidden flex justify-center"
           >
             <div className="bg-[#0B1120] w-full max-w-7xl rounded-[2rem] shadow-2xl flex flex-col border border-white/10 overflow-hidden relative">
-               {/* Decorative Headers */}
-               <div className="absolute top-0 inset-x-0 h-1.5 flex z-30">
-                    <div className="w-1/3 bg-[#FFCC00]" />
-                    <div className="w-1/3 bg-[#243F60]" />
-                    <div className="w-1/3 bg-[#C00000]" />
-               </div>
-
-              <div className="flex items-center justify-between p-6 md:p-8 border-b border-white/5 relative z-10 bg-slate-900/50">
+              <div className="flex items-center justify-between p-6 border-b border-white/5 relative z-10 bg-slate-900/50">
                 <div>
                    <div className="flex items-center gap-3 mb-2">
                        <span className={`px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-widest border ${getStatusColor(project?.status)} bg-transparent`}>
@@ -103,7 +96,7 @@ const ProjectDetailsModal = ({ project, isOpen, onClose }) => {
                   
                   {/* Left Column: Interactive Visuals */}
                   <div className="lg:col-span-7 bg-black/20 p-6 md:p-8 flex flex-col gap-6">
-                    <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
+                    <div className="relative aspect-[4/5] md:aspect-video lg:aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
                       <AnimatePresence mode="wait">
                           <motion.div
                             key={activeImageIndex}
@@ -147,8 +140,8 @@ const ProjectDetailsModal = ({ project, isOpen, onClose }) => {
                     {/* Technical Specs Row */}
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                         {[
-                            { label: "Inversión", value: project?.budget, icon: "DollarSign" },
-                            { label: "Beneficiarios", value: project?.beneficiaries, icon: "Users" },
+                            { label: "Material Colocado", value: project?.budget, icon: "Layers" },
+                            { label: "Alcance", value: project?.beneficiaries, icon: "Map" },
                             { label: "Inicio", value: project?.startDate, icon: "Calendar" },
                             { label: "Entrega", value: project?.endDate, icon: "Flag" }
                         ].map((stat, i) => (
@@ -162,17 +155,7 @@ const ProjectDetailsModal = ({ project, isOpen, onClose }) => {
                         ))}
                     </div>
 
-                    {/* Map */}
-                    <div className="bg-slate-900 rounded-2xl p-1 border border-white/10 flex-grow">
-                      <iframe
-                          width="100%"
-                          height="100%"
-                          loading="lazy"
-                          title={project?.name}
-                          src={`https://www.google.com/maps?q=${project?.coordinates?.lat},${project?.coordinates?.lng}&z=15&output=embed&maptype=satellite`}
-                          className="w-full h-full rounded-xl grayscale-[50%] hover:grayscale-0 transition-all duration-700 opacity-80 hover:opacity-100"
-                      />
-                    </div>
+
                   </div>
 
                   {/* Right Column: Report Details */}
@@ -209,7 +192,7 @@ const ProjectDetailsModal = ({ project, isOpen, onClose }) => {
 
                     {/* Contractor Info */}
                     <div>
-                        <h3 className="text-slate-500 font-black uppercase tracking-widest text-xs mb-4">Empresa Responsable</h3>
+                        <h3 className="text-[#FFCC00] font-black uppercase tracking-widest text-xs mb-4">Empresa Responsable</h3>
                         <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl border border-white/5">
                             <div className="size-10 bg-white/10 rounded-full flex items-center justify-center text-white">
                                 <Icon name="Briefcase" size={20} />
@@ -221,11 +204,16 @@ const ProjectDetailsModal = ({ project, isOpen, onClose }) => {
                         </div>
                     </div>
 
-                    <div className="pt-8 mt-auto">
-                        <button className="w-full py-4 rounded-xl bg-[#FFCC00] hover:bg-yellow-400 text-slate-900 font-black uppercase tracking-widest shadow-lg hover:shadow-[0_0_25px_rgba(255,204,0,0.4)] transition-all flex items-center justify-center gap-3">
-                            <Icon name="Download" size={20} className="stroke-[2.5]" />
-                            Descargar Informe Técnico
-                        </button>
+                    {/* Map moved here */}
+                    <div className="bg-slate-900 rounded-2xl p-1 border border-white/10 h-48 mt-8">
+                      <iframe
+                          width="100%"
+                          height="100%"
+                          loading="lazy"
+                          title={project?.name}
+                          src={`https://www.google.com/maps?q=${project?.coordinates?.lat},${project?.coordinates?.lng}&z=15&output=embed&maptype=satellite`}
+                          className="w-full h-full rounded-xl grayscale-[50%] hover:grayscale-0 transition-all duration-700 opacity-80 hover:opacity-100"
+                      />
                     </div>
 
                   </div>

@@ -77,12 +77,6 @@ const LegalFramework = () => {
                       : 'bg-slate-900/50 border-white/5 hover:border-[#FFCC00]/30 hover:bg-slate-800/80'}
                 `}
               >
-                {/* Tricolor Accent Bar */}
-                <div className="absolute top-0 right-0 w-24 h-1 flex rounded-bl-xl overflow-hidden">
-                    <div className="w-1/3 bg-[#FFCC00]" />
-                    <div className="w-1/3 bg-[#243F60]" />
-                    <div className="w-1/3 bg-[#C00000]" />
-                </div>
 
                 {/* Glow Effect */}
                 <div className={`absolute -right-12 -top-12 w-32 h-32 rounded-full blur-[50px] transition-opacity duration-500

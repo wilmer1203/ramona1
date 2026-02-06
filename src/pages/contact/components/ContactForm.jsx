@@ -1,8 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Icon from '../../../components/AppIcon';
 
+import emailjs from '@emailjs/browser';
+
 const ContactForm = () => {
+
+
+
+
+  // CONFIGURACIÓN DE EMAILJS (¡REEMPLAZA ESTOS VALORES CON LOS TUYOS!)
+  // Crea tu cuenta gratis en https://www.emailjs.com/
+  const SERVICE_ID = "service_e4k16sk"; 
+  const TEMPLATE_ID = "template_z5yzeda"; 
+  const PUBLIC_KEY = "8pIfN356iGAOtP3Qx";
+  const IMGBB_API_KEY = "7b8e6d3de8d316ba8b8b5dc97d46411c";
+
   const [formData, setFormData] = useState({
     name: '',
     cedula: '',
@@ -25,6 +38,15 @@ const ContactForm = () => {
   const handleImageChange = (e) => {
     const file = e.target.files?.[0];
     if (file) {
+      // Validación de peso (Máximo 2MB para evitar errores de EmailJS)
+      if (file.size > 2 * 1024 * 1024) {
+        alert("⚠️ La imagen es muy pesada. El límite es 2MB. Por favor intenta con una foto más ligera o comprimida.");
+        e.target.value = ""; // Limpiar input
+        setFormData(prev => ({ ...prev, image: null }));
+        setPreviewUrl(null);
+        return;
+      }
+
       setFormData(prev => ({ ...prev, image: file }));
       const reader = new FileReader();
       reader.onloadend = () => setPreviewUrl(reader.result);
@@ -40,9 +62,76 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    alert('¡Reporte enviado con éxito! Gracias por contribuir con el municipio.');
-    setIsSubmitting(false);
+
+    try {
+      let imageUrl = null;
+      const fileInput = e.target.querySelector('input[name="evidence_file"]');
+      const file = fileInput?.files?.[0];
+
+      // 1. Subir imagen a ImgBB si existe
+      if (file) {
+        const formData = new FormData();
+        formData.append('image', file);
+        
+        // Mostrar estado de carga intermedio si se desea, o esperar
+        const response = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, {
+          method: 'POST',
+          body: formData,
+        });
+
+        const data = await response.json();
+        if (data.success) {
+          imageUrl = data.data.url; // URL pública de la imagen
+        } else {
+          throw new Error('Error al subir imagen a ImgBB: ' + (data.error?.message || 'Desconocido'));
+        }
+      }
+
+      // 2. Preparar parámetros para EmailJS (JSON)
+      // Agregamos el link de la imagen al final del mensaje para que salga en el correo
+      const fullMessage = imageUrl 
+        ? `${formData.description}\n\n📷 Evidencia Adjunta: ${imageUrl}`
+        : formData.description;
+
+      const templateParams = {
+        to_name: "Administrador COVIMUS",
+        user_name: formData.name,
+        user_email: formData.email,
+        user_phone: formData.phone,
+        user_cedula: formData.cedula,
+        request_type: formData.requestType,
+        sector: formData.sector,
+        reference: formData.referencePoint,
+        message: fullMessage, // El mensaje ahora incluye el link
+      };
+
+      // 3. Enviar correo usando emailjs.send (NO sendForm)
+      // Esto evita el problema de los adjuntos binarios
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+
+      alert('¡Reporte enviado con éxito! Recibirá una copia en su correo.');
+      
+      // Reset form
+      setFormData({
+        name: '',
+        cedula: '',
+        phone: '',
+        email: '',
+        requestType: 'denuncia',
+        sector: '',
+        referencePoint: '',
+        description: '',
+        image: null
+      });
+      setPreviewUrl(null);
+      e.target.reset(); 
+
+    } catch (error) {
+      console.error("Submission Error:", error);
+      alert(`Error al enviar: ${error.message || JSON.stringify(error)}. Revise la consola.`);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const requestTypes = [
@@ -61,13 +150,6 @@ const ContactForm = () => {
       {/* Glow Effect */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-[#FFCC00]/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
       
-      {/* Tricolor Top Accent */}
-      <div className="absolute top-0 inset-x-0 h-1 flex z-20">
-            <div className="w-1/3 bg-[#FFCC00]" />
-            <div className="w-1/3 bg-[#243F60]" />
-            <div className="w-1/3 bg-[#C00000]" />
-      </div>
-
       <div className="relative z-10 mb-2">
          <h3 className="text-2xl font-black text-white mb-2">Formulario de Registro</h3>
          <p className="text-slate-400 text-sm">Sus datos están protegidos y serán usados solo para gestionar su solicitud.</p>
@@ -84,6 +166,7 @@ const ContactForm = () => {
             value={formData.name}
             onChange={(e) => handleChange('name', e.target.value)}
             className="w-full rounded-2xl border border-white/10 bg-slate-900/50 text-white h-16 px-6 focus:outline-none focus:border-[#FFCC00]/50 focus:bg-slate-900 focus:shadow-[0_0_20px_rgba(255,204,0,0.1)] transition-all placeholder:text-slate-600 hover:bg-slate-900/80 backdrop-blur-sm"
+            name="user_name"
           />
         </label>
         <label className="flex flex-col flex-1 group">
@@ -95,6 +178,7 @@ const ContactForm = () => {
              value={formData.cedula}
              onChange={(e) => handleChange('cedula', e.target.value)}
              className="w-full rounded-2xl border border-white/10 bg-slate-900/50 text-white h-16 px-6 focus:outline-none focus:border-[#FFCC00]/50 focus:bg-slate-900 focus:shadow-[0_0_20px_rgba(255,204,0,0.1)] transition-all placeholder:text-slate-600 hover:bg-slate-900/80 backdrop-blur-sm"
+             name="user_cedula"
            />
         </label>
       </div>
@@ -109,6 +193,7 @@ const ContactForm = () => {
             value={formData.phone}
             onChange={(e) => handleChange('phone', e.target.value)}
             className="w-full rounded-2xl border border-white/10 bg-slate-900/50 text-white h-16 px-6 focus:outline-none focus:border-[#FFCC00]/50 focus:bg-slate-900 focus:shadow-[0_0_20px_rgba(255,204,0,0.1)] transition-all placeholder:text-slate-600 hover:bg-slate-900/80 backdrop-blur-sm"
+            name="user_phone"
           />
         </label>
         <label className="flex flex-col flex-1 group">
@@ -120,6 +205,7 @@ const ContactForm = () => {
              value={formData.email}
              onChange={(e) => handleChange('email', e.target.value)}
              className="w-full rounded-2xl border border-white/10 bg-slate-900/50 text-white h-16 px-6 focus:outline-none focus:border-[#FFCC00]/50 focus:bg-slate-900 focus:shadow-[0_0_20px_rgba(255,204,0,0.1)] transition-all placeholder:text-slate-600 hover:bg-slate-900/80 backdrop-blur-sm"
+             name="user_email"
            />
         </label>
       </div>
@@ -133,6 +219,8 @@ const ContactForm = () => {
                 value={formData.requestType}
                 onChange={(e) => handleChange('requestType', e.target.value)}
                 className="w-full rounded-2xl border border-white/10 bg-slate-900/50 text-white h-16 px-6 appearance-none focus:outline-none focus:border-[#FFCC00]/50 focus:bg-slate-900 cursor-pointer [&>option]:bg-slate-950 transition-all hover:bg-slate-900/80 backdrop-blur-sm"
+                name="request_type"
+
             >
                 {requestTypes.map(type => (
                 <option key={type.value} value={type.value}>
@@ -151,6 +239,8 @@ const ContactForm = () => {
             <span className={`${labelClasses} group-focus-within:text-[#FFCC00] transition-colors`}>Sector / Parroquia *</span>
             <input 
                 className="w-full rounded-2xl border border-white/10 bg-slate-900/50 text-white h-16 px-6 focus:outline-none focus:border-[#FFCC00]/50 focus:bg-slate-900 focus:shadow-[0_0_20px_rgba(255,204,0,0.1)] transition-all placeholder:text-slate-600 hover:bg-slate-900/80 backdrop-blur-sm"
+                name="sector"
+
                 placeholder="Ej. Av. Intercomunal" 
                 type="text"
                 value={formData.sector}
@@ -166,6 +256,8 @@ const ContactForm = () => {
         <div className="relative">
             <input 
                 className="w-full rounded-2xl border border-white/10 bg-slate-900/50 text-white h-16 pl-14 pr-6 focus:outline-none focus:border-[#FFCC00]/50 focus:bg-slate-900 focus:shadow-[0_0_20px_rgba(255,204,0,0.1)] transition-all placeholder:text-slate-600 hover:bg-slate-900/80 backdrop-blur-sm"
+                name="reference"
+
                 placeholder="Ej. Frente al Centro Comercial..." 
                 type="text"
                 value={formData.referencePoint}
@@ -183,6 +275,8 @@ const ContactForm = () => {
         <span className={`${labelClasses} group-focus-within:text-[#FFCC00] transition-colors`}>Descripción de la Falla</span>
         <textarea 
             className="w-full rounded-2xl border border-white/10 bg-slate-900/50 text-white p-6 focus:outline-none focus:border-[#FFCC00]/50 focus:bg-slate-900 focus:shadow-[0_0_20px_rgba(255,204,0,0.1)] transition-all placeholder:text-slate-600 hover:bg-slate-900/80 backdrop-blur-sm resize-none min-h-[150px]" 
+            name="message" 
+ 
             placeholder="Describa brevemente el problema (hueco, alcantarilla dañada, falta de señalización...)" 
             rows="4"
             value={formData.description}
@@ -201,6 +295,7 @@ const ContactForm = () => {
         >
             <input
                 type="file"
+                name="evidence_file"
                 accept="image/*"
                 onChange={handleImageChange}
                 className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"

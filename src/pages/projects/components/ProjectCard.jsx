@@ -36,15 +36,8 @@ const ProjectCard = ({ project, onViewDetails }) => {
         // Card Container
         className="group bg-slate-950 border border-white/10 rounded-[2rem] overflow-hidden hover:border-[#FFCC00]/50 hover:shadow-[0_0_40px_rgba(255,204,0,0.15)] transition-all duration-500 relative"
       >
-        {/* Tricolor Top Bar */}
-        <div className="absolute top-0 inset-x-0 h-1 flex z-20">
-            <div className="w-1/3 bg-[#FFCC00] shadow-[0_0_10px_rgba(255,204,0,0.5)]" />
-            <div className="w-1/3 bg-[#243F60]" />
-            <div className="w-1/3 bg-[#C00000]" />
-        </div>
-
-        {/* Image Section */}
-        <div className="relative h-64 overflow-hidden">
+        {/* Image Section - Vertical 4:5 */}
+        <div className="relative aspect-[4/5] overflow-hidden">
           <Image
              src={project?.image}
              alt={project?.name}
@@ -78,7 +71,7 @@ const ProjectCard = ({ project, onViewDetails }) => {
            {/* Metrics Grid */}
            <div className="grid grid-cols-2 gap-4 py-4 border-t border-white/5 border-b">
               <div>
-                 <span className="text-[10px] font-black uppercase text-slate-500 tracking-wider block mb-1">Inversión</span>
+                 <span className="text-[10px] font-black uppercase text-slate-500 tracking-wider block mb-1">Material</span>
                  <span className="text-base font-bold text-white font-mono">{project?.budget}</span>
               </div>
               <div className="text-right">

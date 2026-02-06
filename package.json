@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@dhiwise/component-tagger": "^1.0.14",
+    "@emailjs/browser": "^4.4.1",
     "@radix-ui/react-slot": "^1.2.3",
     "@reduxjs/toolkit": "^2.6.1",
     "@tailwindcss/forms": "^0.5.7",
@@ -57,6 +58,7 @@
     "tailwindcss-animate": "^1.0.7",
     "tailwindcss-elevation": "^2.0.0",
     "tailwindcss-fluid-type": "^2.0.7",
+    "word-extractor": "^1.0.4",
     "xlsx": "^0.18.5"
   },
   "scripts": {

@@ -1,1023 +1,293 @@
-// Auto-generated from Cuantificacion_asfalto.xlsx
-export const excelProjects = [
-  {
-    "id": "excel-1",
-    "title": "AVENIDAS Y CALLES",
-    "category": "SECTOR",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AVENIDAS Y CALLES",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "NaN",
-      "km": "NaN",
-      "inversion": "N/A"
+export const projects = [
+    {
+      id: 1,
+      name: "Mejoramiento del Espigón",
+      category: "infrastructure", 
+      categoryIcon: "Construction",
+      municipality: "Paseo Colón",
+      description: "Mejoramiento de la superficie con material granular.",
+      fullDescription: "Como parte del plan integral de mantenimiento de infraestructuras urbanas, la Corporación de Vialidad e Infraestructura del municipio Sotillo (Covimus) ejecuta trabajo de mejoramiento y estabilización del terreno del espigón del emblemático Paseo de la Cruz y el Mar. La intervención técnica consiste en el mejoramiento de la superficie con material granular (ripio) en aproximadamente 200 metros, y su posterior compactación con maquinaria pesada, garantizando una base sólida y duradera para el tránsito en esta zona estratégica de la costa. Con estas acciones, el Alcalde de Sotillo @jesusmarcanot reafirma el compromiso de la recuperación de los espacios públicos y la optimización de la infraestructura vial de la ciudad.",
+      images: [
+        "/assets/images/ima_projects/2026/Mejoramiento_Espigon/espigon1.webp",
+        "/assets/images/ima_projects/2026/Mejoramiento_Espigon/espigon2.webp",
+        "/assets/images/ima_projects/2026/Mejoramiento_Espigon/espigon3.webp",
+        "/assets/images/ima_projects/2026/Mejoramiento_Espigon/espigon4.webp"
+      ],
+      image: "/assets/images/ima_projects/2026/Mejoramiento_Espigon/espigon1.webp",
+      imageAlt: "Mejoramiento del Espigón",
+      status: "completed",
+      progress: 100,
+      startDate: "02/02/2026",
+      endDate: "02/03/2026",
+      budget: "Ripio (200m aprox)",
+      beneficiaries: "200 Metros", 
+      contractor: "Alcaldía de Sotillo",
+      coordinates: { lat: 10.220913, lng: -64.641596 },
+      impact: "Recuperación de espacios públicos y optimización vial.",
+      testimonial: null
     },
-    "description": "Trabajos de asfaltado y recuperación vial en SECTOR."
-  },
-  {
-    "id": "excel-2",
-    "title": "Av. Igor Rodríguez",
-    "category": "GUARAGUAO",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Av. Igor Rodríguez",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "57.00",
-      "km": "0.16",
-      "inversion": "N/A"
+    {
+      id: 2,
+      name: "Estacionamiento Paseo La Cruz y El Mar",
+      category: "infrastructure",
+      categoryIcon: "Construction",
+      municipality: "Paseo Colón",
+      description: "Recuperación integral, demarcación y asfaltado del estacionamiento.",
+      fullDescription: "En el marco de la recuperación de espacios públicos liderada por el Alcalde Jesús Marcano Tabata, se ejecutó la rehabilitación integral del estacionamiento del Paseo de la Cruz y el Mar. La obra comprendió la colocación de aproximadamente 350 toneladas de asfalto y la demarcación vial de 3,000 m², garantizando el ordenamiento y la seguridad en este punto clave para el esparcimiento familiar. Esta intervención reafirma el compromiso de la gestión municipal, con el apoyo del gobernador Luis Marcano y el presidente Nicolás Maduro, de elevar la calidad de vida de los ciudadanos y potenciar la infraestructura turística de Puerto La Cruz.",
+      images: [
+        "/assets/images/ima_projects/2026/Estacionamiento_Paseo_la_Cruz_y_el_Mar/estacionamiento-paseo-01.jpg",
+        "/assets/images/ima_projects/2026/Estacionamiento_Paseo_la_Cruz_y_el_Mar/estacionamiento-paseo-02.jpg",
+        "/assets/images/ima_projects/2026/Estacionamiento_Paseo_la_Cruz_y_el_Mar/estacionamiento-paseo-03.jpg",
+        "/assets/images/ima_projects/2026/Estacionamiento_Paseo_la_Cruz_y_el_Mar/estacionamiento-paseo-04.jpg",
+        "/assets/images/ima_projects/2026/Estacionamiento_Paseo_la_Cruz_y_el_Mar/estacionamiento-paseo-05.jpg",
+        "/assets/images/ima_projects/2026/Estacionamiento_Paseo_la_Cruz_y_el_Mar/estacionamiento-paseo-06.jpg",
+        "/assets/images/ima_projects/2026/Estacionamiento_Paseo_la_Cruz_y_el_Mar/estacionamiento-paseo-07.jpg"
+      ],
+      image: "/assets/images/ima_projects/2026/Estacionamiento_Paseo_la_Cruz_y_el_Mar/estacionamiento-paseo-01.jpg",
+      imageAlt: "Vista aérea del estacionamiento rehabilitado y demarcado",
+      status: "completed",
+      progress: 100,
+      startDate: "01/12/2025",
+      endDate: "22/12/2025",
+      budget: "390 Ton Asfalto",
+      beneficiaries: "2,000 m²",
+      contractor: "Alcaldía de Sotillo",
+      coordinates: { lat: 10.227253, lng: -64.634818 },
+      impact: "Organización vial y mejora turística del Paseo Colón.",
+      testimonial: null
     },
-    "description": "Trabajos de asfaltado y recuperación vial en GUARAGUAO."
-  },
-  {
-    "id": "excel-3",
-    "title": "Av. Bolívar",
-    "category": "BELLA VISTA",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Av. Bolívar",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "130.00",
-      "km": "0.19",
-      "inversion": "N/A"
+    {
+      id: 3,
+      name: "Rehabilitación de la Av. Municipal (Paseo Miranda)",
+      category: "infrastructure",
+      categoryIcon: "Construction",
+      municipality: "Paseo Miranda",
+      description: "Colocación de 66 toneladas de asfalto en el Casco Central.",
+      fullDescription: "Como parte del plan de recuperación vial del Casco Central, la Alcaldía de Sotillo, en articulación con la Comuna Bahía de Pozuelo, ejecutó la rehabilitación de la Avenida Municipal, específicamente frente al Elevado del Paseo Miranda (Eje 5). Los trabajos consistieron en la colocación de 66 toneladas de mezcla asfáltica en caliente, logrando la recuperación de 99 metros lineales de vialidad. Esta obra optimiza significativamente el flujo vehicular en una de las arterias más transitadas de Puerto La Cruz, garantizando calles más seguras y mejorando la calidad de vida de conductores y transeúntes, gracias a las políticas de inversión del presidente Nicolás Maduro y el gobernador Luis Marcano.",
+      images: [
+        "/assets/images/ima_projects/2026/Paseo_Miranda/av-municipal-miranda-01.jpg",
+        "/assets/images/ima_projects/2026/Paseo_Miranda/av-municipal-miranda-02.jpg",
+        "/assets/images/ima_projects/2026/Paseo_Miranda/av-municipal-miranda-03.jpg",
+        "/assets/images/ima_projects/2026/Paseo_Miranda/av-municipal-miranda-04.jpg",
+        "/assets/images/ima_projects/2026/Paseo_Miranda/av-municipal-miranda-05.jpg",
+        "/assets/images/ima_projects/2026/Paseo_Miranda/av-municipal-miranda-06.jpg"
+      ],
+      image: "/assets/images/ima_projects/2026/Paseo_Miranda/av-municipal-miranda-01.jpg",
+      imageAlt: "Asfaltado en Av. Municipal frente al Elevado",
+      status: "completed",
+      progress: 100,
+      startDate: "07/01/2026",
+      endDate: "12/01/2026",
+      budget: "66 Ton Asfalto",
+      beneficiaries: "99 Metros lineales",
+      contractor: "Alcaldía de Sotillo",
+      coordinates: { lat: 10.210194, lng: -64.633796 },
+      impact: "Optimización del tránsito en el Casco Central.",
+      testimonial: null
     },
-    "description": "Trabajos de asfaltado y recuperación vial en BELLA VISTA."
-  },
-  {
-    "id": "excel-4",
-    "title": "Av. Bolívar",
-    "category": "BELLA VISTA",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Av. Bolívar",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "90.00",
-      "km": "0.13",
-      "inversion": "N/A"
+    {
+      id: 4,
+      name: "Rehabilitación Av. Municipal (Cristina Suite)",
+      category: "infrastructure",
+      categoryIcon: "Construction",
+      municipality: "Av. Municipal",
+      description: "Colocación de 260 toneladas de asfalto frente al Cristina Suite.",
+      fullDescription: "Continuando con la transformación de Puerto La Cruz, la Alcaldía del municipio Sotillo, en trabajo articulado con la Corporación de Vialidad Municipal (Covimus), colocó 260 toneladas de mezcla asfáltica en caliente en la Avenida Municipal. Los trabajos se concentraron específicamente en el tramo frente al Hotel Cristina Suite y la Torre Porteña, optimizando la carpeta de rodamiento en esta zona de alto tráfico. El alcalde Jesús Marcano Tabata supervisó personalmente la jornada, ratificando su compromiso con la modernización vial y la seguridad de todos los porteños para construir un municipio más transitable.",
+      images: [
+        "/assets/images/ima_projects/2026/Cristina_Suite/av-municipal-cristina-suite-01.jpg",
+        "/assets/images/ima_projects/2026/Cristina_Suite/av-municipal-cristina-suite-02.jpg",
+        "/assets/images/ima_projects/2026/Cristina_Suite/av-municipal-cristina-suite-03.jpg",
+        "/assets/images/ima_projects/2026/Cristina_Suite/av-municipal-cristina-suite-04.jpg",
+        "/assets/images/ima_projects/2026/Cristina_Suite/av-municipal-cristina-suite-05.jpg",
+        "/assets/images/ima_projects/2026/Cristina_Suite/av-municipal-cristina-suite-06.jpg"
+      ],
+      image: "/assets/images/ima_projects/2026/Cristina_Suite/av-municipal-cristina-suite-01.jpg",
+      imageAlt: "Asfaltado frente al Cristina Suite y Torre Porteña",
+      status: "completed",
+      progress: 100,
+      startDate: "04/01/2026",
+      endDate: "08/01/2026",
+      budget: "260 Ton Asfalto",
+      beneficiaries: "Tramo Cristina Suite",
+      contractor: "Alcaldía de Sotillo",
+      coordinates: { lat: 10.219646, lng: -64.631615 },
+      impact: "Modernización y seguridad vial en zona de alto tráfico.",
+      testimonial: null
     },
-    "description": "Trabajos de asfaltado y recuperación vial en BELLA VISTA."
-  },
-  {
-    "id": "excel-5",
-    "title": "Av. Bolívar",
-    "category": "BELLA VISTA",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Av. Bolívar",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "200.00",
-      "km": "0.17",
-      "inversion": "N/A"
+    {
+      id: 5,
+      name: "Rehabilitación Av. Américo Vespucio (Doral Beach)",
+      category: "infrastructure",
+      categoryIcon: "Construction",
+      municipality: "Doral Beach",
+      description: "Colocación de 200 toneladas de asfalto frente a Doral Beach.",
+      fullDescription: "Iniciando el plan de obras 2026, la Alcaldía de Sotillo ejecutó la rehabilitación vial de la Avenida Américo Vespucio, específicamente frente al conjunto residencial Doral Beach en el sector La Marina. Esta primera jornada del año, articulada con la Comuna Socialista El Paraíso y Covimus, contempló la colocación de 200 toneladas de mezcla asfáltica en caliente para recuperar 160 metros lineales de vía. Esta obra, respaldada por el gobernador Luis Marcano, mejora sustancialmente la transitabilidad en esta importante zona turística y residencial, garantizando vías dignas y seguras para el pueblo.",
+      images: [
+        "/assets/images/ima_projects/2026/Doral_Beach/rehabilitacion-americo-vespucio-01.jpg",
+        "/assets/images/ima_projects/2026/Doral_Beach/rehabilitacion-americo-vespucio-02.jpg",
+        "/assets/images/ima_projects/2026/Doral_Beach/rehabilitacion-americo-vespucio-03.jpg",
+        "/assets/images/ima_projects/2026/Doral_Beach/rehabilitacion-americo-vespucio-04.jpg",
+        "/assets/images/ima_projects/2026/Doral_Beach/rehabilitacion-americo-vespucio-05.jpg",
+        "/assets/images/ima_projects/2026/Doral_Beach/rehabilitacion-americo-vespucio-06.jpg",
+        "/assets/images/ima_projects/2026/Doral_Beach/rehabilitacion-americo-vespucio-07.jpg",
+        "/assets/images/ima_projects/2026/Doral_Beach/rehabilitacion-americo-vespucio-08.jpg"
+      ],
+      image: "/assets/images/ima_projects/2026/Doral_Beach/rehabilitacion-americo-vespucio-01.jpg",
+      imageAlt: "Asfaltado en Av. Américo Vespucio frente a Doral Beach",
+      status: "completed",
+      progress: 100,
+      startDate: "05/01/2026",
+      endDate: "07/01/2026",
+      budget: "200 Ton Asfalto",
+      beneficiaries: "160 Metros lineales",
+      contractor: "Alcaldía de Sotillo",
+      coordinates: { lat: 10.201146, lng: -64.670631 },
+      impact: "Recuperación vial en zona turística y residencial.",
+      testimonial: null
     },
-    "description": "Trabajos de asfaltado y recuperación vial en BELLA VISTA."
-  },
-  {
-    "id": "excel-6",
-    "title": "Av. Bolívar",
-    "category": "BELLA VISTA",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Av. Bolívar",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "122.00",
-      "km": "0.16",
-      "inversion": "N/A"
+    {
+      id: 6,
+      name: "Rehabilitación Calle Los Tubos (Las Delicias)",
+      category: "infrastructure",
+      categoryIcon: "Construction",
+      municipality: "Las Delicias",
+      description: "Colocación de 200 toneladas de asfalto en el sector Las Delicias.",
+      fullDescription: "En el marco del plan de recuperación integral impulsado por el alcalde Jesús Marcano Tabata, se ejecutó la rehabilitación de la Calle Los Tubos en el sector Las Delicias. Con la colocación de 200 toneladas de mezcla asfáltica en caliente, se consolida una vialidad digna y segura para el servicio del pueblo. Este esfuerzo, articulado con el Poder Popular y respaldado por el gobernador Luis Marcano, transforma realidades y dignifica cada rincón del municipio Juan Antonio Sotillo.",
+      images: [
+        "/assets/images/ima_projects/2025/Los_Tubos_del_sector_Las_Delicias/calle-los-tubos-las-delicias-01.jpg",
+        "/assets/images/ima_projects/2025/Los_Tubos_del_sector_Las_Delicias/calle-los-tubos-las-delicias-02.jpg",
+        "/assets/images/ima_projects/2025/Los_Tubos_del_sector_Las_Delicias/calle-los-tubos-las-delicias-03.jpg",
+        "/assets/images/ima_projects/2025/Los_Tubos_del_sector_Las_Delicias/calle-los-tubos-las-delicias-04.jpg",
+        "/assets/images/ima_projects/2025/Los_Tubos_del_sector_Las_Delicias/calle-los-tubos-las-delicias-05.jpg",
+        "/assets/images/ima_projects/2025/Los_Tubos_del_sector_Las_Delicias/calle-los-tubos-las-delicias-06.jpg"
+      ],
+      image: "/assets/images/ima_projects/2025/Los_Tubos_del_sector_Las_Delicias/calle-los-tubos-las-delicias-01.jpg",
+      imageAlt: "Asfaltado en Calle Los Tubos, sector Las Delicias",
+      status: "completed",
+      progress: 100,
+      startDate: "28/11/2025",
+      endDate: "03/12/2025",
+      budget: "110 Ton Asfalto",
+      beneficiaries: "510 Metros lineales",
+      contractor: "Alcaldía de Sotillo",
+      coordinates: { lat: 10.201325, lng: -64.615322 },
+      impact: "Consolidación de vialidad digna y segura para la comunidad.",
+      testimonial: null
     },
-    "description": "Trabajos de asfaltado y recuperación vial en BELLA VISTA."
-  },
-  {
-    "id": "excel-7",
-    "title": "Av. Daniel Camejo Octavio",
-    "category": "LECHERIA",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Av. Daniel Camejo Octavio",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "124.00",
-      "km": "0.20",
-      "inversion": "N/A"
+    {
+      id: 7,
+      name: "Plan de Asfaltado Av. Municipal",
+      category: "infrastructure",
+      categoryIcon: "Construction",
+      municipality: "Av. Municipal",
+      description: "Colocación de 200 toneladas de asfalto para optimizar la movilidad.",
+      fullDescription: "Dando continuidad al Plan de Asfaltado Integral en el municipio Sotillo, la Alcaldía de Puerto La Cruz a través de Covimus, colocó 200 toneladas de mezcla asfáltica en caliente en un tramo estratégico de la Avenida Municipal. Esta obra optimiza la movilidad urbana y garantiza la seguridad vial, cumpliendo con el compromiso del gobernador Luis Marcano y el alcalde Jesús Marcano Tabata de recuperar los espacios públicos y fortalecer la red vial para el bienestar de los portocruzanos.",
+      images: [
+        "/assets/images/ima_projects/2025/Av.Municipal/av-municipal-nov2025-01.jpg",
+        "/assets/images/ima_projects/2025/Av.Municipal/av-municipal-nov2025-02.jpg",
+        "/assets/images/ima_projects/2025/Av.Municipal/av-municipal-nov2025-03.jpg",
+        "/assets/images/ima_projects/2025/Av.Municipal/av-municipal-nov2025-04.jpg",
+        "/assets/images/ima_projects/2025/Av.Municipal/av-municipal-nov2025-05.jpg"
+      ],
+      image: "/assets/images/ima_projects/2025/Av.Municipal/av-municipal-nov2025-01.jpg",
+      imageAlt: "Asfaltado en tramo de la Av. Municipal",
+      status: "completed",
+      progress: 100,
+      startDate: "16/11/2025",
+      endDate: "21/11/2025",
+      budget: "200 Ton Asfalto",
+      beneficiaries: "150 Metros lineales (Est.)",
+      contractor: "Alcaldía de Sotillo",
+      coordinates: { lat: 10.214109, lng: -64.632568 },
+      impact: "Optimización de la movilidad urbana y seguridad vial.",
+      testimonial: null
     },
-    "description": "Trabajos de asfaltado y recuperación vial en LECHERIA."
-  },
-  {
-    "id": "excel-8",
-    "title": "Estacionamiento Paseo de la Cruz y el Mar",
-    "category": "CASCO CENTRAL",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Estacionamiento Paseo de la Cruz y el Mar",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "81.00",
-      "km": "0.19",
-      "inversion": "N/A"
+    {
+      id: 8,
+      name: "Rehabilitación Av. Municipal (Isla de Cuba - Bomberos)",
+      category: "infrastructure",
+      categoryIcon: "Construction",
+      municipality: "Isla de Cuba",
+      description: "Colocación de 350 toneladas de asfalto en tramo clave de la ciudad.",
+      fullDescription: "Como parte vital del plan de recuperación vial del municipio, la Alcaldía de Sotillo ejecutó la rehabilitación del tramo de la Avenida Municipal comprendido entre la Isla de Cuba (prolongación de la Av. Alterna) y la Redoma de Los Bomberos. Con la colocación de 350 toneladas de asfalto, esta intervención consolida la movilidad en este eje estratégico. El gobernador Luis Marcano y el alcalde Jesús Marcano Tabata continúan trabajando articuladamente en la recuperación de calles y avenidas, sumando esfuerzos para transformar la infraestructura vial de toda la zona metropolitana.",
+      images: [
+        "/assets/images/ima_projects/2025/Isla_Cuba/av-municipal-isla-cuba-01.jpg",
+        "/assets/images/ima_projects/2025/Isla_Cuba/av-municipal-isla-cuba-02.jpg",
+        "/assets/images/ima_projects/2025/Isla_Cuba/av-municipal-isla-cuba-03.jpg",
+        "/assets/images/ima_projects/2025/Isla_Cuba/av-municipal-isla-cuba-04.jpg",
+        "/assets/images/ima_projects/2025/Isla_Cuba/av-municipal-isla-cuba-05.jpg",
+        "/assets/images/ima_projects/2025/Isla_Cuba/av-municipal-isla-cuba-06.jpg"
+      ],
+      image: "/assets/images/ima_projects/2025/Isla_Cuba/av-municipal-isla-cuba-01.jpg",
+      imageAlt: "Asfaltado tramo Isla de Cuba - Bomberos",
+      status: "completed",
+      progress: 100,
+      startDate: "18/11/2025",
+      endDate: "20/11/2025",
+      budget: "727 Ton Asfalto",
+      beneficiaries: "2,000 m²",
+      contractor: "Alcaldía de Sotillo",
+      coordinates: { lat: 10.195494, lng: -64.637249 },
+      impact: "Consolidación de la movilidad en eje estratégico.",
+      testimonial: null
     },
-    "description": "Trabajos de asfaltado y recuperación vial en CASCO CENTRAL."
-  },
-  {
-    "id": "excel-9",
-    "title": "Av. Paseo de la Cruz y el Mar",
-    "category": "CASCO CENTRAL",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Av. Paseo de la Cruz y el Mar",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "94.00",
-      "km": "0.06",
-      "inversion": "N/A"
+    {
+      id: 9,
+      name: "Rehabilitación Av. Universidad (Frente a antiguo Makro)",
+      category: "infrastructure",
+      categoryIcon: "Construction",
+      municipality: "Av. Universidad",
+      description: "Colocación de 750 toneladas de asfalto mejorando la fluidez vehicular.",
+      fullDescription: "Con un avance concreto para Puerto La Cruz, se ejecutó la colocación de 750 toneladas de mezcla asfáltica en caliente en la Avenida Universidad, específicamente frente al antiguo Makro. Esta importante obra de infraestructura, lograda gracias al trabajo articulado del Gobierno Nacional, Regional y Municipal, mejora significativamente la fluidez vehicular y la seguridad en esta arteria principal, beneficiando a miles de conductores diariamente.",
+      images: [
+        "/assets/images/ima_projects/2025/Avenida_Universidad/rehabilitacion-av-universidad-01.jpg",
+        "/assets/images/ima_projects/2025/Avenida_Universidad/rehabilitacion-av-universidad-02.jpg",
+        "/assets/images/ima_projects/2025/Avenida_Universidad/rehabilitacion-av-universidad-03.jpg",
+        "/assets/images/ima_projects/2025/Avenida_Universidad/rehabilitacion-av-universidad-04.jpg",
+        "/assets/images/ima_projects/2025/Avenida_Universidad/rehabilitacion-av-universidad-05.jpg",
+        "/assets/images/ima_projects/2025/Avenida_Universidad/rehabilitacion-av-universidad-06.jpg",
+        "/assets/images/ima_projects/2025/Avenida_Universidad/rehabilitacion-av-universidad-07.jpg"
+      ],
+      image: "/assets/images/ima_projects/2025/Avenida_Universidad/rehabilitacion-av-universidad-01.jpg",
+      imageAlt: "Asfaltado en Av. Universidad frente a antiguo Makro",
+      status: "completed",
+      progress: 100,
+      startDate: "08/11/2025",
+      endDate: "12/11/2025",
+      budget: "800 Ton Asfalto",
+      beneficiaries: "2,000 m²",
+      contractor: "Alcaldía de Sotillo",
+      coordinates: { lat: 10.182618, lng: -64.646196 },
+      impact: "Mejora significativa de la fluidez y seguridad vehicular.",
+      testimonial: null
     },
-    "description": "Trabajos de asfaltado y recuperación vial en CASCO CENTRAL."
-  },
-  {
-    "id": "excel-10",
-    "title": "Av. Paseo de la Cruz y el Mar",
-    "category": "CASCO CENTRAL",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Av. Paseo de la Cruz y el Mar",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "255.00",
-      "km": "0.39",
-      "inversion": "N/A"
+    {
+      id: 10,
+      name: "Rehabilitación Calle El Comercio y Calle Colegio (Pozuelos)",
+      category: "infrastructure",
+      categoryIcon: "Construction",
+      municipality: "Pozuelos",
+      description: "Recuperación vial para movilidad escolar y comercial en Pozuelos.",
+      fullDescription: "El Gobierno Nacional, la Gobernación de Anzoátegui y la Alcaldía de Puerto La Cruz unieron esfuerzos para la rehabilitación integral de la Calle El Comercio y Calle Colegio en el sector Pozuelos. Esta obra es fundamental para la actividad económica local y facilita el acceso seguro de estudiantes y docentes a las instituciones educativas de la zona. La intervención mejora la movilidad, reduce tiempos de traslado y garantiza la seguridad de peatones y conductores, reafirmando que el bienestar de las comunidades es prioridad de la gestión revolucionaria.",
+      images: [
+        "/assets/images/ima_projects/2025/Calle_Colegio/rehabilitacion-calle-colegio-pozuelos-01.jpg",
+        "/assets/images/ima_projects/2025/Calle_Colegio/rehabilitacion-calle-colegio-pozuelos-02.jpg",
+        "/assets/images/ima_projects/2025/Calle_Colegio/rehabilitacion-calle-colegio-pozuelos-03.jpg",
+        "/assets/images/ima_projects/2025/Calle_Colegio/rehabilitacion-calle-colegio-pozuelos-04.jpg",
+        "/assets/images/ima_projects/2025/Calle_Colegio/rehabilitacion-calle-colegio-pozuelos-05.jpg",
+        "/assets/images/ima_projects/2025/Calle_Colegio/rehabilitacion-calle-colegio-pozuelos-06.jpg"
+      ],
+      image: "/assets/images/ima_projects/2025/Calle_Colegio/rehabilitacion-calle-colegio-pozuelos-01.jpg",
+      imageAlt: "Rehabilitación de vialidad en sector Pozuelos",
+      status: "completed",
+      progress: 100,
+      startDate: "04/11/2025",
+      endDate: "08/11/2025",
+      budget: "100 Ton Asfalto (Est.)",
+      beneficiaries: "Comunidad Educativa y Comercial",
+      contractor: "Alcaldía de Sotillo",
+      coordinates: { lat: 10.182017, lng: -64.634824 },
+      impact: "Movilidad segura para escuelas y comercio local.",
+      testimonial: null
     },
-    "description": "Trabajos de asfaltado y recuperación vial en CASCO CENTRAL."
-  },
-  {
-    "id": "excel-11",
-    "title": "Estacionamiento Paseo de la Cruz y el Mar",
-    "category": "CASCO CENTRAL",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Estacionamiento Paseo de la Cruz y el Mar",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "215.00",
-      "km": "0.00",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en CASCO CENTRAL."
-  },
-  {
-    "id": "excel-12",
-    "title": "Av. Paseo de la Cruz y el Mar",
-    "category": "CASCO CENTRAL",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Av. Paseo de la Cruz y el Mar",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "205.00",
-      "km": "0.06",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en CASCO CENTRAL."
-  },
-  {
-    "id": "excel-13",
-    "title": "Av. Prolongación paseo colon",
-    "category": "CASCO CENTRAL",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Av. Prolongación paseo colon",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "104.00",
-      "km": "0.22",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en CASCO CENTRAL."
-  },
-  {
-    "id": "excel-14",
-    "title": "Av. Daniel Camejo Octavio",
-    "category": "LECHERIA",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Av. Daniel Camejo Octavio",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "200.00",
-      "km": "0.01",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en LECHERIA."
-  },
-  {
-    "id": "excel-15",
-    "title": "Av. Prolongación paseo colon",
-    "category": "LOS CEREZOS",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Av. Prolongación paseo colon",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "204.00",
-      "km": "0.03",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en LOS CEREZOS."
-  },
-  {
-    "id": "excel-16",
-    "title": "Av. Daniel Camejo Octavio",
-    "category": "LECHERIA",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Av. Daniel Camejo Octavio",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "3.00",
-      "km": "0.14",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en LECHERIA."
-  },
-  {
-    "id": "excel-17",
-    "title": "Av. Venezuela-Calle Montes",
-    "category": "LA GULF",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Av. Venezuela-Calle Montes",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "163.00",
-      "km": "0.44",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en LA GULF."
-  },
-  {
-    "id": "excel-18",
-    "title": "Av. Municipal, troncal 9",
-    "category": "CASCO CENTRAL",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Av. Municipal, troncal 9",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "200.00",
-      "km": "0.03",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en CASCO CENTRAL."
-  },
-  {
-    "id": "excel-19",
-    "title": "Av. B",
-    "category": "LA GULF",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Av. B",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "120.00",
-      "km": "0.29",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en LA GULF."
-  },
-  {
-    "id": "excel-20",
-    "title": "Calle 23",
-    "category": "Vialidad General",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Calle 23",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "10.00",
-      "km": "0.05",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Vialidad General."
-  },
-  {
-    "id": "excel-21",
-    "title": "Av. Municipal, troncal 9",
-    "category": "CASCO CENTRAL",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Av. Municipal, troncal 9",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "201.00",
-      "km": "0.10",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en CASCO CENTRAL."
-  },
-  {
-    "id": "excel-22",
-    "title": "AV. MUNICIPAL FRENTE A LA ESTACION DE SERVICIO SANDOVAL, CANAL LENTO",
-    "category": "Vialidad General",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV. MUNICIPAL FRENTE A LA ESTACION DE SERVICIO SANDOVAL, CANAL LENTO",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "10.00",
-      "km": "0.03",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Vialidad General."
-  },
-  {
-    "id": "excel-23",
-    "title": "AV. MUNICIPAL FRENTE A HIDROCARIBE",
-    "category": "Vialidad General",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV. MUNICIPAL FRENTE A HIDROCARIBE",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "97.00",
-      "km": "0.88",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Vialidad General."
-  },
-  {
-    "id": "excel-24",
-    "title": "AV, MUNICIPAL FRENTE A COSERVAS",
-    "category": "Vialidad General",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV, MUNICIPAL FRENTE A COSERVAS",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "13.00",
-      "km": "0.02",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Vialidad General."
-  },
-  {
-    "id": "excel-25",
-    "title": "AV. MUNICIPAL FRENTE AL ANTIGUO BINGO PLATINUM",
-    "category": "Vialidad General",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV. MUNICIPAL FRENTE AL ANTIGUO BINGO PLATINUM",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "98.00",
-      "km": "0.08",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Vialidad General."
-  },
-  {
-    "id": "excel-26",
-    "title": "AV. MUNICIPAL FRENTE AL ANTIGUO BINGO PLATINUM",
-    "category": "Vialidad General",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV. MUNICIPAL FRENTE AL ANTIGUO BINGO PLATINUM",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "109.00",
-      "km": "0.08",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Vialidad General."
-  },
-  {
-    "id": "excel-27",
-    "title": "AV. MUNICIPAL FRENTE A LA UNIDAD EDUCATIVA A. JOSE SOTILLO",
-    "category": "BARRIO MARIÑO",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV. MUNICIPAL FRENTE A LA UNIDAD EDUCATIVA A. JOSE SOTILLO",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "27.00",
-      "km": "0.08",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en BARRIO MARIÑO."
-  },
-  {
-    "id": "excel-28",
-    "title": "AV. JOSE ANTONIO ANZOATEGUI, SECTOR GULF FRENTE A LA CASA DE LA CAÑA",
-    "category": "Vialidad General",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV. JOSE ANTONIO ANZOATEGUI, SECTOR GULF FRENTE A LA CASA DE LA CAÑA",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "207.00",
-      "km": "0.13",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Vialidad General."
-  },
-  {
-    "id": "excel-29",
-    "title": "AV. JOSE ANTONIO ANZOATEGUI, FRENTE A PROMARKET Y RIBADEO",
-    "category": "Vialidad General",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV. JOSE ANTONIO ANZOATEGUI, FRENTE A PROMARKET Y RIBADEO",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "174.00",
-      "km": "0.20",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Vialidad General."
-  },
-  {
-    "id": "excel-30",
-    "title": "AV 2. SECTOR CHUPARIN FRENTE A POLISOTILLO",
-    "category": "Vialidad General",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV 2. SECTOR CHUPARIN FRENTE A POLISOTILLO",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "29.00",
-      "km": "0.05",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Vialidad General."
-  },
-  {
-    "id": "excel-31",
-    "title": "PATIO DE POLISOTILLO SECTOR CHUPARIN",
-    "category": "CHUPARÍN",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "PATIO DE POLISOTILLO SECTOR CHUPARIN",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "60.00",
-      "km": "0.07",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en CHUPARÍN."
-  },
-  {
-    "id": "excel-32",
-    "title": "AV. MUNICIPAL  FRENTE A LOS BOMBEROS DE PUERTO",
-    "category": "LA GULF",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV. MUNICIPAL  FRENTE A LOS BOMBEROS DE PUERTO",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "15.00",
-      "km": "0.03",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en LA GULF."
-  },
-  {
-    "id": "excel-33",
-    "title": "AV. JOSE ANTONIO ANZOATEGUI FRENTE A RIBADEO",
-    "category": "Vialidad General",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV. JOSE ANTONIO ANZOATEGUI FRENTE A RIBADEO",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "32.00",
-      "km": "0.05",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Vialidad General."
-  },
-  {
-    "id": "excel-34",
-    "title": "AV. JOSE ANTONIO ANZOATEGUI FRENTE A FARMAJUSTO",
-    "category": "Vialidad General",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV. JOSE ANTONIO ANZOATEGUI FRENTE A FARMAJUSTO",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "100.00",
-      "km": "0.06",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Vialidad General."
-  },
-  {
-    "id": "excel-35",
-    "title": "AV. JOSE ANTONIO ANZOATEGUI (FARMAJUSTO - PROMARKET)",
-    "category": "Vialidad General",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV. JOSE ANTONIO ANZOATEGUI (FARMAJUSTO - PROMARKET)",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "108.00",
-      "km": "0.04",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Vialidad General."
-  },
-  {
-    "id": "excel-36",
-    "title": "AV. JOSE ANTONIO ANZOATEGUI SECTOR GULF",
-    "category": "Vialidad General",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV. JOSE ANTONIO ANZOATEGUI SECTOR GULF",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "160.00",
-      "km": "0.12",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Vialidad General."
-  },
-  {
-    "id": "excel-37",
-    "title": "AV. JOSE ANTONIO ANZOATEGUI FRENTE A LA TECNICA SECTOR PORTUARIO",
-    "category": "EL PORTUARIO",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV. JOSE ANTONIO ANZOATEGUI FRENTE A LA TECNICA SECTOR PORTUARIO",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "20.00",
-      "km": "0.04",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en EL PORTUARIO."
-  },
-  {
-    "id": "excel-38",
-    "title": "AV. JOSE ANTONIO ANZOATEGUI FRENTE A PROMARKET",
-    "category": "LA GULF",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV. JOSE ANTONIO ANZOATEGUI FRENTE A PROMARKET",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "88.00",
-      "km": "0.17",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en LA GULF."
-  },
-  {
-    "id": "excel-39",
-    "title": "SECTOR POZUELOS ARRIBA, CALLE EL COLEGIO (CC MIGUEL OTERO SILVA,",
-    "category": "Sector Pozuelo",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "SECTOR POZUELOS ARRIBA, CALLE EL COLEGIO (CC MIGUEL OTERO SILVA,",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "40.00",
-      "km": "0.04",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Sector Pozuelo."
-  },
-  {
-    "id": "excel-40",
-    "title": "SECTOR POZUELOS ARRIBA, CALLE COMERCIO (CC MIGUEL OTERO SILVA,",
-    "category": "Vialidad General",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "SECTOR POZUELOS ARRIBA, CALLE COMERCIO (CC MIGUEL OTERO SILVA,",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "70.00",
-      "km": "0.12",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Vialidad General."
-  },
-  {
-    "id": "excel-41",
-    "title": "SECTOR POZUELOS ARRIBA, CALLE SOSA (CC MIGUEL OTERO SILVA,",
-    "category": "Vialidad General",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "SECTOR POZUELOS ARRIBA, CALLE SOSA (CC MIGUEL OTERO SILVA,",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "20.00",
-      "km": "0.02",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Vialidad General."
-  },
-  {
-    "id": "excel-42",
-    "title": "SECTOR POZUELOS ARRIBA, CALLE MANEIRO (CC MIGUEL OTERO SILVA,",
-    "category": "Vialidad General",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "SECTOR POZUELOS ARRIBA, CALLE MANEIRO (CC MIGUEL OTERO SILVA,",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "130.00",
-      "km": "0.28",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Vialidad General."
-  },
-  {
-    "id": "excel-43",
-    "title": "SECTOR CUEVAS DE GUANIRE, CALLE CAJIGAL (SE COLOCARON 3 REDUCTORES DE VELOCIDAD)",
-    "category": "Cueva de guanire II",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "SECTOR CUEVAS DE GUANIRE, CALLE CAJIGAL (SE COLOCARON 3 REDUCTORES DE VELOCIDAD)",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "10.00",
-      "km": "0.02",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Cueva de guanire II."
-  },
-  {
-    "id": "excel-44",
-    "title": "AV. UNIVERSIDAD, SECTOR POZUELOS, FRENTE A MAKRO",
-    "category": "Sector Pozuelo",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV. UNIVERSIDAD, SECTOR POZUELOS, FRENTE A MAKRO",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "400.00",
-      "km": "0.23",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Sector Pozuelo."
-  },
-  {
-    "id": "excel-45",
-    "title": "AV. UNIVERSIDAD, SECTOR POZUELOS, FRENTE A MAKRO  Y ANTES DEL PUENTE DE POZUELOS .",
-    "category": "Sector Pozuelo",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV. UNIVERSIDAD, SECTOR POZUELOS, FRENTE A MAKRO  Y ANTES DEL PUENTE DE POZUELOS .",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "400.00",
-      "km": "0.16",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Sector Pozuelo."
-  },
-  {
-    "id": "excel-46",
-    "title": "AV. MUNICIPAL, TRONCAL 9, SECTOR TIERRA ADENTRO 1 FRENTE A LA BOMBA DE POZUELOS.",
-    "category": "TIERRA ADENTRO 1",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV. MUNICIPAL, TRONCAL 9, SECTOR TIERRA ADENTRO 1 FRENTE A LA BOMBA DE POZUELOS.",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "98.00",
-      "km": "0.09",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en TIERRA ADENTRO 1."
-  },
-  {
-    "id": "excel-47",
-    "title": "AV. MUNICIPAL, TRONCAL 9, SECTOR TIERRA ADENTRO BODEGON LUNAR - TERMINAL EXPRESOS OCCIDENTE",
-    "category": "TIERRA ADENTRO 1",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV. MUNICIPAL, TRONCAL 9, SECTOR TIERRA ADENTRO BODEGON LUNAR - TERMINAL EXPRESOS OCCIDENTE",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "344.00",
-      "km": "0.23",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en TIERRA ADENTRO 1."
-  },
-  {
-    "id": "excel-48",
-    "title": "AV. MUNICIPAL, TRONCAL 9, SECTOR TIERRA ADENTRO BODEGON LUNAR - TERMINAL EXPRESOS OCCIDENTE",
-    "category": "TIERRA ADENTRO 1",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AV. MUNICIPAL, TRONCAL 9, SECTOR TIERRA ADENTRO BODEGON LUNAR - TERMINAL EXPRESOS OCCIDENTE",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "20.00",
-      "km": "0.03",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en TIERRA ADENTRO 1."
-  },
-  {
-    "id": "excel-49",
-    "title": "CALLE 6 SECTOR 1B PLAZA DE CHUPARIN",
-    "category": "CHUPARIN",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "CALLE 6 SECTOR 1B PLAZA DE CHUPARIN",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "329.00",
-      "km": "0.11",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en CHUPARIN."
-  },
-  {
-    "id": "excel-50",
-    "title": "AVENIDA MUNICIPAL, TRONCAL 9 (frente a puente sucre)",
-    "category": "TIERRA ADENTRO 1",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "AVENIDA MUNICIPAL, TRONCAL 9 (frente a puente sucre)",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "265.00",
-      "km": "0.25",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en TIERRA ADENTRO 1."
-  },
-  {
-    "id": "excel-51",
-    "title": "calle montes. (frente a la redoma de los bomberos)",
-    "category": "CASCO CENTRAL",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "calle montes. (frente a la redoma de los bomberos)",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "35.00",
-      "km": "0.03",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en CASCO CENTRAL."
-  },
-  {
-    "id": "excel-52",
-    "title": "Av municipal, troncal 9. frente a",
-    "category": "CASCO CENTRAL",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Av municipal, troncal 9. frente a",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "190.00",
-      "km": "0.24",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en CASCO CENTRAL."
-  },
-  {
-    "id": "excel-53",
-    "title": "Av. Municipal troncal 9, (calle sucre con calle Maneiro)",
-    "category": "CASCO CENTRAL",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Av. Municipal troncal 9, (calle sucre con calle Maneiro)",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "300.00",
-      "km": "0.32",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en CASCO CENTRAL."
-  },
-  {
-    "id": "excel-54",
-    "title": "Estacionamiento Paseo de la Cruz y el Mar",
-    "category": "CASCO CENTRAL",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Estacionamiento Paseo de la Cruz y el Mar",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "300.00",
-      "km": "0.12",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en CASCO CENTRAL."
-  },
-  {
-    "id": "excel-55",
-    "title": "Estacionamiento Paseo de la Cruz y el Mar",
-    "category": "CASCO CENTRAL",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Estacionamiento Paseo de la Cruz y el Mar",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "89.00",
-      "km": "0.08",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en CASCO CENTRAL."
-  },
-  {
-    "id": "excel-56",
-    "title": "Av municipal, calle trasven, al C.C Regina",
-    "category": "CASCO CENTRAL",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Av municipal, calle trasven, al C.C Regina",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "43.00",
-      "km": "0.05",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en CASCO CENTRAL."
-  },
-  {
-    "id": "excel-57",
-    "title": "Calles los tubos, entre calle roman y calle el tunel",
-    "category": "LAS DELICIAS",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Calles los tubos, entre calle roman y calle el tunel",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "108.00",
-      "km": "0.05",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en LAS DELICIAS."
-  },
-  {
-    "id": "excel-58",
-    "title": "Estacionamento del Puerto comercial Eulalia Buroz",
-    "category": "Vialidad General",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Estacionamento del Puerto comercial Eulalia Buroz",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "194.00",
-      "km": "0.07",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Vialidad General."
-  },
-  {
-    "id": "excel-59",
-    "title": "Estacionamento del Puerto comercial Eulalia Buroz",
-    "category": "Vialidad General",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Estacionamento del Puerto comercial Eulalia Buroz",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "194.00",
-      "km": "0.23",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Vialidad General."
-  },
-  {
-    "id": "excel-60",
-    "title": "Estacionamento del Puerto comercial Eulalia Buroz",
-    "category": "Vialidad General",
-    "status": "Completado",
-    "progress": 100,
-    "priority": "Alta",
-    "location": "Estacionamento del Puerto comercial Eulalia Buroz",
-    "date": "Octubre 2025",
-    "image": "/assets/images/asphalt-default.jpg",
-    "stats": {
-      "toneladas": "212.00",
-      "km": "0.00",
-      "inversion": "N/A"
-    },
-    "description": "Trabajos de asfaltado y recuperación vial en Vialidad General."
-  }
-];
+  ];
