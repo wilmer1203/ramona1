@@ -290,4 +290,36 @@ export const projects = [
       impact: "Movilidad segura para escuelas y comercio local.",
       testimonial: null
     },
+    {
+      id: 11,
+      name: "Rehabilitación Av. Bolívar de Puerto La Cruz",
+      category: "infrastructure",
+      categoryIcon: "Construction",
+      municipality: "Av. Bolívar",
+      description: "Colocación de 482 toneladas de asfalto recuperando la vía con dignidad.",
+      fullDescription: "Inspeccionamos el avance del programa de asfaltado en la Avenida Bolívar de Puerto La Cruz, una obra que va más allá de la mejora en la movilidad: devuelve la dignidad y la esperanza a la ciudad. Con la colocación de 482 toneladas de asfalto, logramos recuperar esta vía fundamental, fortaleciendo el sentido de pertenencia y reafirmando el compromiso de transformar la vida de nuestras comunidades. Gracias al respaldo del presidente Nicolás Maduro y la Gobernación de Anzoátegui, seguimos avanzando hacia una ciudad más segura, transitable y humana.",
+      images: [
+        "/assets/images/ima_projects/2025/Av.Bolivar/rehabilitacion-av-bolivar-01.jpg",
+        "/assets/images/ima_projects/2025/Av.Bolivar/rehabilitacion-av-bolivar-02.jpg",
+        "/assets/images/ima_projects/2025/Av.Bolivar/rehabilitacion-av-bolivar-03.jpg",
+        "/assets/images/ima_projects/2025/Av.Bolivar/rehabilitacion-av-bolivar-04.jpg",
+        "/assets/images/ima_projects/2025/Av.Bolivar/rehabilitacion-av-bolivar-05.jpg",
+        "/assets/images/ima_projects/2025/Av.Bolivar/rehabilitacion-av-bolivar-06.jpg",
+        "/assets/images/ima_projects/2025/Av.Bolivar/rehabilitacion-av-bolivar-07.jpg",
+        "/assets/images/ima_projects/2025/Av.Bolivar/rehabilitacion-av-bolivar-08.jpg",
+        "/assets/images/ima_projects/2025/Av.Bolivar/rehabilitacion-av-bolivar-09.jpg"
+      ],
+      image: "/assets/images/ima_projects/2025/Av.Bolivar/rehabilitacion-av-bolivar-01.jpg",
+      imageAlt: "Asfaltado y recuperación de la Av. Bolívar",
+      status: "completed",
+      progress: 100,
+      startDate: "24/08/2025",
+      endDate: "28/08/2025",
+      budget: "482 Ton Asfalto",
+      beneficiaries: "Av. Bolívar Completa (Est.)",
+      contractor: "Alcaldía de Sotillo",
+      coordinates: { lat: 10.204096, lng: -64.636681 },
+      impact: "Recuperación de arteria vial principal con dignidad y esfuerzo.",
+      testimonial: null
+    },
   ];
