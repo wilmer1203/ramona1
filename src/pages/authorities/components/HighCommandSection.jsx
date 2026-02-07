@@ -1,98 +1,146 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Icon from '../../../components/AppIcon';
+import { highCommand } from '../../../data/authoritiesData';
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+};
+
+const CredentialItem = ({ icon, title, items, color }) => (
+    <motion.div variants={itemVariants} className="mb-5 last:mb-0">
+        <div className="flex items-center gap-2 mb-2">
+            <div className={`p-1.5 rounded-lg bg-${color}-500/10 border border-${color}-500/20`}>
+               <Icon name={icon} size={16} className={`text-${color}-400`} />
+            </div>
+            <h4 className="text-xs font-bold text-white uppercase tracking-wider">{title}</h4>
+        </div>
+        <ul className="space-y-1.5 pl-1">
+            {items?.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2 text-slate-300 text-sm leading-snug">
+                    <span className={`w-1 h-1 rounded-full bg-${color}-500 mt-1.5 shrink-0`} />
+                    <span className="font-light">{item}</span>
+                </li>
+            ))}
+        </ul>
+    </motion.div>
+);
 
 const PresidentialCard = ({ leader, contextImage, index }) => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.2, duration: 0.8 }}
-      className="relative group rounded-[3rem] overflow-hidden bg-slate-900 border border-white/10 hover:border-white/20 transition-all duration-700 h-full min-h-[500px] flex flex-col md:flex-row"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
+      variants={{
+        hidden: { opacity: 0, y: 50, scale: 0.95 },
+        visible: { 
+            opacity: 1, 
+            y: 0, 
+            scale: 1,
+            transition: { 
+                duration: 0.6, 
+                delay: index * 0.2, 
+                when: "beforeChildren",
+                staggerChildren: 0.1
+            } 
+        }
+      }}
+      className="relative group rounded-3xl overflow-hidden bg-slate-900 border border-white/10 hover:border-[#FFCC00]/30 transition-all duration-500 shadow-2xl flex flex-col lg:flex-row hover:shadow-[0_0_30px_rgba(255,204,0,0.05)]"
     >
         {/* Context Background (Project Image) */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 pointer-events-none">
             <img 
                src={contextImage} 
                alt="Contexto" 
-               className="w-full h-full object-cover opacity-20 group-hover:opacity-30 group-hover:scale-105 transition-all duration-1000 grayscale group-hover:grayscale-0"
+               className="w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-all duration-1000 scale-100 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/40" />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent md:hidden" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/95 to-slate-950/80" />
         </div>
 
-        {/* Leader Image (Left Side) */}
-        <div className="relative z-10 w-full md:w-5/12 h-[400px] md:h-auto overflow-hidden">
+        {/* Leader Image (Left/Top Side) */}
+        <div className="relative z-10 w-full lg:w-4/12 h-[300px] lg:h-auto overflow-hidden border-r border-white/5 bg-slate-950">
              {leader.image ? (
-                <img 
-                    src={leader.image} 
-                    alt={leader.name}
-                    className="w-full h-full object-cover object-top md:object-center drop-shadow-2xl"
-                />
+                <>
+                    <img 
+                        src={leader.image} 
+                        alt={leader.name}
+                        className="w-full h-full object-cover object-top filter contrast-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80 lg:hidden" />
+                </>
              ) : (
                 <div className="w-full h-full flex items-center justify-center bg-slate-800">
-                    <Icon name="User" size={100} className="text-white/20" />
+                    <Icon name="User" size={80} className="text-white/20" />
                 </div>
              )}
-             {/* Gradient overlay for blending bottom on mobile */}
-             <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-slate-950 to-transparent md:hidden" />
         </div>
 
         {/* Content Side (Right Side) */}
-        <div className="relative z-20 w-full md:w-7/12 p-8 md:p-12 flex flex-col justify-center">
+        <div className="relative z-20 w-full lg:w-8/12 p-6 md:p-8 flex flex-col justify-center">
             
-            <div className="mb-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/10 bg-white/5 backdrop-blur-md w-fit">
-                <Icon name="Crown" size={16} className="text-yellow-400" />
-                <span className="text-xs font-bold text-white uppercase tracking-widest">{leader.roleTag}</span>
-            </div>
-
-            <h3 className="text-3xl md:text-5xl font-black text-white mb-4 leading-[1.1]">
-                {leader.name}
-            </h3>
-            
-            <p className="text-xl text-blue-400 font-bold mb-6">{leader.position}</p>
-            
-            <div className="h-px w-24 bg-gradient-to-r from-blue-500 to-transparent mb-8" />
-
-            <p className="text-slate-300 text-lg leading-relaxed mb-8 max-w-xl font-light">
-                {leader.bio}
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {leader.highlights?.map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
-                        <Icon name="CheckCircle" size={18} className="text-green-400 shrink-0" />
-                        <span className="text-sm font-medium text-slate-200">{item}</span>
+            {/* Header Info */}
+            <motion.div variants={itemVariants} className="flex flex-col gap-4 mb-6 border-b border-white/5 pb-6">
+                <div>
+                    <div className="mb-2 inline-flex items-center gap-2 px-2.5 py-1 bg-[#FFCC00]/10 border border-[#FFCC00]/20 rounded-full">
+                        <Icon name="Crown" size={12} className="text-[#FFCC00]" />
+                        <span className="text-[10px] font-bold text-[#FFCC00] uppercase tracking-widest">{leader.roleTag}</span>
                     </div>
-                ))}
+                    <h3 className="text-2xl md:text-3xl font-black text-white mb-1 leading-tight tracking-tight">
+                        {leader.name}
+                    </h3>
+                    <p className="text-lg text-blue-400 font-bold">{leader.position}</p>
+                </div>
+            </motion.div>
+
+            {/* Profile Content Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
+                
+                {/* Column 1: Bio & Education */}
+                <div>
+                    <motion.div variants={itemVariants} className="mb-6">
+                        <p className="text-slate-200 text-sm leading-relaxed font-light italic opacity-90 pl-3 border-l-2 border-white/20">
+                            "{leader.bio}"
+                        </p>
+                    </motion.div>
+
+                    <CredentialItem 
+                        icon="GraduationCap" 
+                        title="Formación Académica" 
+                        items={leader.education} 
+                        color="blue"
+                    />
+                </div>
+
+                {/* Column 2: Experience & Certifications */}
+                <div>
+                     <CredentialItem 
+                        icon="Briefcase" 
+                        title="Trayectoria Profesional" 
+                        items={leader.experience} 
+                        color="emerald"
+                    />
+                    
+                    <div className="mt-6 pt-6 border-t border-white/5">
+                        <CredentialItem 
+                            icon="Award" 
+                            title="Certificaciones" 
+                            items={leader.certifications} 
+                            color="yellow" 
+                        />
+                    </div>
+                </div>
             </div>
+
         </div>
     </motion.div>
   );
 };
 
 const HighCommandSection = () => {
-    // Data with Context Images
-    const alcalde = {
-        name: "Dr. Jesús Marcano Tábata",
-        position: "Alcalde del Municipio Sotillo",
-        roleTag: "Autoridad Suprema",
-        bio: "Líder visionario que impulsa la transformación integral de Puerto La Cruz, integrando la gestión política con la eficiencia técnica para el bienestar del pueblo.",
-        image: "/assets/images/Jesus.jpeg",
-        highlights: ["99% Acciones (Municipio Sotillo)", "Plan Rector de Desarrollo", "Gestión Social Eficiente"],
-        contextImage: "/assets/images/av_paseo.png" // Context: The City
-    };
-
-    const presidente = {
-        name: "Ing. Oswaldo González",
-        position: "Presidente COVIMUS S.A.",
-        roleTag: "Dirección Ejecutiva",
-        bio: "Ingeniero civil con amplia experiencia en gerencia de proyectos de infraestructura. Responsable de materializar los planes estratégicos en obras tangibles de alta calidad.",
-        image: "https://img.rocket.new/generatedImages/rocket_gen_img_15a1404b5-1763299032692.png",
-        highlights: ["Dirección General Operativa", "Control de Calidad", "Optimización de Recursos"],
-        contextImage: "/assets/images/asphalt-plant.png" // Context: The Industry/Plant
-    };
+    // Data imported from source of truth
+    const { alcalde, presidente } = highCommand;
 
     return (
         <section className="py-24 bg-slate-950 relative overflow-hidden">

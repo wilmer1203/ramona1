@@ -9,11 +9,11 @@ const TransparencyCTA = () => {
       {/* Dynamic Background */}
       <div className="absolute inset-0 z-0">
          <img 
-            src="/assets/images/asphalt-plant.png" 
+            src="/assets/images/9.jpg" 
             alt="Fondo Industrial" 
-            className="w-full h-full object-cover grayscale opacity-30"
+            className="w-full h-full object-cover grayscale"
          />
-         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-slate-900/80" />
+         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/75 to-slate-900/70" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
@@ -22,14 +22,10 @@ const TransparencyCTA = () => {
            whileInView={{ opacity: 1, scale: 1 }}
            viewport={{ once: true }}
         >
-          <div className="inline-flex items-center justify-center size-16 rounded-full bg-[#FFCC00]/10 border border-[#FFCC00]/20 backdrop-blur-sm mb-8 text-[#FFCC00]">
-            <Icon name="Eye" size={32} />
-          </div>
-          
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
+          <h2 className="text-3xl md:text-5xl font-black text-[#FFCC00] mb-6">
             Gestión de Puertas Abiertas
           </h2>
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-12 font-light">
+          <p className="text-xl text-white max-w-2xl mx-auto mb-12 font-light">
             Creemos que la confianza se construye con hechos. Ponemos a tu disposición los canales directos para verificar nuestra gestión y participar activamente.
           </p>
 
