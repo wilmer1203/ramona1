@@ -12,8 +12,8 @@ const GridCell = ({ allImages }) => {
     // Set initial image
     setCurrentImage(allImages[Math.floor(Math.random() * allImages.length)]);
 
-    // Random interval
-    const intervalTime = Math.random() * 8000 + 6000;
+    // Random interval (between 2s and 4s)
+    const intervalTime = Math.random() * 4000 + 5000;
     
     const interval = setInterval(() => {
         if (allImages.length > 0) {
@@ -80,11 +80,12 @@ const DynamicBackground = () => {
     }
   }, []);
 
-  const CELLS = Array.from({ length: 20 }); 
+  // Grid Configuration: Increased columns to make cells more vertical (better for 4:5 images)
+  const CELLS = Array.from({ length: 40 }); 
 
   return (
     <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="grid grid-cols-3 md:grid-cols-5 grid-rows-4 h-full w-full">
+        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 grid-rows-4 h-full w-full">
             {CELLS.map((_, index) => (
                 <GridCell key={index} allImages={allImages} />
             ))}
