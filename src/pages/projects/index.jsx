@@ -18,51 +18,36 @@ const Projects = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const categories = [
-    { id: 'all', name: 'Todos los Sectores', icon: 'LayoutGrid', count: 1 },
-    { id: 'Paseo Colón', name: 'Paseo Colón', icon: 'MapPin', count: 1 },
-    { id: 'Puerto La Cruz', name: 'Puerto La Cruz', icon: 'MapPin', count: 0 },
-  ];
+  // Dynamic Categories from Data
+  const categories = useMemo(() => {
+    const uniqueMunicipalities = [...new Set(projects.map(p => p.municipality))];
+    const dynamicCats = uniqueMunicipalities.map(m => ({
+        id: m,
+        name: m,
+        icon: 'MapPin',
+        count: projects.filter(p => p.municipality === m).length
+    }));
+    
+    return [
+        { id: 'all', name: 'Todos los Sectores', icon: 'LayoutGrid', count: projects.length },
+        ...dynamicCats.sort((a, b) => a.name.localeCompare(b.name))
+    ];
+  }, []);
 
-  // Projects are imported from data file to keep this component clean
   const allProjects = useMemo(() => {
      return projects;
   }, []);
 
-  const stats = [
-    {
-      icon: "Briefcase",
-      value: "15",
-      label: "Proyectos Activos",
-      badge: "+3 este mes",
-    },
-    {
-      icon: "CheckCircle2",
-      value: "4",
-      label: "Completados",
-      badge: "2026",
-    },
-    {
-      icon: "Users",
-      value: "500K+",
-      label: "Beneficiarios",
-      badge: "Total",
-    },
-    {
-      icon: "TrendingUp",
-      value: "68%",
-      label: "Avance Global",
-      badge: "Promedio",
-    }
-  ];
-
+  // Filter and Sort Logic
   const filteredProjects = useMemo(() => {
     let filtered = allProjects;
 
+    // 1. Filter by Category
     if (activeCategory !== 'all') {
       filtered = filtered?.filter((project) => project?.municipality === activeCategory);
     }
 
+    // 2. Filter by Search
     if (searchTerm) {
       const searchLower = searchTerm?.toLowerCase();
       filtered = filtered?.filter((project) =>
@@ -72,8 +57,17 @@ const Projects = () => {
       );
     }
 
-    return filtered;
-  }, [activeCategory, searchTerm]);
+    // 3. Sort by Date (Newest First)
+    // Helper to parse DD/MM/YYYY
+    const parseDate = (dateStr) => {
+        if (!dateStr) return new Date(0);
+        const [day, month, year] = dateStr.split('/');
+        return new Date(`${year}-${month}-${day}`);
+    };
+
+    return filtered.sort((a, b) => parseDate(b.startDate) - parseDate(a.startDate));
+
+  }, [activeCategory, searchTerm, allProjects]);
 
   const handleViewDetails = (project) => {
     setSelectedProject(project);
@@ -91,16 +85,21 @@ const Projects = () => {
         <Header />
 
         <main className="relative z-10">
-          {/* Hero Section with Aurora */}
           {/* Hero Section with Blueprint/Industrial Theme */}
-          <section className="relative pt-24 pb-24 md:pt-32 md:pb-20 overflow-hidden">
-            <div className="absolute inset-0 z-0 bg-[#0f172a]">
-               {/* Blueprint Grid Pattern */}
-               <div className="absolute inset-0 bg-[url('/assets/grid-pattern.svg')] opacity-10" style={{backgroundSize: '40px 40px'}} />
-               <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-blue-900/10 to-slate-950" />
-               {/* Tricolor Aurora Effect */}
-               <div className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-[#243F60]/30 blur-[120px] rounded-full pointer-events-none" />
-               <div className="absolute top-[20%] left-1/4 w-[400px] h-[400px] bg-[#FFCC00]/5 blur-[100px] rounded-full pointer-events-none" />
+          <section className="relative pt-32 pb-32 md:pt-48 md:pb-32 overflow-hidden">
+            <div className="absolute inset-0 z-0">
+               {/* Background Video with Industrial/Executive Treatment */}
+               <video 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline
+                  className="w-full h-full object-cover grayscale opacity-55"
+                  poster="/assets/images/8.jpg"
+               >
+                  <source src="/assets/valores.mp4" type="video/mp4" />
+               </video>
+               <div className="absolute inset-0" />
             </div>
             
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -123,16 +122,12 @@ const Projects = () => {
                     ESTRATÉGICA
                   </span>
                 </h1>
-                
-                <p className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto mb-16 font-light leading-relaxed border-t border-white/5 pt-8">
-                  Transformando Sotillo con ingeniería de vanguardia y visión de futuro.
-                </p>
               </motion.div>
             </div>
           </section>
 
           {/* Search and Filters */}
-          <section className="py-8 relative z-20 -mt-12">
+          <section className="py-8 relative z-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-16 max-w-5xl mx-auto">
                 

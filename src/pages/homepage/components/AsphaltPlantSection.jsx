@@ -103,7 +103,15 @@ const AsphaltPlantSection = () => {
                   </div>
                   <div className="text-right">
                     <p className="text-xs uppercase tracking-widest opacity-70 mb-1">Ubicación</p>
-                    <p className="text-lg font-bold">Base Vía El Rincón</p>
+                    <a 
+                        href="https://www.google.com/maps/search/?api=1&query=10.128450,-64.595824" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-lg font-bold hover:text-primary transition-colors flex items-center justify-end gap-1"
+                    >
+                        El Rincón, Anzoátegui <Icon name="ExternalLink" size={14} />
+                    </a>
+                    <p className="text-[10px] text-slate-400 font-mono mt-1">10.128450, -64.595824</p>
                   </div>
                 </div>
               </div>

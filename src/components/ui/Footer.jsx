@@ -18,7 +18,7 @@ const Footer = () => {
     {
       title: 'Contacto',
       items: [
-        { icon: 'MapPin', text: 'Alcaldía de Sotillo, piso 1, Puerto la Cruz' },
+        { icon: 'MapPin', text: 'C. Venezuela, Puerto La Cruz 6023, Anzoátegui' },
         { icon: 'Mail', text: 'covimuscomercial@gmail.com' },
         { icon: 'Clock', text: 'Lun - Vie: 8:00 AM - 4:00 PM' },
       ],

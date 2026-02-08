@@ -29,7 +29,7 @@ const Header = () => {
 
   return (
     <>
-      <header className={`header-glass transition-all duration-500 ${isScrolled ? 'header-glass-scrolled py-0' : 'py-2 shadow-none'}`}>
+      <header className={`header-glass transition-all duration-500 py-0 ${isScrolled ? 'header-glass-scrolled' : 'shadow-none'}`}>
         <div className="header-container">
           <div className="header-content">
             <Link to="/homepage" className="header-logo">

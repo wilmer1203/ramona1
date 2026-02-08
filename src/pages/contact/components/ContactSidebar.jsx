@@ -34,7 +34,10 @@ const ContactSidebar = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">
-                <button className="w-full py-4 bg-slate-950/80 hover:bg-[#FFCC00]/90 hover:text-black backdrop-blur-md rounded-xl text-white font-bold text-sm flex items-center justify-center gap-2 border border-white/10 transition-all shadow-lg">
+                <button 
+                  onClick={() => window.open("https://www.google.com/maps/search/?api=1&query=10.212415,-64.631843", "_blank")}
+                  className="w-full py-4 bg-slate-950/80 hover:bg-[#FFCC00]/90 hover:text-black backdrop-blur-md rounded-xl text-white font-bold text-sm flex items-center justify-center gap-2 border border-white/10 transition-all shadow-lg"
+                >
                     <Icon name="MapPin" size={18} className="text-[#FFCC00] group-hover:text-black" />
                     Abrir en Google Maps
                 </button>
@@ -49,7 +52,7 @@ const ContactSidebar = () => {
                 </div>
                 <div>
                     <p className="text-xs font-black text-[#FFCC00] uppercase tracking-widest mb-1">Dirección</p>
-                    <p className="text-slate-300 leading-relaxed text-sm font-light">Av. Costanera, Edificio COVINEA, Piso 2.<br/>Barcelona, Edo. Anzoátegui.</p>
+                    <p className="text-slate-300 leading-relaxed text-sm font-light">C. Venezuela, Puerto La Cruz 6023,<br/>Anzoátegui.</p>
                 </div>
             </div>
             
@@ -71,10 +74,7 @@ const ContactSidebar = () => {
                     <p className="text-xs font-black text-[#FFCC00] uppercase tracking-widest mb-1">Contacto Directo</p>
                     <div className="space-y-2">
                         <p className="text-slate-300 text-sm flex items-center justify-between gap-4">
-                            Master <span className="text-white font-mono bg-white/5 px-2 rounded ml-auto">(0281) 555-0199</span>
-                        </p>
-                        <p className="text-slate-300 text-sm flex items-center justify-between gap-4">
-                            Emergencias <span className="text-[#FFCC00] font-mono font-bold bg-[#FFCC00]/10 px-2 rounded ml-auto">0800-COVINEA</span>
+                            Master <span className="text-white font-mono bg-white/5 px-2 rounded ml-auto">(0281) 2687758</span>
                         </p>
                     </div>
                 </div>
