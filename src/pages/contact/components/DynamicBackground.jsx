@@ -13,7 +13,7 @@ const GridCell = ({ allImages }) => {
     setCurrentImage(allImages[Math.floor(Math.random() * allImages.length)]);
 
     // Random interval (between 2s and 4s)
-    const intervalTime = Math.random() * 4000 + 5000;
+    const intervalTime = Math.random() * 4000 + 2000;
     
     const interval = setInterval(() => {
         if (allImages.length > 0) {

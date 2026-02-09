@@ -56,7 +56,7 @@ const ContactPage = () => {
 
                 <ContactForm />
 
-                {/* Contractor Call to Action */}
+                {/* Contractor Call to Action
                 <div className="p-1 rounded-3xl bg-gradient-to-r from-[#FFCC00] via-yellow-600 to-[#243F60]">
                   <div className="bg-slate-950 rounded-[22px] p-8 md:p-10 relative overflow-hidden group">
 
@@ -83,7 +83,7 @@ const ContactPage = () => {
                       </button>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
               </div>
 
