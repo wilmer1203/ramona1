@@ -30,6 +30,10 @@ const ContactPage = () => {
         <Helmet>
           <title>Atención al Ciudadano - COVIMUS | Portal de Reportes</title>
           <meta name="description" content="Portal de atención ciudadana de COVIMUS. Reporta incidencias, solicita servicios o envía sugerencias para mejorar tu comunidad en el Municipio Sotillo." />
+          <meta name="keywords" content="Contacto COVIMUS, Reportes, Denuncias, Obras Públicas, Puerto La Cruz, Atención Ciudadana" />
+          <meta property="og:title" content="Atención al Ciudadano - COVIMUS" />
+          <meta property="og:description" content="¿Tienes un reporte sobre vialidad o infraestructura? Contáctanos directamente a través de nuestro portal oficial." />
+          <meta property="og:type" content="website" />
         </Helmet>
 
         <Header />

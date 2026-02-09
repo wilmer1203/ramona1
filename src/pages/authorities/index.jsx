@@ -25,7 +25,11 @@ const Authorities = () => {
       <div className="min-h-screen bg-background font-sans">
          <Helmet>
             <title>Autoridades - COVIMUS | Gobierno Corporativo</title>
-            <meta name="description" content="Conoce a nuestras autoridades, lideradas por el Alcalde Dr. Jesús Marcano Tábata." />
+            <meta name="description" content="Conoce a nuestras autoridades, lideradas por el Alcalde Dr. Jesús Marcano Tábata y el equipo directivo de COVIMUS." />
+            <meta name="keywords" content="Autoridades, Alcalde Sotillo, Jesús Marcano Tábata, Directiva COVIMUS, Gobierno Corporativo" />
+            <meta property="og:title" content="Autoridades - COVIMUS | Liderazgo y Estrategia" />
+            <meta property="og:description" content="Conoce al equipo de liderazgo que impulsa la transformación de la infraestructura en Puerto La Cruz." />
+            <meta property="og:type" content="website" />
          </Helmet>
 
          <Header />

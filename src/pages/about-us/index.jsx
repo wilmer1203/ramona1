@@ -31,6 +31,10 @@ const AboutUs = () => {
         <Helmet>
           <title>Nosotros - COVIMUS | Historia, Valores y Misión</title>
           <meta name="description" content="Conoce la historia de COVIMUS desde el Decreto N° 93, nuestros valores institucionales y objetivos estratégicos para el desarrollo de Sotillo." />
+          <meta name="keywords" content="COVIMUS, Historia, Misión, Visión, Valores, Sotillo, Puerto La Cruz, Gestión Pública" />
+          <meta property="og:title" content="Nosotros - COVIMUS | Historia y Valores" />
+          <meta property="og:description" content="Descubre el compromiso de COVIMUS con el desarrollo de la infraestructura y vialidad en el Municipio Sotillo." />
+          <meta property="og:type" content="website" />
         </Helmet>
 
         <Header />

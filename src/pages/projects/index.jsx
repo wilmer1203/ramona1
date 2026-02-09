@@ -78,7 +78,11 @@ const Projects = () => {
     <>
       <Helmet>
         <title>Proyectos | Alcaldía de Sotillo</title>
-        <meta name="description" content="Obras y proyectos en ejecución para la transformación del Municipio Sotillo." />
+        <meta name="description" content="Obras y proyectos en ejecución para la transformación del Municipio Sotillo. Consulta el avance de nuestra gestión." />
+        <meta name="keywords" content="Proyectos, Obras, Asfaltado, Construcción, Sotillo, Puerto La Cruz, Avance de Obras" />
+        <meta property="og:title" content="Proyectos y Obras - COVIMUS" />
+        <meta property="og:description" content="Explora el portafolio de obras y proyectos de infraestructura que están transformando Puerto La Cruz." />
+        <meta property="og:type" content="website" />
       </Helmet>
       
       <div className="min-h-screen bg-slate-950 font-sans selection:bg-accent/30">
