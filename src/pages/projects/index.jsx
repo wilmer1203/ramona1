@@ -116,7 +116,7 @@ const Projects = () => {
                   <span className="text-sm font-black text-white tracking-[0.2em] uppercase">Plan de Obras 2026</span>
                 </div>
                 
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 tracking-tighter leading-none">
+                <h1 className="text-4xl md:text-7xl lg:text-8xl font-black text-white mb-8 tracking-tighter leading-none">
                   INFRAESTRUCTURA <br/>
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFCC00] via-[#F0F0F0] to-[#FFCC00] drop-shadow-[0_0_20px_rgba(255,204,0,0.3)]">
                     ESTRATÉGICA

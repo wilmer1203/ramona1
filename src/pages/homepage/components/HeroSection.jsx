@@ -85,7 +85,7 @@ const HeroSection = () => {
                         <span className="text-accent font-bold tracking-[0.2em] uppercase text-sm">E.P.S. COVIMUS S.A.</span>
                     </div>
 
-                    <h1 className="text-5xl md:text-6xl font-black text-white leading-[0.95] tracking-tight mb-6">
+                    <h1 className="text-4xl md:text-6xl font-black text-white leading-[0.95] tracking-tight mb-6">
                         TRANSFORMANDO <br/>
                         LA <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-yellow-200">VIALIDAD</span> <br/>
                         DE SOTILLO
