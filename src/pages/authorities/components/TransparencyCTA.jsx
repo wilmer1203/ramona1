@@ -31,7 +31,7 @@ const TransparencyCTA = () => {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link 
-              to="/proyectos" 
+              to="/projects" 
               className="w-full sm:w-auto px-8 py-4 bg-[#FFCC00] text-slate-900 font-black tracking-wide rounded-xl shadow-[0_0_20px_rgba(255,204,0,0.3)] hover:bg-yellow-400 hover:scale-105 transition-all flex items-center justify-center gap-2"
             >
               <Icon name="Briefcase" size={20} />
@@ -39,7 +39,7 @@ const TransparencyCTA = () => {
             </Link>
             
             <Link 
-              to="/contacto" 
+              to="/contact" 
               className="w-full sm:w-auto px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-white font-bold rounded-xl hover:bg-white/10 hover:border-white/40 transition-all flex items-center justify-center gap-2"
             >
               <Icon name="MessageSquare" size={20} />
