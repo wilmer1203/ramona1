@@ -94,7 +94,7 @@ const MobileMenu = ({ isOpen, onClose, navigationItems }) => {
               <Icon name="Facebook" size={20} />
             </a>
             <a
-              href="https://www.instagram.com/covimusplc?igsh=bHV3MTBsbno5dWpn"
+              href="https://instagram.com/covimusplc"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
