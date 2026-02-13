@@ -124,7 +124,7 @@ const HeroSection = () => {
                  {/* Bento Grid Layout - Asymmetric & Dynamic */}
                  <div className="absolute right-0 top-1/2 -translate-y-1/2 w-full max-w-lg grid grid-cols-2 gap-6 p-6">
                     
-                    {/* Card 1: Asphalt 2026 (Dominant) */}
+                    {/* Card 1: Asphalt Management Stats */}
                     <motion.div 
                         initial={{ opacity: 0, scale: 0.9, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -135,13 +135,13 @@ const HeroSection = () => {
                             <div>
                                 <div className="flex items-center gap-2 mb-2">
                                     <div className="h-2 w-2 rounded-full bg-accent animate-pulse" />
-                                    <span className="text-accent font-bold uppercase tracking-widest text-xs">Récord 2026</span>
+                                    <span className="text-accent font-bold uppercase tracking-widest text-[10px] md:text-xs">Gestión Dr. Jesús Marcano</span>
                                 </div>
                                 <h3 className="text-6xl font-black text-white mb-2 tracking-tighter">
-                                    <CountUp to={12000} className="" /><span className="text-accent text-4xl">+</span>
+                                    <CountUp to={9747} className="" />
                                 </h3>
                                 <p className="text-slate-300 font-medium text-lg leading-tight">
-                                    Toneladas de Asfalto <br/> Colocadas
+                                    Toneladas Colocadas <br/> <span className="text-sm text-slate-500 font-normal">Desde 09/09/2025</span>
                                 </p>
                             </div>
                         </div>
@@ -155,14 +155,14 @@ const HeroSection = () => {
                         className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-[2rem] hover:bg-white/10 transition-all group"
                     >
                          <div className="flex flex-col justify-center h-full">
-                            <h4 className="text-[#FFCC00] font-bold uppercase tracking-widest text-[15px] mb-1">Producción Diaria</h4>
+                            <h4 className="text-[#FFCC00] font-bold uppercase tracking-widest text-[15px] mb-1">Producción Mensual</h4>
                             <h3 className="text-5xl font-black text-white mb-2 tracking-tighter">
                                 <CountUp to={1200} /><span className="text-slate-500 text-lg ml-1 font-bold">Tons</span>
                             </h3>
                         </div>
                     </motion.div>
 
-                    {/* Card 3: 5 Year Projects */}
+                    {/* Card 3: Localities */}
                     <motion.div 
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -170,11 +170,11 @@ const HeroSection = () => {
                          className="bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-[2rem] hover:bg-white/10 transition-all group"
                     >
                          <div className="flex flex-col justify-center h-full">
-                            <h4 className="text-[#FFCC00] font-bold uppercase tracking-widest text-[15px] mb-1">Obras Ejecutadas</h4>
+                            <h4 className="text-[#FFCC00] font-bold uppercase tracking-widest text-[15px] mb-1">Localidades</h4>
                             <h3 className="text-5xl font-black text-white mb-2 tracking-tighter">
-                                <CountUp to={500} />
-                                <span className="text-[#FFCC00] text-3xl">+</span>
+                                <CountUp to={25} />
                             </h3>
+                            <p className="text-slate-400 text-sm font-medium">Sectores Atendidos</p>
                         </div>
                     </motion.div>
 
